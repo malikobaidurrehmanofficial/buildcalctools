@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Contact | BuildCalcTools</title>
+  <meta name="description" content="Get in touch with the BuildCalcTools team. Report a bug, suggest a calculator, or just say hello.">
+  <link rel="canonical" href="https://buildcalctools.site/contact/">
+  <link rel="icon" href="/assets/img/fav.png" type="image/png">
+  <link rel="stylesheet" href="/assets/css/style.css">
+</head>
+<body>
+
+  <div id="navbar"></div>
+
+  <section class="page-hero">
+    <div class="hero-orb-1"></div>
+    <div class="hero-orb-2"></div>
+    <div class="container">
+      <div class="breadcrumb">
+        <a href="/index.html">Home</a>
+        <span>/</span>
+        <span class="breadcrumb-current">Contact</span>
+      </div>
+      <div class="page-hero-badge">💬 Get In Touch</div>
+      <h1>Contact <span class="grad-text">Us</span></h1>
+      <p>Found a bug? Have a calculator idea? Want to collaborate? Drop us a message and we'll get back to you.</p>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container">
+      <div class="contact-grid">
+
+        <!-- Contact Info -->
+        <div class="anim-up">
+          <h2>Let's <span class="grad-text">Talk</span></h2>
+
+          <div class="contact-info-item" style="margin-top:24px;">
+            <div class="contact-info-icon">📧</div>
+            <div>
+              <div class="contact-info-label">Email</div>
+              <div class="contact-info-val"><a href="mailto:contact@buildcalctools.site">contact@buildcalctools.site</a></div>
+            </div>
+          </div>
+
+          <div class="contact-info-item">
+            <div class="contact-info-icon">💼</div>
+            <div>
+              <div class="contact-info-label">LinkedIn</div>
+              <div class="contact-info-val"><a href="https://www.linkedin.com/in/malikobaidurrehmanofficial/" target="_blank" rel="noopener">Malik Obaid Ur Rehman</a></div>
+            </div>
+          </div>
+
+          <div class="contact-info-item">
+            <div class="contact-info-icon">💻</div>
+            <div>
+              <div class="contact-info-label">GitHub</div>
+              <div class="contact-info-val"><a href="https://github.com/malikobaidurrehmanofficial" target="_blank" rel="noopener">@malikobaidurrehmanofficial</a></div>
+            </div>
+          </div>
+
+          <div class="contact-info-item">
+            <div class="contact-info-icon">📍</div>
+            <div>
+              <div class="contact-info-label">Location</div>
+              <div class="contact-info-val">Abbottabad, KPK, Pakistan</div>
+            </div>
+          </div>
+
+          <div class="card mt-24">
+            <h3>⏱ Response Time</h3>
+            <p class="text-muted" style="margin:8px 0 0; font-size:13px;">We typically respond within 24–48 hours. For urgent bug reports, please include the calculator name and the values that caused the issue.</p>
+          </div>
+        </div>
+
+        <!-- Contact Form -->
+        <div class="anim-up">
+          <div class="calculator-wrap" style="margin:0;">
+            <div class="calc-title">Send a Message</div>
+
+            <div class="form-group">
+              <label class="form-label" for="contact-name">Your Name</label>
+              <input type="text" id="contact-name" class="form-input" placeholder="e.g. Ahmed Khan">
+            </div>
+
+            <div class="form-group">
+              <label class="form-label" for="contact-email">Email Address</label>
+              <input type="email" id="contact-email" class="form-input" placeholder="you@example.com">
+            </div>
+
+            <div class="form-group">
+              <label class="form-label" for="contact-subject">Subject</label>
+              <select id="contact-subject" class="form-input form-select">
+                <option value="">— Select a topic —</option>
+                <option>Bug Report</option>
+                <option>Calculator Suggestion</option>
+                <option>General Feedback</option>
+                <option>Collaboration</option>
+                <option>Other</option>
+              </select>
+            </div>
+
+            <div class="form-group">
+              <label class="form-label" for="contact-message">Message</label>
+              <textarea id="contact-message" class="form-input" placeholder="Describe your bug, idea, or question in as much detail as possible..."></textarea>
+            </div>
+
+            <button class="btn btn-primary btn-full" onclick="handleContactSubmit()">
+              Send Message →
+            </button>
+
+            <div id="contact-success" class="result-box" style="border-left-color:var(--color-primary);">
+              <div class="result-label">Message Sent</div>
+              <div style="font-size:15px; color:var(--color-text); margin-top:8px;">Thanks for reaching out! We'll be in touch within 24–48 hours.</div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <div id="footer"></div>
+  <script src="/assets/js/main.js"></script>
+  <script>
+    function handleContactSubmit() {
+      const name    = document.getElementById('contact-name').value.trim();
+      const email   = document.getElementById('contact-email').value.trim();
+      const subject = document.getElementById('contact-subject').value;
+      const message = document.getElementById('contact-message').value.trim();
+      const success = document.getElementById('contact-success');
+
+      if (!name || !email || !subject || !message) {
+        alert('Please fill in all fields before sending.');
+        return;
+      }
+      if (!email.includes('@')) {
+        alert('Please enter a valid email address.');
+        return;
+      }
+      success.style.display = 'block';
+      success.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+    }
+  </script>
+</body>
+</html>

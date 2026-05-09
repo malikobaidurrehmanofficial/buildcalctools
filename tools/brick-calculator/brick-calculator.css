@@ -1,0 +1,678 @@
+/* ============================================
+   Brick Calculator — Tool-specific styles
+   Uses only CSS variables from /assets/css/style.css
+   ============================================ */
+
+/* ── Trust Chips ── */
+.trust-chips {
+  display: flex;
+  gap: 20px;
+  flex-wrap: wrap;
+  margin-top: 20px;
+}
+.trust-chip {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-family: var(--font-mono);
+  font-size: 11px;
+  letter-spacing: 1px;
+  color: var(--color-muted);
+}
+.trust-chip-icon {
+  color: var(--color-primary);
+  font-weight: 700;
+}
+
+/* ── Unit Toggle (pill group) ── */
+.unit-toggle {
+  display: inline-flex;
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-full);
+  padding: 3px;
+  margin-bottom: 28px;
+}
+.unit-toggle-btn {
+  font-family: var(--font-body);
+  font-size: 13px;
+  font-weight: 600;
+  padding: 9px 24px;
+  border: none;
+  border-radius: var(--radius-full);
+  background: transparent;
+  color: var(--color-muted);
+  cursor: pointer;
+  transition: all var(--transition);
+  letter-spacing: 0.5px;
+}
+.unit-toggle-btn.active {
+  background: var(--color-primary);
+  color: var(--color-white);
+  box-shadow: 0 2px 8px rgba(244, 100, 10, 0.3);
+}
+.unit-toggle-btn:hover:not(.active) {
+  color: var(--color-text);
+}
+
+/* ── Wall Type Grid ── */
+.wall-type-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+  margin-bottom: 28px;
+}
+.wall-type-card {
+  background: var(--color-surface2);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-card);
+  padding: 20px 24px;
+  cursor: pointer;
+  transition: all var(--transition);
+  display: flex;
+  align-items: flex-start;
+  gap: 16px;
+}
+.wall-type-card:hover {
+  border-color: var(--color-border-hover);
+}
+.wall-type-card.active {
+  border-color: var(--color-primary);
+  background: var(--color-primary-subtle);
+}
+.wall-type-icon {
+  flex-shrink: 0;
+  width: 48px;
+  height: 48px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+/* CSS-drawn brick: single */
+.wall-type-icon .brick-single {
+  width: 36px;
+  height: 18px;
+  border: 2px solid var(--color-muted);
+  border-radius: 3px;
+  position: relative;
+}
+.wall-type-card.active .brick-single {
+  border-color: var(--color-primary);
+}
+/* CSS-drawn brick: double */
+.wall-type-icon .brick-double {
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+}
+.wall-type-icon .brick-double span {
+  width: 36px;
+  height: 14px;
+  border: 2px solid var(--color-muted);
+  border-radius: 3px;
+  display: block;
+}
+.wall-type-card.active .brick-double span {
+  border-color: var(--color-primary);
+}
+.wall-type-info h4 {
+  font-family: var(--font-body);
+  font-size: 15px;
+  font-weight: 600;
+  color: var(--color-text);
+  margin-bottom: 4px;
+}
+.wall-type-info .wall-type-sub {
+  font-size: 12px;
+  color: var(--color-muted);
+  line-height: 1.5;
+  margin: 0;
+}
+
+/* ── Wall Area Display ── */
+.wall-area-display {
+  background: var(--color-surface2);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-input);
+  padding: 14px 18px;
+  margin-bottom: 22px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.wall-area-display .area-label {
+  font-family: var(--font-body);
+  font-size: 11px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 1.5px;
+  color: var(--color-muted);
+}
+.wall-area-display .area-value {
+  font-family: var(--font-mono);
+  font-size: 18px;
+  font-weight: 600;
+  color: var(--color-yellow);
+}
+
+/* ── Brick Details Collapsible ── */
+.brick-details-toggle {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  background: none;
+  border: none;
+  color: var(--color-primary);
+  font-family: var(--font-body);
+  font-size: 13px;
+  font-weight: 600;
+  cursor: pointer;
+  padding: 12px 0;
+  transition: color var(--transition);
+  width: 100%;
+  text-align: left;
+}
+.brick-details-toggle:hover {
+  color: var(--color-primary-hover);
+}
+.brick-details-toggle .toggle-arrow {
+  font-size: 12px;
+  transition: transform 0.35s ease;
+  display: inline-block;
+}
+.brick-details-toggle.open .toggle-arrow {
+  transform: rotate(90deg);
+}
+.brick-details-panel {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.35s ease;
+}
+.brick-details-panel.open {
+  max-height: 500px;
+}
+.brick-details-inner {
+  padding: 8px 0 16px;
+}
+
+/* ── Wastage Group (segmented buttons) ── */
+.wastage-group {
+  display: flex;
+  gap: 0;
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-sm);
+  overflow: hidden;
+  margin-bottom: 8px;
+}
+.wastage-btn {
+  flex: 1;
+  font-family: var(--font-body);
+  font-size: 13px;
+  font-weight: 600;
+  padding: 11px 16px;
+  border: none;
+  background: var(--color-surface2);
+  color: var(--color-muted);
+  cursor: pointer;
+  transition: all var(--transition);
+  border-right: 1px solid var(--color-border);
+  white-space: nowrap;
+}
+.wastage-btn:last-child {
+  border-right: none;
+}
+.wastage-btn:hover:not(.active) {
+  color: var(--color-text);
+  background: var(--color-surface3);
+}
+.wastage-btn.active {
+  background: var(--color-primary);
+  color: var(--color-white);
+}
+.wastage-hint {
+  font-size: 11px;
+  color: var(--color-muted);
+  margin-top: 6px;
+  line-height: 1.5;
+}
+
+/* ── Cost Section Collapsible ── */
+.cost-toggle {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  background: none;
+  border: none;
+  color: var(--color-primary);
+  font-family: var(--font-body);
+  font-size: 13px;
+  font-weight: 600;
+  cursor: pointer;
+  padding: 12px 0;
+  transition: color var(--transition);
+  width: 100%;
+  text-align: left;
+}
+.cost-toggle:hover {
+  color: var(--color-primary-hover);
+}
+.cost-panel {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.35s ease;
+}
+.cost-panel.open {
+  max-height: 200px;
+}
+.cost-panel-inner {
+  padding: 8px 0 16px;
+}
+
+/* ── Calculate Button Row ── */
+.calc-actions {
+  margin-top: 28px;
+}
+
+/* ── Results Box ── */
+.results-box {
+  background: var(--color-surface2);
+  border: 1px solid var(--color-border);
+  border-left: 3px solid var(--color-yellow);
+  border-radius: 10px;
+  padding: 28px;
+  margin-top: 36px;
+  display: none;
+}
+.results-box.visible {
+  display: block;
+}
+.results-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 24px;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+.results-header h3 {
+  font-family: var(--font-heading);
+  font-size: 26px;
+  letter-spacing: 1px;
+  margin: 0;
+}
+.results-header-actions {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+}
+
+/* Result Cards Grid */
+.result-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 16px;
+}
+.result-card {
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: 10px;
+  padding: 20px;
+  transition: border-color var(--transition);
+}
+.result-card:hover {
+  border-color: var(--color-border-hover);
+}
+.result-card.primary {
+  grid-column: 1 / -1;
+}
+.result-card.highlight {
+  border-left: 3px solid var(--color-primary);
+}
+.result-card-label {
+  font-family: var(--font-mono);
+  font-size: 10px;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: var(--color-muted);
+  margin-bottom: 8px;
+}
+.result-card-value {
+  font-family: var(--font-mono);
+  font-size: 32px;
+  font-weight: 600;
+  color: var(--color-yellow);
+  line-height: 1.1;
+}
+.result-card-sub {
+  font-family: var(--font-body);
+  font-size: 12px;
+  color: var(--color-muted);
+  margin-top: 6px;
+}
+
+/* Results Disclaimer */
+.results-disclaimer {
+  font-size: 12px;
+  color: var(--color-muted);
+  margin-top: 24px;
+  padding-top: 18px;
+  border-top: 1px solid var(--color-border);
+  line-height: 1.7;
+}
+
+/* ── Copy Feedback ── */
+.copy-feedback {
+  font-family: var(--font-mono);
+  font-size: 11px;
+  color: var(--color-primary);
+  opacity: 0;
+  transition: opacity var(--transition);
+  margin-right: 8px;
+  align-self: center;
+}
+.copy-feedback.show {
+  opacity: 1;
+}
+
+/* ── Inline validation error ── */
+.field-error-msg {
+  font-size: 11px;
+  color: var(--color-primary);
+  margin-top: 4px;
+  display: none;
+}
+.field-error-msg.visible {
+  display: block;
+}
+.form-input.input-error {
+  border-color: var(--color-primary);
+}
+
+/* ── How-To Steps ── */
+.howto-steps {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+.howto-card {
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: 10px;
+  padding: 20px 24px;
+  display: flex;
+  align-items: flex-start;
+  gap: 20px;
+  position: relative;
+  overflow: hidden;
+}
+.howto-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 2px;
+  background: linear-gradient(90deg, var(--color-primary), var(--color-yellow));
+}
+.howto-number {
+  font-family: var(--font-heading);
+  font-size: 48px;
+  color: var(--color-primary);
+  opacity: 0.4;
+  line-height: 1;
+  flex-shrink: 0;
+  min-width: 50px;
+}
+.howto-content h3 {
+  font-family: var(--font-body);
+  font-size: 16px;
+  font-weight: 600;
+  color: var(--color-text);
+  margin-bottom: 8px;
+}
+.howto-content p {
+  font-size: 13px;
+  color: var(--color-muted);
+  line-height: 1.7;
+  margin: 0;
+}
+
+/* ── FAQ Accordion ── */
+.faq-list {
+  max-width: 800px;
+}
+.faq-item {
+  border-bottom: 1px solid var(--color-border);
+}
+.faq-question {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  background: none;
+  border: none;
+  padding: 16px 0;
+  cursor: pointer;
+  text-align: left;
+  font-family: var(--font-body);
+  font-size: 15px;
+  font-weight: 600;
+  color: var(--color-text);
+  transition: color var(--transition);
+  gap: 16px;
+}
+.faq-question:hover {
+  color: var(--color-primary);
+}
+.faq-question.active {
+  color: var(--color-primary);
+}
+.faq-arrow {
+  flex-shrink: 0;
+  font-size: 14px;
+  color: var(--color-muted);
+  transition: transform var(--transition), color var(--transition);
+}
+.faq-question.active .faq-arrow {
+  color: var(--color-primary);
+}
+.faq-answer {
+  display: none;
+  padding: 0 0 16px;
+  font-size: 14px;
+  color: var(--color-muted);
+  line-height: 1.8;
+}
+.faq-answer.visible {
+  display: block;
+}
+
+/* ── Ad Placeholders ── */
+.ad-placeholder {
+  background: var(--color-surface2);
+  border: 2px dashed var(--color-border);
+  border-radius: 6px;
+  margin: 24px auto;
+  display: block;
+}
+.ad-leaderboard {
+  width: 728px;
+  height: 90px;
+  max-width: 100%;
+}
+.ad-rectangle {
+  width: 300px;
+  height: 250px;
+}
+.ad-rectangle-wrap {
+  overflow: hidden;
+}
+.ad-rectangle-desktop {
+  float: right;
+  margin: 0 0 24px 24px;
+}
+
+/* ── Related Tools Grid ── */
+.related-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+}
+
+/* ── Section Divider ── */
+.section-divider {
+  border: none;
+  height: 1px;
+  background: var(--color-border);
+  margin: 28px 0;
+}
+
+/* ═══════════════════════════════════════
+   RESPONSIVE
+   ═══════════════════════════════════════ */
+@media (max-width: 900px) {
+  .related-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 768px) {
+  .wall-type-grid {
+    grid-template-columns: 1fr;
+  }
+  .result-grid {
+    grid-template-columns: 1fr;
+  }
+  .ad-leaderboard {
+    width: 320px;
+    height: 50px;
+  }
+  .ad-rectangle-desktop {
+    float: none;
+    margin: 24px auto;
+  }
+  .trust-chips {
+    flex-direction: column;
+    gap: 8px;
+  }
+  .results-header {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+  .results-header-actions {
+    width: 100%;
+    justify-content: flex-start;
+  }
+  .howto-card {
+    flex-direction: column;
+    gap: 10px;
+  }
+  .howto-number {
+    font-size: 36px;
+  }
+}
+
+@media (max-width: 480px) {
+  .unit-toggle {
+    flex-direction: column;
+    border-radius: var(--radius-sm);
+  }
+  .unit-toggle-btn {
+    padding: 8px 16px;
+    font-size: 12px;
+    border-radius: var(--radius-sm);
+  }
+  .wastage-btn {
+    padding: 9px 10px;
+    font-size: 12px;
+  }
+  .result-card-value {
+    font-size: 24px;
+  }
+  .ad-leaderboard {
+    width: 300px;
+    height: 50px;
+  }
+}
+
+/* ═══════════════════════════════════════
+   PRINT STYLES
+   ═══════════════════════════════════════ */
+@media print {
+  body {
+    background: #fff;
+    color: #000;
+  }
+  .navbar,
+  .footer,
+  #navbar,
+  #footer,
+  .ad-placeholder,
+  .calc-title,
+  .unit-toggle,
+  .wall-type-grid,
+  .brick-details-toggle,
+  .brick-details-panel,
+  .wastage-group,
+  .wastage-hint,
+  .cost-toggle,
+  .cost-panel,
+  .calc-actions,
+  .trust-chips,
+  .page-hero-badge,
+  .breadcrumb,
+  .results-header-actions,
+  .howto-steps,
+  .faq-list,
+  .related-grid,
+  .section-header,
+  .form-group,
+  .form-row,
+  .wall-area-display,
+  .section-divider,
+  #howtoSection,
+  #faqSection,
+  #relatedSection,
+  #articleSection {
+    display: none !important;
+  }
+  .results-box {
+    display: block !important;
+    border: 1px solid #ccc;
+    border-left: 3px solid #F2B705;
+    box-shadow: none;
+  }
+  .results-box::after {
+    content: 'Generated by BuildCalcTools.site';
+    display: block;
+    margin-top: 20px;
+    font-size: 11px;
+    color: #999;
+    text-align: center;
+  }
+  .result-card {
+    border: 1px solid #ddd;
+    break-inside: avoid;
+  }
+  .result-card-value {
+    color: #222;
+  }
+  .calculator-wrap {
+    box-shadow: none;
+    border: 1px solid #ccc;
+  }
+  .calculator-wrap::before {
+    display: none;
+  }
+  .page-hero {
+    background: none;
+    padding: 20px 0;
+  }
+  .page-hero::after {
+    display: none;
+  }
+  .hero-orb-1,
+  .hero-orb-2 {
+    display: none;
+  }
+}

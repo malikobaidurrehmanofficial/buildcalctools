@@ -1,0 +1,711 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Concrete Volume Calculator — Free Online Tool | BuildCalcTools</title>
+  <meta name="description" content="Free concrete volume calculator for slabs, columns, footings, stairs and more. Get instant results in cubic meters or yards. No signup needed.">
+  <meta name="keywords" content="concrete calculator, concrete volume calculator, concrete slab calculator, how much concrete do I need, cubic meters concrete, concrete estimator">
+  <link rel="canonical" href="https://buildcalctools.site/tools/concrete-calculator/">
+  <link rel="icon" href="/assets/img/fav.png" type="image/png">
+
+  <!-- Open Graph for social sharing -->
+  <meta property="og:title" content="Free Concrete Volume Calculator | BuildCalcTools">
+  <meta property="og:description" content="Calculate concrete for slabs, columns, footings and stairs instantly. Free, no signup.">
+  <meta property="og:url" content="https://buildcalctools.site/tools/concrete-calculator/">
+  <meta property="og:type" content="website">
+
+  <!-- Schema.org structured data -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebApplication",
+    "name": "Concrete Volume Calculator",
+    "url": "https://buildcalctools.site/tools/concrete-calculator/",
+    "description": "Free online concrete volume calculator for slabs, columns, footings, round columns, stairs and tube sections.",
+    "applicationCategory": "UtilityApplication",
+    "operatingSystem": "All",
+    "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" }
+  }
+  </script>
+
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Sans:wght@300;400;500;600&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/assets/css/style.css">
+  <link rel="stylesheet" href="/tools/concrete-calculator/concrete-calculator.css">
+</head>
+<body>
+
+  <div id="navbar"></div>
+
+  <!-- ═══════════════════════════════════════
+       SECTION 1 — BREADCRUMB + HERO
+       ═══════════════════════════════════════ -->
+  <section class="page-hero">
+    <div class="hero-orb-1"></div>
+    <div class="hero-orb-2"></div>
+    <div class="container">
+      <div class="breadcrumb">
+        <a href="/index.html">Home</a>
+        <span>/</span>
+        <a href="/tools/">Calculators</a>
+        <span>/</span>
+        <span class="breadcrumb-current">Concrete Volume Calculator</span>
+      </div>
+      <div class="page-hero-badge">🧮 Free Tool</div>
+      <h1>Concrete Volume <span class="grad-text">Calculator</span></h1>
+      <p>Calculate exactly how much concrete you need for any pour — slabs, footings, columns, stairs, and more. Results update instantly in cubic metres, cubic yards, cubic feet, and pre-mixed bag counts.</p>
+      <div class="trust-chips">
+        <span class="trust-chip"><span class="trust-chip-icon">✔</span> No signup required</span>
+        <span class="trust-chip"><span class="trust-chip-icon">✔</span> Metric &amp; Imperial</span>
+        <span class="trust-chip"><span class="trust-chip-icon">✔</span> Instant results</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════
+       AD PLACEHOLDER 1 — Leaderboard
+       ═══════════════════════════════════════ -->
+  <section class="section-sm">
+    <div class="container">
+      <div class="ad-placeholder ad-leaderboard" id="adLeaderboard1" data-ad-slot="ad-leaderboard-1" aria-hidden="true" role="presentation"></div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════
+       SECTION 2 — CALCULATOR
+       ═══════════════════════════════════════ -->
+  <section class="section" id="calculatorSection">
+    <div class="container">
+      <div class="calculator-wrap">
+
+        <!-- Unit Toggle -->
+        <div class="unit-toggle">
+          <button class="unit-toggle-btn active" data-unit="metric" type="button">Metric (m)</button>
+          <button class="unit-toggle-btn" data-unit="imperial" type="button">Imperial (ft)</button>
+        </div>
+
+        <!-- Shape Tabs -->
+        <div class="shape-tabs" role="tablist">
+          <button class="shape-tab active" data-tab="slab" type="button" role="tab">
+            <span class="shape-tab-icon">▭</span>Slab / Wall / Footing
+          </button>
+          <button class="shape-tab" data-tab="round" type="button" role="tab">
+            <span class="shape-tab-icon">⬤</span>Round Column
+          </button>
+          <button class="shape-tab" data-tab="tube" type="button" role="tab">
+            <span class="shape-tab-icon">◎</span>Circular Slab / Tube
+          </button>
+          <button class="shape-tab" data-tab="curb" type="button" role="tab">
+            <span class="shape-tab-icon">⌐</span>Curb &amp; Gutter
+          </button>
+          <button class="shape-tab" data-tab="stairs" type="button" role="tab">
+            <span class="shape-tab-icon">▤</span>Stairs
+          </button>
+        </div>
+
+        <!-- ── Panel: Slab / Wall / Square Footing ── -->
+        <div class="input-panel active" id="panel-slab">
+          <div class="form-row">
+            <div class="form-group">
+              <label class="form-label" for="slab-length" data-label-metric="Length (m)" data-label-imperial="Length (ft)">Length (m)</label>
+              <input type="number" id="slab-length" class="form-input" min="0.01" step="0.01" placeholder="e.g. 6.00" required>
+              <div class="field-error">Please enter a value greater than 0</div>
+            </div>
+            <div class="form-group">
+              <label class="form-label" for="slab-width" data-label-metric="Width (m)" data-label-imperial="Width (ft)">Width (m)</label>
+              <input type="number" id="slab-width" class="form-input" min="0.01" step="0.01" placeholder="e.g. 4.00" required>
+              <div class="field-error">Please enter a value greater than 0</div>
+            </div>
+          </div>
+          <div class="form-row">
+            <div class="form-group">
+              <label class="form-label" for="slab-thickness" data-label-metric="Thickness (cm)" data-label-imperial="Thickness (in)">Thickness (cm)</label>
+              <input type="number" id="slab-thickness" class="form-input" min="0.1" step="0.1" placeholder="e.g. 15" required>
+              <div class="form-hint" data-hint-metric="Typical slab: 10–15 cm (4–6 in)" data-hint-imperial="Typical slab: 4–6 in (10–15 cm)">Typical slab: 10–15 cm (4–6 in)</div>
+              <div class="field-error">Please enter a value greater than 0</div>
+            </div>
+            <div class="form-group">
+              <label class="form-label" for="slab-qty">Quantity</label>
+              <input type="number" id="slab-qty" class="form-input" min="1" step="1" value="1" required>
+              <div class="field-error">Please enter a value greater than 0</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- ── Panel: Round Column / Hole ── -->
+        <div class="input-panel" id="panel-round">
+          <div class="form-row">
+            <div class="form-group">
+              <label class="form-label" for="round-dia" data-label-metric="Diameter (m)" data-label-imperial="Diameter (ft)">Diameter (m)</label>
+              <input type="number" id="round-dia" class="form-input" min="0.01" step="0.01" placeholder="e.g. 0.30" required>
+              <div class="form-hint" data-hint-metric="Common post hole: 30–45 cm diameter" data-hint-imperial="Common post hole: 12–18 in diameter">Common post hole: 30–45 cm diameter</div>
+              <div class="field-error">Please enter a value greater than 0</div>
+            </div>
+            <div class="form-group">
+              <label class="form-label" for="round-height" data-label-metric="Depth / Height (m)" data-label-imperial="Depth / Height (ft)">Depth / Height (m)</label>
+              <input type="number" id="round-height" class="form-input" min="0.01" step="0.01" placeholder="e.g. 1.50" required>
+              <div class="field-error">Please enter a value greater than 0</div>
+            </div>
+          </div>
+          <div class="form-row">
+            <div class="form-group">
+              <label class="form-label" for="round-qty">Quantity</label>
+              <input type="number" id="round-qty" class="form-input" min="1" step="1" value="1" required>
+              <div class="field-error">Please enter a value greater than 0</div>
+            </div>
+            <div></div>
+          </div>
+        </div>
+
+        <!-- ── Panel: Circular Slab / Tube ── -->
+        <div class="input-panel" id="panel-tube">
+          <div class="form-row">
+            <div class="form-group">
+              <label class="form-label" for="tube-outer-dia" data-label-metric="Outer Diameter (m)" data-label-imperial="Outer Diameter (ft)">Outer Diameter (m)</label>
+              <input type="number" id="tube-outer-dia" class="form-input" min="0.01" step="0.01" placeholder="e.g. 1.20" required>
+              <div class="field-error">Please enter a value greater than 0</div>
+            </div>
+            <div class="form-group">
+              <label class="form-label" for="tube-inner-dia" data-label-metric="Inner Diameter (m)" data-label-imperial="Inner Diameter (ft)">Inner Diameter (m)</label>
+              <input type="number" id="tube-inner-dia" class="form-input" min="0" step="0.01" placeholder="e.g. 0.80" required>
+              <div class="field-error">Inner diameter must be less than outer diameter</div>
+            </div>
+          </div>
+          <div class="form-row">
+            <div class="form-group">
+              <label class="form-label" for="tube-height" data-label-metric="Length / Height (m)" data-label-imperial="Length / Height (ft)">Length / Height (m)</label>
+              <input type="number" id="tube-height" class="form-input" min="0.01" step="0.01" placeholder="e.g. 3.00" required>
+              <div class="field-error">Please enter a value greater than 0</div>
+            </div>
+            <div class="form-group">
+              <label class="form-label" for="tube-qty">Quantity</label>
+              <input type="number" id="tube-qty" class="form-input" min="1" step="1" value="1" required>
+              <div class="field-error">Please enter a value greater than 0</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- ── Panel: Curb & Gutter ── -->
+        <div class="input-panel" id="panel-curb">
+          <div class="form-row">
+            <div class="form-group">
+              <label class="form-label" for="curb-depth" data-label-metric="Curb Depth (cm)" data-label-imperial="Curb Depth (in)">Curb Depth (cm)</label>
+              <input type="number" id="curb-depth" class="form-input" min="0.1" step="0.1" placeholder="e.g. 15" required>
+              <div class="field-error">Please enter a value greater than 0</div>
+            </div>
+            <div class="form-group">
+              <label class="form-label" for="curb-gutter-width" data-label-metric="Gutter Width (cm)" data-label-imperial="Gutter Width (in)">Gutter Width (cm)</label>
+              <input type="number" id="curb-gutter-width" class="form-input" min="0.1" step="0.1" placeholder="e.g. 30" required>
+              <div class="field-error">Please enter a value greater than 0</div>
+            </div>
+          </div>
+          <div class="form-row">
+            <div class="form-group">
+              <label class="form-label" for="curb-height" data-label-metric="Curb Height (cm)" data-label-imperial="Curb Height (in)">Curb Height (cm)</label>
+              <input type="number" id="curb-height" class="form-input" min="0.1" step="0.1" placeholder="e.g. 20" required>
+              <div class="field-error">Please enter a value greater than 0</div>
+            </div>
+            <div class="form-group">
+              <label class="form-label" for="curb-flag-thick" data-label-metric="Flag Thickness (cm)" data-label-imperial="Flag Thickness (in)">Flag Thickness (cm)</label>
+              <input type="number" id="curb-flag-thick" class="form-input" min="0.1" step="0.1" placeholder="e.g. 10" required>
+              <div class="field-error">Please enter a value greater than 0</div>
+            </div>
+          </div>
+          <div class="form-row">
+            <div class="form-group">
+              <label class="form-label" for="curb-length" data-label-metric="Length (m)" data-label-imperial="Length (ft)">Length (m)</label>
+              <input type="number" id="curb-length" class="form-input" min="0.01" step="0.01" placeholder="e.g. 50" required>
+              <div class="field-error">Please enter a value greater than 0</div>
+            </div>
+            <div class="form-group">
+              <label class="form-label" for="curb-qty">Quantity</label>
+              <input type="number" id="curb-qty" class="form-input" min="1" step="1" value="1" required>
+              <div class="field-error">Please enter a value greater than 0</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- ── Panel: Stairs ── -->
+        <div class="input-panel" id="panel-stairs">
+          <div class="form-row">
+            <div class="form-group">
+              <label class="form-label" for="stair-run" data-label-metric="Run per Step (cm)" data-label-imperial="Run per Step (in)">Run per Step (cm)</label>
+              <input type="number" id="stair-run" class="form-input" min="0.1" step="0.1" placeholder="e.g. 27" required>
+              <div class="field-error">Please enter a value greater than 0</div>
+            </div>
+            <div class="form-group">
+              <label class="form-label" for="stair-rise" data-label-metric="Rise per Step (cm)" data-label-imperial="Rise per Step (in)">Rise per Step (cm)</label>
+              <input type="number" id="stair-rise" class="form-input" min="0.1" step="0.1" placeholder="e.g. 18" required>
+              <div class="field-error">Please enter a value greater than 0</div>
+            </div>
+          </div>
+          <div class="form-row">
+            <div class="form-group">
+              <label class="form-label" for="stair-width" data-label-metric="Width (m)" data-label-imperial="Width (ft)">Width (m)</label>
+              <input type="number" id="stair-width" class="form-input" min="0.01" step="0.01" placeholder="e.g. 1.20" required>
+              <div class="field-error">Please enter a value greater than 0</div>
+            </div>
+            <div class="form-group">
+              <label class="form-label" for="stair-platform" data-label-metric="Platform Depth (m)" data-label-imperial="Platform Depth (ft)">Platform Depth (m)</label>
+              <input type="number" id="stair-platform" class="form-input" min="0" step="0.01" placeholder="e.g. 1.00" required>
+              <div class="field-error">Please enter a value greater than 0</div>
+            </div>
+          </div>
+          <div class="form-row">
+            <div class="form-group">
+              <label class="form-label" for="stair-steps">Number of Steps</label>
+              <input type="number" id="stair-steps" class="form-input" min="1" step="1" placeholder="e.g. 12" required>
+              <div class="form-hint" data-hint-metric="Standard rise: 17–20 cm. Standard run: 25–30 cm" data-hint-imperial="Standard rise: 7–8 in. Standard run: 10–12 in">Standard rise: 17–20 cm. Standard run: 25–30 cm</div>
+              <div class="field-error">Please enter a value greater than 0</div>
+            </div>
+            <div></div>
+          </div>
+        </div>
+
+        <!-- Wastage Selector -->
+        <div class="wastage-section">
+          <div class="form-group">
+            <label class="form-label" for="wastage">Wastage Factor</label>
+            <select id="wastage" class="form-input form-select wastage-select">
+              <option value="0">0% — Exact only (not recommended)</option>
+              <option value="5">5% — Small pours, good formwork</option>
+              <option value="10" selected>10% — Standard (recommended)</option>
+              <option value="15">15% — Complex shapes / remote sites</option>
+            </select>
+            <div class="form-hint">We recommend 10% for most residential and commercial pours.</div>
+          </div>
+        </div>
+
+        <!-- Calculate Button -->
+        <div class="calc-actions">
+          <button class="btn btn-primary btn-lg btn-full" id="calcBtn" type="button">
+            Calculate Concrete Volume →
+          </button>
+        </div>
+
+      </div><!-- /.calculator-wrap -->
+
+      <!-- ═══════════════════════════════════
+           SECTION 3 — RESULTS BOX
+           ═══════════════════════════════════ -->
+      <div class="results-box" id="resultsBox">
+        <div class="results-grid">
+
+          <!-- Primary volume -->
+          <div class="result-card primary">
+            <div class="result-card-label" id="res-primary-label">Volume</div>
+            <div class="result-card-value" id="res-primary-value">—</div>
+            <div class="result-card-unit" id="res-primary-unit">m³</div>
+          </div>
+
+          <!-- ft³ -->
+          <div class="result-card">
+            <div class="result-card-label">Volume</div>
+            <div class="result-card-value" id="res-ft3-value">—</div>
+            <div class="result-card-unit">ft³</div>
+          </div>
+
+          <!-- Litres -->
+          <div class="result-card">
+            <div class="result-card-label">Volume</div>
+            <div class="result-card-value" id="res-litres-value">—</div>
+            <div class="result-card-unit">litres</div>
+          </div>
+
+          <!-- Weight kg -->
+          <div class="result-card">
+            <div class="result-card-label">Weight</div>
+            <div class="result-card-value" id="res-kg-value">—</div>
+            <div class="result-card-unit">kg</div>
+          </div>
+
+          <!-- Weight tonnes -->
+          <div class="result-card">
+            <div class="result-card-label">Weight</div>
+            <div class="result-card-value" id="res-tonnes-value">—</div>
+            <div class="result-card-unit">tonnes</div>
+          </div>
+
+          <!-- Bags -->
+          <div class="result-card">
+            <div class="result-card-label">Bags Needed</div>
+            <div class="bags-row">
+              <div class="bag-item">
+                <div class="bag-item-value" id="res-bags20">—</div>
+                <div class="bag-item-label">× 20 kg</div>
+              </div>
+              <div class="bag-item">
+                <div class="bag-item-value" id="res-bags25">—</div>
+                <div class="bag-item-label">× 25 kg</div>
+              </div>
+              <div class="bag-item">
+                <div class="bag-item-value" id="res-bags40">—</div>
+                <div class="bag-item-label">× 40 kg</div>
+              </div>
+            </div>
+            <div class="result-card-unit" style="margin-top:8px;">Pre-mixed bag estimates</div>
+          </div>
+
+        </div>
+
+        <div class="results-note" id="results-note-text">
+          Results include 10% wastage. Density assumed: 2,400 kg/m³ (standard reinforced concrete). Always purchase a small buffer above the calculated amount.
+        </div>
+
+        <div class="results-actions">
+          <span class="copy-feedback" id="copyFeedback">Copied!</span>
+          <button class="btn btn-secondary btn-sm" id="copyBtn" type="button">📋 Copy Results</button>
+          <button class="btn btn-secondary btn-sm" id="printBtn" type="button">🖨️ Print / Save PDF</button>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════
+       AD PLACEHOLDER 2 — Medium Rectangle
+       ═══════════════════════════════════════ -->
+  <section class="section-sm">
+    <div class="container">
+      <div class="ad-placeholder ad-rectangle ad-right" id="adRectangle1" data-ad-slot="ad-rectangle-1" aria-hidden="true" role="presentation"></div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════
+       SECTION 4 — HOW TO USE THIS CALCULATOR
+       ═══════════════════════════════════════ -->
+  <section class="section" id="howtoSection">
+    <div class="container">
+      <div class="section-header">
+        <h2>How to Use This <span class="grad-text">Calculator</span></h2>
+      </div>
+      <div class="howto-grid">
+        <div class="howto-card anim-up">
+          <div class="howto-number">01</div>
+          <h3>Choose Your Shape</h3>
+          <p>Select the shape that matches your pour from the tabs above — slab, column, tube, curb, or staircase. If your project has multiple shapes, run the calculator for each one separately and add the totals.</p>
+        </div>
+        <div class="howto-card anim-up">
+          <div class="howto-number">02</div>
+          <h3>Enter Your Dimensions</h3>
+          <p>Type in your measurements. You can work in metric (metres and centimetres) or imperial (feet and inches) — switch the toggle at any time. The Quantity field lets you calculate for multiple identical pours at once.</p>
+        </div>
+        <div class="howto-card anim-up">
+          <div class="howto-number">03</div>
+          <h3>Read Your Results</h3>
+          <p>Hit Calculate and your results appear instantly below the calculator — in cubic metres, cubic yards, cubic feet, litres, kilograms, and pre-mixed bag count. Add a wastage factor (we recommend 10%) to account for spillage and formwork variation.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════
+       SECTION 5 — LONG-FORM SEO ARTICLE
+       ═══════════════════════════════════════ -->
+  <section class="section">
+    <div class="container">
+      <div class="prose">
+
+        <h2>How to Calculate Concrete Volume</h2>
+        <p>
+          Calculating concrete volume is one of the most fundamental tasks in construction. Whether you are pouring a residential driveway, a commercial warehouse floor, or a set of column footings, the basic principle is the same: you multiply the three dimensions of your pour — length, width, and depth — to arrive at a volume in cubic metres or cubic yards.
+        </p>
+        <p>
+          The basic formula for a rectangular slab is straightforward: <strong>Volume = Length × Width × Depth</strong>. For example, a concrete slab that is 4 metres long, 3 metres wide, and 0.15 metres deep (15 cm) requires 4 × 3 × 0.15 = <strong>1.80 m³</strong> of concrete. This is the net volume — the exact amount needed to fill the formwork with no room for error.
+        </p>
+        <p>
+          In practice, you should always add a wastage factor to account for spillage, over-excavation, formwork imperfections, and the concrete that remains in the truck or pump line. A wastage factor of 5–10% is standard for straightforward pours. For complex shapes, uneven ground, or remote sites where re-ordering is expensive, many engineers use 15% or even 20% as a buffer. Under-ordering concrete is far more costly than over-ordering — a cold joint caused by a delayed second load can compromise the structural integrity of the entire pour.
+        </p>
+
+        <h2>Concrete Calculation Formulas by Shape</h2>
+
+        <h3>Rectangular Slabs and Walls</h3>
+        <p>
+          The rectangular slab is the most common concrete shape on any construction site. The formula is simply <strong>V = L × W × D</strong>, where L is the length, W is the width, and D is the depth or thickness of the slab. This formula works equally well for walls — treat the wall height as one dimension and the wall length as another. Ensure all measurements are in the same unit system before multiplying. A common mistake is mixing centimetres with metres, which produces results that are off by a factor of 100.
+        </p>
+
+        <h3>Round Columns and Circular Footings</h3>
+        <p>
+          For round columns and circular post holes, the volume is calculated using the cylinder formula: <strong>V = π × (d/2)² × h</strong>, where d is the diameter and h is the height or depth. Accuracy of the diameter measurement is critical — even a small error in diameter is squared in the formula, so it has a disproportionate effect on the final volume. Always measure the diameter at the widest point and use the formwork opening rather than the design diameter if there is any discrepancy.
+        </p>
+
+        <h3>Hollow Tubes and Circular Slabs</h3>
+        <p>
+          When you need to calculate the concrete volume for a pipe encasement, a hollow column, or a ring-shaped footing, you use the hollow cylinder formula: <strong>V = π × h × ((D₁/2)² − (D₂/2)²)</strong>, where D₁ is the outer diameter, D₂ is the inner diameter, and h is the height. This formula gives you the volume of the concrete shell only — the hollow centre is excluded. This is commonly used for manhole surrounds, turbine bases, and decorative columns with a hollow core.
+        </p>
+
+        <h3>Stairs</h3>
+        <p>
+          Concrete stairs are more complex because each step forms a triangular prism. A practical approximation treats the staircase as a series of right-angled triangles: <strong>V = 0.5 × rise × run × width × number of steps</strong>, plus the volume of any landing or platform slab at the top. This method gives a reliable estimate for standard straight-run stairs. For curved, spiral, or dog-leg staircases, break the structure into sections and calculate each one individually, or consult a structural engineer who can model the geometry precisely.
+        </p>
+
+        <h2>How Much Does Concrete Weigh?</h2>
+        <p>
+          The weight of concrete depends on its mix design, aggregate type, and reinforcement. The industry-standard figure for normal-weight reinforced concrete is approximately <strong>2,400 kg/m³</strong> (150 lb/ft³). This is the figure used by this calculator and is appropriate for most structural and non-structural applications.
+        </p>
+        <p>
+          Lightweight concrete, made with expanded clay or pumice aggregate, typically weighs around <strong>1,800 kg/m³</strong>. It is used where reducing dead load is important — for example, on upper floors of multi-storey buildings or in precast panels. Heavyweight concrete, which uses barytes or magnetite aggregate, can weigh <strong>3,200 kg/m³</strong> or more and is used for radiation shielding in hospitals and nuclear facilities.
+        </p>
+        <p>
+          Knowing the weight of your pour is essential for several reasons. First, you need it to calculate the load on your delivery truck — a standard transit mixer carries 6–8 m³, which means 14–19 tonnes of concrete per load. Second, the weight determines whether your formwork and falsework can support the wet concrete before it cures. Third, the delivered weight is sometimes used to verify the volume if there is a dispute with the batching plant.
+        </p>
+
+        <h2>Bags vs. Ready-Mix: Which Should You Use?</h2>
+        <p>
+          For small jobs — fence post holes, minor repairs, small pad footings — pre-mixed bags of concrete are the simplest option. A single 25 kg bag of standard concrete mix produces approximately 0.012 m³ of concrete When mixed with water. That means you need roughly <strong>40 bags of 25 kg concrete per cubic metre</strong>. For 20 kg bags, the count rises to about 50 bags per m³, and for larger 40 kg bags, you need approximately 25 per m³.
+        </p>
+        <p>
+          Pre-mixed bags are convenient but expensive per cubic metre — typically two to three times the cost of ready-mix concrete delivered by a transit mixer. For any pour larger than about 0.5 m³, it is almost always more economical (and faster) to order ready-mix. A transit mixer can deliver 6–8 m³ in a single load, which would take 240–320 bags to replicate by hand — a huge amount of manual labour.
+        </p>
+        <p>
+          The break-even point varies by region, but a good rule of thumb is: if you need more than 15–20 bags, get a quote for ready-mix delivery. You will save time, labour, and often money.
+        </p>
+
+        <h2>Tips for Ordering Concrete</h2>
+        <p>
+          Ordering concrete for the first time can be daunting. Here are the key points that experienced site engineers always check before placing an order:
+        </p>
+        <ul>
+          <li><strong>Always order 5–10% more than calculated.</strong> Under-ordering leads to cold joints and delays. Over-ordering by a small margin is cheap insurance.</li>
+          <li><strong>Check access routes for transit mixer trucks.</strong> A fully loaded mixer weighs over 30 tonnes and needs firm, level ground and a minimum turning radius of about 12 metres. Measure your access road and gate widths before ordering.</li>
+          <li><strong>Have your formwork ready and checked before the truck arrives.</strong> Concrete waits for no one. Once the drum starts spinning, you have 60–90 minutes before the mix starts to set. Your formwork, reinforcement, and pour team must be ready.</li>
+          <li><strong>Know your concrete grade.</strong> C20 is typical for domestic paths and light bases. C25 is standard for residential foundations. C30 and above is used for structural elements like beams because columns. Specify the grade when ordering.</li>
+          <li><strong>In hot climates, specify a retarder additive.</strong> Temperatures above 30 °C can accelerate setting time dramatically. A retarder gives you an extra 30–60 minutes of workability without affecting the final strength.</li>
+          <li><strong>Get your foundation inspected before pouring.</strong> In many jurisdictions, a building inspector must sign off on excavation depth, reinforcement placement, and formwork before concrete is poured. Pouring without approval can result in a demolition order.</li>
+        </ul>
+
+        <h2>Common Concrete Calculation Mistakes</h2>
+        <p>
+          <strong>1. Mixing units within a calculation.</strong> This is the single most common error. A builder measures length in metres, width in metres, but enters thickness in centimetres without converting. The result is a volume that is 100 times too large or too small. Always convert all dimensions to the same unit before multiplying — or use a calculator like this one that handles the conversion automatically.
+        </p>
+        <p>
+          <strong>2. Not adding a wastage factor.</strong> Theoretical volume and real-world volume are never exactly the same. Ground is uneven, formwork flexes, concrete sticks to the inside of the pump line, and some material always spills. Ordering exactly the calculated volume guarantees you will run short. A 10% buffer is the industry standard and costs very little compared to the expense of a second delivery.
+        </p>
+        <p>
+          <strong>3. Measuring outside formwork dimensions incorrectly.</strong> If you measure the outside of your formwork rather than the inside, your volume calculation will include the thickness of the formwork boards themselves. For a large slab with 25 mm plywood forms, this can add several percent to the calculated area — and therefore to the cost.
+        </p>
+        <p>
+          <strong>4. Using volume for weight without checking density.</strong> Not all concrete weighs 2,400 kg/m³. Lightweight mixes, aerated concrete, and mixes with recycite or expanded polystyrene aggregate can weigh significantly less. If you are calculating structural loads or transport weights, always confirm the density of the specific mix you are using with the batching plant.
+        </p>
+        <p>
+          <strong>5. Ordering ready-mix without checking truck access.</strong> A standard 8 m³ transit mixer is 8–10 metres long, 2.5 metres wide, and weighs over 30 tonnes fully loaded. If it cannot reach your pour location, you will need a concrete pump — which adds cost and requires advance booking. Always visit the site with the delivery company before placing your first order.
+        </p>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════
+       SECTION 6 — FAQ
+       ═══════════════════════════════════════ -->
+  <section class="section" id="faqSection">
+    <div class="container">
+      <div class="section-header">
+        <h2>Frequently Asked <span class="grad-text">Questions</span></h2>
+      </div>
+
+      <div class="faq-list">
+
+        <div class="faq-item">
+          <button class="faq-question" type="button">
+            How do I calculate how much concrete I need?
+            <svg class="faq-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg>
+          </button>
+          <div class="faq-answer">
+            To calculate how much concrete you need, multiply the length, width, and depth of your pour. For rectangular slabs, the formula is Volume = Length × Width × Depth. For round columns, use V = π × (diameter/2)² × height. Always add a 10% wastage factor to cover spillage, over-excavation, and formwork variation. This calculator handles all the maths automatically — just select your shape, enter your dimensions, and read off the result in cubic metres, cubic yards, or bag counts.
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <button class="faq-question" type="button">
+            What is the standard concrete slab thickness?
+            <svg class="faq-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg>
+          </button>
+          <div class="faq-answer">
+            Residential paths and light-use slabs are typically 10–12 cm (4–5 inches) thick. Driveways and garage floors are usually 10–15 cm (4–6 inches). Industrial warehouse floors and loading bays are commonly 15–20 cm (6–8 inches) or more. Structural slabs in multi-storey buildings vary by design and can range from 15 cm to over 30 cm depending on span, load, and reinforcement requirements. Always follow the structural engineer's specification for your project.
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <button class="faq-question" type="button">
+            How many 25 kg bags of concrete do I need per m³?
+            <svg class="faq-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg>
+          </button>
+          <div class="faq-answer">
+            You need approximately 40 bags of 25 kg pre-mixed concrete per cubic metre. This figure is based on a standard concrete density of approximately 2,400 kg/m³. The exact number can vary slightly depending on the specific mix design and the amount of water added. For 20 kg bags, you need around 50 per m³, and for 40 kg bags, approximately 25 per m³. Pre-mixed bags are practical for small pours but become uneconomical for volumes much above 0.5 m³.
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <button class="faq-question" type="button">
+            What is the density of concrete in kg/m³?
+            <svg class="faq-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg>
+          </button>
+          <div class="faq-answer">
+            The density of standard reinforced concrete is approximately 2,400 kg/m³ (150 lb/ft³). This is the most commonly used figure for structural calculations and material ordering. Lightweight concrete made with expanded clay or perlite aggregate has a density of around 1,800 kg/m³. Heavyweight concrete with barytes or magnetite aggregate can reach 3,200 kg/m³ or more and is used for radiation shielding applications.
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <button class="faq-question" type="button">
+            How much does 1 cubic metre of concrete weigh?
+            <svg class="faq-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg>
+          </button>
+          <div class="faq-answer">
+            One cubic metre of standard concrete weighs approximately 2.4 tonnes (2,400 kg or about 5,291 pounds). This assumes normal-weight aggregate and standard reinforcement. The exact weight depends on the mix design, aggregate type, moisture content, and amount of steel reinforcement. When planning deliveries, remember that a standard transit mixer carries 6–8 m³, meaning each full load weighs 14–19 tonnes.
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <button class="faq-question" type="button">
+            What wastage factor should I use for concrete?
+            <svg class="faq-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg>
+          </button>
+          <div class="faq-answer">
+            For most residential and commercial pours with good formwork, a 10% wastage factor is standard. For small, precise pours with excellent formwork, 5% may suffice. For complex shapes, rough subgrades, or remote sites where re-ordering concrete is impractical, use 15% or more. Wastage covers spillage, over-excavation, uneven subgrade, concrete remaining in pump lines, and minor formwork bulging. Under-ordering is always more expensive than over-ordering — a cold joint caused by running short mid-pour can compromise the entire structural element.
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <button class="faq-question" type="button">
+            Can I use this calculator for footings and foundations?
+            <svg class="faq-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg>
+          </button>
+          <div class="faq-answer">
+            Yes — rectangular strip footings and pad footings can be calculated using the Slab tab. Simply enter the footing length, width, and depth. For circular footings, use the Round Column tab and enter the diameter and depth. For combined or raft foundations, break the shape into rectangular or circular sections and calculate each one separately. Always have a structural engineer specify the dimensions, reinforcement, and concrete grade for any structural footing or foundation — this calculator provides material estimates, not structural design.
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <button class="faq-question" type="button">
+            What is the difference between cubic metres and cubic yards?
+            <svg class="faq-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg>
+          </button>
+          <div class="faq-answer">
+            One cubic metre (m³) equals approximately 1.308 cubic yards (yd³). Cubic metres are the standard unit of measurement in countries using the metric system — including most of Europe, Asia, and Australasia. Cubic yards are commonly used in the United States and Canada for concrete ordering. This calculator shows both units automatically so you can order in whichever unit your local supplier uses.
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ Schema -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "How do I calculate how much concrete I need?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "To calculate how much concrete you need, multiply the length, width, and depth of your pour. For rectangular slabs, the formula is Volume = Length × Width × Depth. For round columns, use V = π × (diameter/2)² × height. Always add a 10% wastage factor to cover spillage, over-excavation, and formwork variation."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "What is the standard concrete slab thickness?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Residential paths and light-use slabs are typically 10–12 cm (4–5 inches) thick. Driveways and garage floors are usually 10–15 cm (4–6 inches). Industrial warehouse floors and loading bays are commonly 15–20 cm (6–8 inches) or more."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "How many 25 kg bags of concrete do I need per m³?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "You need approximately 40 bags of 25 kg pre-mixed concrete per cubic metre. For 20 kg bags, you need around 50 per m³, and for 40 kg bags, approximately 25 per m³."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "What is the density of concrete in kg/m³?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "The density of standard reinforced concrete is approximately 2,400 kg/m³ (150 lb/ft³). Lightweight concrete is around 1,800 kg/m³. Heavyweight concrete can reach 3,200 kg/m³ or more."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "How much does 1 cubic metre of concrete weigh?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "One cubic metre of standard concrete weighs approximately 2.4 tonnes (2,400 kg or about 5,291 pounds)."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "What wastage factor should I use for concrete?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "For most residential and commercial pours with good formwork, a 10% wastage factor is standard. For complex shapes or remote sites, use 15% or more."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Can I use this calculator for footings and foundations?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Yes — rectangular strip footings and pad footings can be calculated using the Slab tab. For circular footings, use the Round Column tab. Always have a structural engineer specify the dimensions for any structural foundation."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "What is the difference between cubic metres and cubic yards?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "One cubic metre (m³) equals approximately 1.308 cubic yards (yd³). Cubic metres are standard in metric countries, while cubic yards are used in the US and Canada."
+        }
+      }
+    ]
+  }
+  </script>
+
+  <!-- ═══════════════════════════════════════
+       AD PLACEHOLDER 3 — Leaderboard
+       ═══════════════════════════════════════ -->
+  <section class="section-sm">
+    <div class="container">
+      <div class="ad-placeholder ad-leaderboard" id="adLeaderboard2" data-ad-slot="ad-leaderboard-2" aria-hidden="true" role="presentation"></div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════
+       SECTION 7 — RELATED TOOLS
+       ═══════════════════════════════════════ -->
+  <section class="section" id="relatedSection">
+    <div class="container">
+      <div class="section-header">
+        <h2>Related Construction <span class="grad-text">Calculators</span></h2>
+      </div>
+      <div class="related-grid">
+        <a href="/tools/brick-calculator/" class="tool-card anim-up">
+          <div class="tool-card-icon">🧱</div>
+          <div class="tool-card-name">Brick Calculator</div>
+          <div class="tool-card-desc">Estimate bricks and mortar for any wall — single skin, cavity, or block.</div>
+          <div class="tool-card-arrow">Use Tool →</div>
+        </a>
+        <a href="/tools/rebar-calculator/" class="tool-card anim-up">
+          <div class="tool-card-icon">🔩</div>
+          <div class="tool-card-name">Rebar Estimator</div>
+          <div class="tool-card-desc">Calculate rebar quantity, weight and spacing for reinforced concrete sections.</div>
+          <div class="tool-card-arrow">Use Tool →</div>
+        </a>
+        <a href="/tools/excavation-calculator/" class="tool-card anim-up">
+          <div class="tool-card-icon">🚜</div>
+          <div class="tool-card-name">Excavation Calculator</div>
+          <div class="tool-card-desc">Calculate cut and fill volumes for trenches, foundations and bulk earthworks.</div>
+          <div class="tool-card-arrow">Use Tool →</div>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <div id="footer"></div>
+  <script src="/assets/js/main.js"></script>
+  <script src="/tools/concrete-calculator/concrete-calculator.js"></script>
+</body>
+</html>

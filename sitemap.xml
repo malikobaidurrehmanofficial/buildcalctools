@@ -1,0 +1,202 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+
+  <!-- ============================================
+       SECTION 1: CORE PAGES
+       Homepage, About, Contact and legal pages.
+       These are the foundation of the site and
+       should be crawled with high priority.
+       ============================================ -->
+
+  <!-- Homepage — highest priority, changes frequently -->
+  <url>
+    <loc>https://buildcalctools.site/</loc>
+    <lastmod>2025-06-15</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>1.0</priority>
+  </url>
+
+  <!-- About page -->
+  <url>
+    <loc>https://buildcalctools.site/about/</loc>
+    <lastmod>2025-06-01</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+
+  <!-- Contact page -->
+  <url>
+    <loc>https://buildcalctools.site/contact/</loc>
+    <lastmod>2025-06-01</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+  </url>
+
+  <!-- Terms of Service -->
+  <url>
+    <loc>https://buildcalctools.site/terms/</loc>
+    <lastmod>2025-06-01</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.3</priority>
+  </url>
+
+  <!-- Privacy Policy -->
+  <url>
+    <loc>https://buildcalctools.site/privacy-policy/</loc>
+    <lastmod>2025-06-01</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.3</priority>
+  </url>
+
+  <!-- Disclaimer -->
+  <url>
+    <loc>https://buildcalctools.site/disclaimer/</loc>
+    <lastmod>2025-06-01</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.3</priority>
+  </url>
+
+  <!-- ============================================
+       SECTION 2: TOOLS (CALCULATORS)
+       These are the primary product pages — high
+       priority and updated as features are added.
+       The tools index lists all available calculators.
+       ============================================ -->
+
+  <!-- Tools index — lists all calculators -->
+  <url>
+    <loc>https://buildcalctools.site/tools/</loc>
+    <lastmod>2025-06-15</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+  </url>
+
+  <!-- Concrete Volume Calculator -->
+  <url>
+    <loc>https://buildcalctools.site/tools/concrete-calculator/</loc>
+    <lastmod>2025-06-10</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+  </url>
+
+  <!-- Brick Calculator -->
+  <url>
+    <loc>https://buildcalctools.site/tools/brick-calculator/</loc>
+    <lastmod>2025-06-15</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+  </url>
+
+  <!-- ============================================
+       SECTION 3: BLOG
+       Educational content and guides. The blog
+       index is updated weekly as new posts are
+       published. Individual posts change rarely
+       after publication.
+       ============================================ -->
+
+  <!-- Blog index — updated when new posts are added -->
+  <url>
+    <loc>https://buildcalctools.site/blog/</loc>
+    <lastmod>2025-06-15</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <!-- Blog Post: How to Calculate Concrete Volume -->
+  <url>
+    <loc>https://buildcalctools.site/blog/how-to-calculate-concrete-volume/</loc>
+    <lastmod>2025-06-15</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+
+  <!-- Blog Post: Brick & Mortar Calculator Guide -->
+  <url>
+    <loc>https://buildcalctools.site/blog/brick-and-mortar-calculator-guide/</loc>
+    <lastmod>2025-06-10</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+
+  <!-- Blog Post: Steel Weight Calculation Guide -->
+  <url>
+    <loc>https://buildcalctools.site/blog/steel-weight-calculation-guide/</loc>
+    <lastmod>2025-06-05</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+
+  <!-- Blog Post: Rebar Spacing and Cover Requirements -->
+  <url>
+    <loc>https://buildcalctools.site/blog/rebar-spacing-cover-guide/</loc>
+    <lastmod>2025-05-28</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+
+  <!-- Blog Post: Excavation Cut, Fill and Material Removal -->
+  <url>
+    <loc>https://buildcalctools.site/blog/excavation-cut-fill-guide/</loc>
+    <lastmod>2025-05-20</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+
+  <!-- Blog Post: Mortar Mix Ratios Guide -->
+  <url>
+    <loc>https://buildcalctools.site/blog/mortar-mix-ratio-guide/</loc>
+    <lastmod>2025-05-12</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+
+  <!-- Blog Post: Paint Coverage Calculation Guide -->
+  <url>
+    <loc>https://buildcalctools.site/blog/paint-coverage-calculation-guide/</loc>
+    <lastmod>2025-05-05</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+
+  <!-- Blog Post: Flooring Calculator Guide -->
+  <url>
+    <loc>https://buildcalctools.site/blog/flooring-calculator-guide/</loc>
+    <lastmod>2025-04-28</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+
+  <!-- Blog Post: Beam Load Calculation Guide -->
+  <url>
+    <loc>https://buildcalctools.site/blog/beam-load-calculation-guide/</loc>
+    <lastmod>2025-04-20</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+
+  <!-- Blog Post: Construction Material Wastage Allowances -->
+  <url>
+    <loc>https://buildcalctools.site/blog/construction-wastage-allowances/</loc>
+    <lastmod>2025-04-10</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+
+  <!-- Blog Post: Concrete Mix Grades Explained -->
+  <url>
+    <loc>https://buildcalctools.site/blog/concrete-mix-grades-explained/</loc>
+    <lastmod>2025-03-25</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+
+  <!-- Blog Post: How to Read Construction Drawings -->
+  <url>
+    <loc>https://buildcalctools.site/blog/how-to-read-construction-drawings/</loc>
+    <lastmod>2025-03-10</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+
+</urlset>

@@ -1,0 +1,23 @@
+# ============================================
+# robots.txt — BuildCalcTools.site
+# Last updated: 2025-06-15
+# ============================================
+
+# Allow all search engines full access
+User-agent: *
+Allow: /
+
+# Block asset directories (CSS/JS/images are loaded inline, not indexed)
+Disallow: /assets/css/
+Disallow: /assets/js/
+Disallow: /assets/img/
+
+# Block utility/non-content files
+Disallow: /files/
+Disallow: /files.zip
+
+# Block 404 error page from indexing
+Disallow: /404/
+
+# Sitemap location
+Sitemap: https://buildcalctools.site/sitemap.xml

@@ -1,0 +1,494 @@
+/* ============================================
+   Concrete Calculator — Tool-specific styles
+   Uses only CSS variables from /assets/css/style.css
+   ============================================ */
+
+/* ── Trust Chips ── */
+.trust-chips {
+  display: flex;
+  gap: 20px;
+  flex-wrap: wrap;
+  margin-top: 20px;
+}
+.trust-chip {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-family: var(--font-mono);
+  font-size: 11px;
+  letter-spacing: 1px;
+  color: var(--color-muted);
+}
+.trust-chip-icon {
+  color: var(--color-primary);
+  font-weight: 700;
+}
+
+/* ── Unit Toggle (pill) ── */
+.unit-toggle {
+  display: inline-flex;
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-full);
+  padding: 3px;
+  margin-bottom: 28px;
+}
+.unit-toggle-btn {
+  font-family: var(--font-body);
+  font-size: 13px;
+  font-weight: 600;
+  padding: 9px 24px;
+  border: none;
+  border-radius: var(--radius-full);
+  background: transparent;
+  color: var(--color-muted);
+  cursor: pointer;
+  transition: all var(--transition);
+  letter-spacing: 0.5px;
+}
+.unit-toggle-btn.active {
+  background: var(--color-primary);
+  color: var(--color-white);
+  box-shadow: 0 2px 8px rgba(244, 100, 10, 0.3);
+}
+.unit-toggle-btn:hover:not(.active) {
+  color: var(--color-text);
+}
+
+/* ── Shape Tabs ── */
+.shape-tabs {
+  display: flex;
+  gap: 0;
+  border-bottom: 1px solid var(--color-border);
+  margin-bottom: 28px;
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+  scrollbar-width: none;
+}
+.shape-tabs::-webkit-scrollbar {
+  display: none;
+}
+.shape-tab {
+  font-family: var(--font-body);
+  font-size: 13px;
+  font-weight: 500;
+  color: var(--color-muted);
+  background: none;
+  border: none;
+  border-bottom: 2px solid transparent;
+  padding: 12px 20px;
+  cursor: pointer;
+  white-space: nowrap;
+  transition: all var(--transition);
+  position: relative;
+}
+.shape-tab:hover {
+  color: var(--color-text);
+}
+.shape-tab.active {
+  color: var(--color-text);
+  border-bottom-color: var(--color-primary);
+}
+.shape-tab-icon {
+  margin-right: 6px;
+  font-size: 14px;
+}
+
+/* ── Input Panels ── */
+.input-panel {
+  display: none;
+}
+.input-panel.active {
+  display: block;
+}
+
+/* ── Wastage Selector ── */
+.wastage-section {
+  margin-top: 28px;
+  padding-top: 24px;
+  border-top: 1px solid var(--color-border);
+}
+.wastage-select {
+  max-width: 360px;
+}
+
+/* ── Calculate Button Row ── */
+.calc-actions {
+  margin-top: 28px;
+}
+
+/* ── Results Box ── */
+.results-box {
+  background: var(--color-surface2);
+  border-left: 3px solid var(--color-yellow);
+  border-radius: 10px;
+  padding: 28px;
+  margin-top: 36px;
+  display: none;
+}
+.results-box.visible {
+  display: block;
+}
+.results-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 18px;
+}
+.result-card {
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-sm);
+  padding: 20px;
+  transition: border-color var(--transition);
+}
+.result-card:hover {
+  border-color: var(--color-border-hover);
+}
+.result-card.primary {
+  border-left: 3px solid var(--color-primary);
+}
+.result-card-label {
+  font-family: var(--font-mono);
+  font-size: 10px;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: var(--color-muted);
+  margin-bottom: 8px;
+}
+.result-card-value {
+  font-family: var(--font-mono);
+  font-size: 28px;
+  font-weight: 600;
+  color: var(--color-yellow);
+  line-height: 1.1;
+}
+.result-card-unit {
+  font-family: var(--font-mono);
+  font-size: 13px;
+  color: var(--color-muted);
+  margin-top: 4px;
+}
+
+/* Bags sub-grid */
+.bags-row {
+  display: flex;
+  gap: 16px;
+  margin-top: 10px;
+}
+.bag-item {
+  text-align: center;
+  flex: 1;
+}
+.bag-item-value {
+  font-family: var(--font-mono);
+  font-size: 22px;
+  font-weight: 600;
+  color: var(--color-yellow);
+}
+.bag-item-label {
+  font-family: var(--font-body);
+  font-size: 11px;
+  color: var(--color-muted);
+  margin-top: 2px;
+}
+
+/* Results note */
+.results-note {
+  font-size: 12px;
+  color: var(--color-muted);
+  margin-top: 24px;
+  padding-top: 18px;
+  border-top: 1px solid var(--color-border);
+  line-height: 1.7;
+}
+.results-actions {
+  display: flex;
+  gap: 10px;
+  justify-content: flex-end;
+  margin-top: 18px;
+}
+
+/* ── Inline validation error ── */
+.field-error {
+  font-size: 11px;
+  color: var(--color-primary);
+  margin-top: 4px;
+  display: none;
+}
+.field-error.visible {
+  display: block;
+}
+.form-input.input-error {
+  border-color: var(--color-primary);
+}
+
+/* ── How-To Steps ── */
+.howto-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+}
+.howto-card {
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-card);
+  padding: 28px;
+  position: relative;
+  overflow: hidden;
+}
+.howto-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 2px;
+  background: linear-gradient(90deg, var(--color-primary), var(--color-yellow));
+}
+.howto-number {
+  font-family: var(--font-heading);
+  font-size: 52px;
+  color: var(--color-primary);
+  opacity: 0.15;
+  position: absolute;
+  top: 10px;
+  right: 18px;
+  line-height: 1;
+}
+.howto-card h3 {
+  font-family: var(--font-body);
+  font-size: 16px;
+  font-weight: 600;
+  color: var(--color-text);
+  margin-bottom: 10px;
+}
+.howto-card p {
+  font-size: 13px;
+  color: var(--color-muted);
+  line-height: 1.7;
+  margin: 0;
+}
+
+/* ── FAQ Accordion ── */
+.faq-list {
+  max-width: 800px;
+}
+.faq-item {
+  border-bottom: 1px solid var(--color-border);
+}
+.faq-question {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  background: none;
+  border: none;
+  padding: 20px 0;
+  cursor: pointer;
+  text-align: left;
+  font-family: var(--font-body);
+  font-size: 15px;
+  font-weight: 600;
+  color: var(--color-text);
+  transition: color var(--transition);
+  gap: 16px;
+}
+.faq-question:hover {
+  color: var(--color-primary);
+}
+.faq-question.active {
+  color: var(--color-primary);
+}
+.faq-chevron {
+  flex-shrink: 0;
+  width: 20px;
+  height: 20px;
+  transition: transform var(--transition);
+  color: var(--color-muted);
+}
+.faq-question.active .faq-chevron {
+  transform: rotate(180deg);
+  color: var(--color-primary);
+}
+.faq-answer {
+  display: none;
+  padding: 0 0 20px;
+  font-size: 14px;
+  color: var(--color-muted);
+  line-height: 1.8;
+}
+.faq-answer.visible {
+  display: block;
+}
+
+/* ── Ad Placeholders ── */
+.ad-placeholder {
+  background: var(--color-surface2);
+  border: 2px dashed var(--color-border);
+  border-radius: var(--radius-sm);
+  margin: 0 auto;
+}
+.ad-leaderboard {
+  width: 728px;
+  height: 90px;
+  max-width: 100%;
+}
+.ad-rectangle {
+  width: 300px;
+  height: 250px;
+}
+.ad-right {
+  margin-left: auto;
+  margin-right: 0;
+}
+
+/* ── Related Tools grid ── */
+.related-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+}
+
+/* ── Copy feedback ── */
+.copy-feedback {
+  font-family: var(--font-mono);
+  font-size: 11px;
+  color: var(--color-primary);
+  opacity: 0;
+  transition: opacity var(--transition);
+  margin-right: 8px;
+  align-self: center;
+}
+.copy-feedback.show {
+  opacity: 1;
+}
+
+/* ═══════════════════════════════════════
+   RESPONSIVE
+   ═══════════════════════════════════════ */
+@media (max-width: 900px) {
+  .results-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  .howto-grid {
+    grid-template-columns: 1fr;
+  }
+  .related-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 768px) {
+  .results-grid {
+    grid-template-columns: 1fr;
+  }
+  .ad-leaderboard {
+    width: 320px;
+    height: 50px;
+  }
+  .ad-rectangle {
+    margin-left: auto;
+    margin-right: auto;
+  }
+  .shape-tabs {
+    gap: 0;
+  }
+  .shape-tab {
+    padding: 10px 14px;
+    font-size: 12px;
+  }
+  .trust-chips {
+    flex-direction: column;
+    gap: 8px;
+  }
+  .results-actions {
+    justify-content: center;
+    flex-wrap: wrap;
+  }
+  .bags-row {
+    flex-direction: column;
+    gap: 10px;
+  }
+  .bag-item {
+    text-align: left;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+}
+
+@media (max-width: 480px) {
+  .result-card-value {
+    font-size: 22px;
+  }
+  .bag-item-value {
+    font-size: 18px;
+  }
+  .shape-tab {
+    padding: 8px 10px;
+    font-size: 11px;
+  }
+  .unit-toggle-btn {
+    padding: 8px 16px;
+    font-size: 12px;
+  }
+}
+
+/* ═══════════════════════════════════════
+   PRINT STYLES
+   ═══════════════════════════════════════ */
+@media print {
+  body {
+    background: #fff;
+    color: #000;
+  }
+  .navbar,
+  .footer,
+  .ad-placeholder,
+  .shape-tabs,
+  .unit-toggle,
+  .calc-actions,
+  .results-actions,
+  .trust-chips,
+  .page-hero-badge,
+  .breadcrumb,
+  .nav-hamburger,
+  .theme-toggle,
+  .wastage-section,
+  .howto-grid,
+  .faq-list,
+  .related-grid,
+  .section-header,
+  #faqSection,
+  #howtoSection,
+  #relatedSection,
+  #adLeaderboard1,
+  #adRectangle1,
+  #adLeaderboard2 {
+    display: none !important;
+  }
+  .results-box {
+    display: block !important;
+    border: 1px solid #ccc;
+    border-left: 3px solid #F2B705;
+    box-shadow: none;
+  }
+  .result-card {
+    border: 1px solid #ddd;
+    break-inside: avoid;
+  }
+  .result-card-value {
+    color: #222;
+  }
+  .calculator-wrap {
+    box-shadow: none;
+    border: 1px solid #ccc;
+  }
+  .page-hero {
+    background: none;
+    padding: 20px 0;
+  }
+  .page-hero::after {
+    display: none;
+  }
+}

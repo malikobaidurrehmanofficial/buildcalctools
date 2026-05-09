@@ -1,0 +1,414 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Brick Calculator &mdash; Estimate Bricks, Mortar, Cement &amp; Sand | BuildCalcTools</title>
+  <meta name="description" content="Free brick calculator for walls in Pakistan and worldwide. Estimate bricks needed, mortar volume, cement kg and sand quantity. Supports metric, imperial and Pakistani standard sizes.">
+  <meta name="keywords" content="brick calculator, brick calculator Pakistan, how many bricks do I need, bricks per square meter, brick wall calculator, mortar calculator, cement calculator, awwal brick size Pakistan, bricks per square foot">
+  <link rel="canonical" href="https://buildcalctools.site/tools/brick-calculator/">
+  <link rel="icon" href="/assets/img/fav.png" type="image/png">
+  <meta property="og:title" content="Free Brick Calculator &mdash; Bricks, Mortar, Cement &amp; Sand | BuildCalcTools">
+  <meta property="og:description" content="Estimate bricks, mortar, cement and sand for any wall. Supports single and double brick walls, Pakistan standard sizes, metric and imperial units.">
+  <meta property="og:url" content="https://buildcalctools.site/tools/brick-calculator/">
+  <meta property="og:type" content="website">
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebApplication",
+    "name": "Brick Calculator",
+    "url": "https://buildcalctools.site/tools/brick-calculator/",
+    "description": "Free online brick calculator. Estimate number of bricks, mortar volume, cement and sand needed for single and double brick walls. Supports metric and imperial units.",
+    "applicationCategory": "UtilityApplication",
+    "operatingSystem": "All",
+    "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" },
+    "author": { "@type": "Person", "name": "Malik Obaid Ur Rehman" }
+  }
+  </script>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {"@type":"Question","name":"How many bricks do I need per square meter?","acceptedAnswer":{"@type":"Answer","text":"For a standard single-brick wall using 230x76mm bricks with a 10mm mortar joint, you need approximately 48 bricks per square metre. For a double brick wall, this doubles to around 96 bricks per m2. Using Pakistani standard Awwal class bricks (9x4.5x3 inches) you need approximately 50-55 bricks per square metre for a 4.5-inch wall."}},
+      {"@type":"Question","name":"What is the standard brick size in Pakistan?","acceptedAnswer":{"@type":"Answer","text":"The standard Awwal (First Class) brick size in Pakistan is 9 inches x 4.5 inches x 3 inches (228mm x 114mm x 76mm). When accounting for a standard 10mm mortar joint, the nominal working size becomes approximately 238mm x 124mm x 86mm. Second class (Doam) bricks are similar in size but lower in fired density."}},
+      {"@type":"Question","name":"What is the difference between a single and double brick wall?","acceptedAnswer":{"@type":"Answer","text":"A single brick wall (also called a half-brick or 4.5-inch wall) is one brick laid flat - used for partition walls and boundary fences. A double brick wall (also called a full brick or 9-inch wall) is two bricks wide - used for load-bearing external walls, foundations, and structural applications. A double wall requires roughly twice the bricks and mortar."}},
+      {"@type":"Question","name":"How much wastage should I add to my brick estimate?","acceptedAnswer":{"@type":"Answer","text":"Add 5% wastage for machine-cut bricks delivered on pallets with minimal breakage. Add 10% for standard deliveries involving manual unloading. Add 15% for curved walls, complex patterns such as herringbone or soldier coursing, or difficult site access. Never order without a wastage margin."}},
+      {"@type":"Question","name":"How do I calculate mortar for a brick wall?","acceptedAnswer":{"@type":"Answer","text":"Mortar volume is approximately 30% of the total wall volume for a standard 10mm joint. For every cubic metre of brickwork, you need roughly 0.3 m3 of mortar. A 1:5 cement-to-sand mix by volume requires about 6 bags of 50kg cement and 0.9 m3 of sand per cubic metre of mortar. Our calculator computes this automatically from your wall dimensions."}},
+      {"@type":"Question","name":"How many bricks are in one square foot?","acceptedAnswer":{"@type":"Answer","text":"Using standard Pakistani Awwal class bricks (9x3 inches face size) with a 0.5-inch mortar joint, a single 4.5-inch wall needs approximately 4.5 to 5 bricks per square foot. A 9-inch double wall requires approximately 9 to 10 bricks per square foot."}},
+      {"@type":"Question","name":"What cement-to-sand ratio should I use for brick mortar?","acceptedAnswer":{"@type":"Answer","text":"For general brickwork, a 1:5 cement-to-sand ratio by volume is most common in Pakistan and gives adequate strength for partition and boundary walls. For load-bearing or exposed walls, a richer 1:4 mix is recommended. For highly structural or below-grade walls, use 1:3."}},
+      {"@type":"Question","name":"Can I calculate bricks for a curved wall?","acceptedAnswer":{"@type":"Answer","text":"For gently curved walls, calculate the wall area normally using the curved length along the face of the wall. Add an extra 10-15% wastage for the additional cutting required. For tightly curved walls or arches, consult a mason and add 20% or more for wastage."}}
+    ]
+  }
+  </script>
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Sans:wght@300;400;500;600&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/assets/css/style.css">
+  <link rel="stylesheet" href="/tools/brick-calculator/brick-calculator.css">
+</head>
+<body>
+  <div id="navbar"></div>
+
+  <section class="page-hero">
+    <div class="hero-orb-1"></div>
+    <div class="hero-orb-2"></div>
+    <div class="container">
+      <div class="breadcrumb">
+        <a href="/index.html">Home</a><span>/</span>
+        <a href="/tools/">Calculators</a><span>/</span>
+        <span class="breadcrumb-current">Brick Calculator</span>
+      </div>
+      <div class="page-hero-badge">&#129521; Free Tool</div>
+      <h1>Brick <span class="grad-text">Calculator</span></h1>
+      <p class="page-hero-desc">Estimate Bricks, Mortar, Cement &amp; Sand for Any Wall</p>
+      <p>Whether you're building a boundary wall in Lahore, a partition wall for a new home, or a load-bearing structure on a commercial site, accurate brick estimation saves money and prevents mid-project shortages. This calculator handles single and double brick walls, Pakistani standard Awwal class sizes, and international brick dimensions &mdash; giving you brick count, mortar volume, cement bags, and sand quantity instantly.</p>
+      <div class="trust-chips">
+        <span class="trust-chip"><span class="trust-chip-icon">&#10004;</span> Metric, Imperial &amp; Pakistani Units</span>
+        <span class="trust-chip"><span class="trust-chip-icon">&#10004;</span> Single &amp; Double Brick Walls</span>
+        <span class="trust-chip"><span class="trust-chip-icon">&#10004;</span> Mortar, Cement &amp; Sand Included</span>
+        <span class="trust-chip"><span class="trust-chip-icon">&#10004;</span> No Signup Required</span>
+      </div>
+    </div>
+  </section>
+
+  <section class="section-sm">
+    <div class="container">
+      <div class="ad-placeholder ad-leaderboard" data-ad-slot="ad-leaderboard-1" aria-hidden="true" role="presentation"></div>
+    </div>
+  </section>
+
+  <section class="section" id="calculatorSection">
+    <div class="container">
+      <div class="calculator-wrap">
+        <div class="calc-title">Brick &amp; Mortar Calculator</div>
+        <div class="unit-toggle" id="unitToggle">
+          <button class="unit-toggle-btn active" data-unit="metric" type="button">Metric (m / mm)</button>
+          <button class="unit-toggle-btn" data-unit="imperial" type="button">Imperial (ft / in)</button>
+          <button class="unit-toggle-btn" data-unit="pakistani" type="button">Pakistani (ft / in)</button>
+        </div>
+        <div class="wall-type-grid" id="wallTypeGrid">
+          <div class="wall-type-card active" data-wall="single">
+            <div class="wall-type-icon"><div class="brick-single"></div></div>
+            <div class="wall-type-info">
+              <h4>Single Brick Wall</h4>
+              <p class="wall-type-sub">4.5 inch / Half Brick &mdash; Partition walls, fences, non-load-bearing</p>
+            </div>
+          </div>
+          <div class="wall-type-card" data-wall="double">
+            <div class="wall-type-icon"><div class="brick-double"><span></span><span></span></div></div>
+            <div class="wall-type-info">
+              <h4>Double Brick Wall</h4>
+              <p class="wall-type-sub">9 inch / Full Brick &mdash; Load-bearing walls, external walls</p>
+            </div>
+          </div>
+        </div>
+        <div class="form-row">
+          <div class="form-group">
+            <label class="form-label" for="wallLength" id="labelWallLength">Wall Length (m)</label>
+            <input type="number" id="wallLength" class="form-input" min="0.01" step="0.01" placeholder="e.g. 10">
+            <div class="field-error-msg" id="errWallLength">Please enter a value greater than 0</div>
+          </div>
+          <div class="form-group">
+            <label class="form-label" for="wallHeight" id="labelWallHeight">Wall Height (m)</label>
+            <input type="number" id="wallHeight" class="form-input" min="0.01" step="0.01" placeholder="e.g. 3">
+            <div class="field-error-msg" id="errWallHeight">Please enter a value greater than 0</div>
+          </div>
+        </div>
+        <div class="wall-area-display">
+          <span class="area-label">Wall Area</span>
+          <span class="area-value" id="wallAreaDisplay">0.00 m&sup2;</span>
+        </div>
+        <button class="brick-details-toggle" id="brickDetailsToggle" type="button">
+          <span class="toggle-arrow">&#9656;</span> Customise Brick Size
+        </button>
+        <div class="brick-details-panel" id="brickDetailsPanel">
+          <div class="brick-details-inner">
+            <div class="form-row">
+              <div class="form-group">
+                <label class="form-label" for="brickLength" id="labelBrickL">Brick Length</label>
+                <input type="number" id="brickLength" class="form-input" min="0.1" step="0.1">
+                <div class="form-hint" id="hintBrickL">Default: 230 mm (standard metric)</div>
+                <div class="field-error-msg" id="errBrickL">Please enter a value greater than 0</div>
+              </div>
+              <div class="form-group">
+                <label class="form-label" for="brickHeight" id="labelBrickH">Brick Height</label>
+                <input type="number" id="brickHeight" class="form-input" min="0.1" step="0.1">
+                <div class="form-hint" id="hintBrickH">Default: 76 mm (standard metric)</div>
+                <div class="field-error-msg" id="errBrickH">Please enter a value greater than 0</div>
+              </div>
+            </div>
+            <div class="form-row">
+              <div class="form-group">
+                <label class="form-label" for="brickWidth" id="labelBrickW">Brick Width</label>
+                <input type="number" id="brickWidth" class="form-input" min="0.1" step="0.1">
+                <div class="form-hint" id="hintBrickW">Default: 110 mm (standard metric)</div>
+              </div>
+              <div class="form-group">
+                <label class="form-label" for="mortarJoint" id="labelMortar">Mortar Joint</label>
+                <input type="number" id="mortarJoint" class="form-input" min="0" step="0.1">
+                <div class="form-hint" id="hintMortar">Default: 10 mm (standard metric)</div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <hr class="section-divider">
+        <div class="form-group">
+          <label class="form-label">Wastage Factor</label>
+          <div class="wastage-group" id="wastageGroup">
+            <button class="wastage-btn" data-wastage="0" type="button">0%</button>
+            <button class="wastage-btn" data-wastage="5" type="button">5%</button>
+            <button class="wastage-btn active" data-wastage="10" type="button">10% &#9733;</button>
+            <button class="wastage-btn" data-wastage="15" type="button">15%</button>
+          </div>
+          <div class="wastage-hint" id="wastageHint">Recommended for most residential and commercial projects</div>
+        </div>
+        <div class="form-group">
+          <label class="form-label" for="mixRatio">Cement : Sand Mix Ratio</label>
+          <select id="mixRatio" class="form-input form-select">
+            <option value="1:3">1:3 &mdash; Structural / below grade</option>
+            <option value="1:4">1:4 &mdash; Load-bearing walls (recommended)</option>
+            <option value="1:5" selected>1:5 &mdash; General brickwork</option>
+            <option value="1:6">1:6 &mdash; Light partition walls</option>
+          </select>
+          <div class="form-hint">Ratio by volume. A richer mix gives stronger mortar but uses more cement.</div>
+        </div>
+        <button class="cost-toggle" id="costToggle" type="button">
+          <span class="toggle-arrow">&#9656;</span> Add Cost Estimate (Optional)
+        </button>
+        <div class="cost-panel" id="costPanel">
+          <div class="cost-panel-inner">
+            <div class="form-group">
+              <label class="form-label" for="pricePerBrick" id="labelPrice">Price per Brick (PKR)</label>
+              <input type="number" id="pricePerBrick" class="form-input" min="0" step="0.5" placeholder="e.g. 18">
+            </div>
+          </div>
+        </div>
+        <div class="calc-actions">
+          <button class="btn btn-primary btn-lg btn-full" id="calcBtn" type="button">Calculate Bricks &amp; Materials &#8594;</button>
+        </div>
+      </div>
+
+      <div class="results-box" id="resultsBox">
+        <div class="results-header">
+          <h3>Your Estimate</h3>
+          <div class="results-header-actions">
+            <span class="copy-feedback" id="copyFeedback">&#10003; Copied to clipboard</span>
+            <button class="btn btn-secondary btn-sm" id="copyBtn" type="button">&#128203; Copy Results</button>
+            <button class="btn btn-secondary btn-sm" id="printBtn" type="button">&#128424; Print / Save PDF</button>
+          </div>
+        </div>
+        <div class="result-grid">
+          <div class="result-card primary">
+            <div class="result-card-label">BRICKS REQUIRED</div>
+            <div class="result-card-value" id="resBricksNet">&mdash;</div>
+            <div class="result-card-sub">Without wastage</div>
+          </div>
+          <div class="result-card highlight">
+            <div class="result-card-label">TOTAL BRICKS TO ORDER</div>
+            <div class="result-card-value" id="resBricksTotal">&mdash;</div>
+            <div class="result-card-sub" id="resBricksTotalSub">Including 10% wastage</div>
+          </div>
+          <div class="result-card">
+            <div class="result-card-label">MORTAR VOLUME</div>
+            <div class="result-card-value" id="resMortar">&mdash;</div>
+            <div class="result-card-sub">Wet mortar required</div>
+          </div>
+          <div class="result-card">
+            <div class="result-card-label">CEMENT REQUIRED</div>
+            <div class="result-card-value" id="resCement">&mdash;</div>
+            <div class="result-card-sub" id="resCementSub">&mdash; bags of 50kg</div>
+          </div>
+          <div class="result-card">
+            <div class="result-card-label">SAND REQUIRED</div>
+            <div class="result-card-value" id="resSand">&mdash;</div>
+            <div class="result-card-sub">Loose dry volume</div>
+          </div>
+          <div class="result-card hidden" id="costCard">
+            <div class="result-card-label">ESTIMATED BRICK COST</div>
+            <div class="result-card-value" id="resCost">&mdash;</div>
+            <div class="result-card-sub" id="resCostSub">Based on price per brick</div>
+          </div>
+          <div class="result-card">
+            <div class="result-card-label">WALL AREA</div>
+            <div class="result-card-value" id="resArea">&mdash;</div>
+            <div class="result-card-sub">Gross wall area (no deductions)</div>
+          </div>
+        </div>
+        <div class="results-disclaimer" id="resultsDisclaimer">This estimate is for guidance only. Wall area does not deduct for openings (doors, windows). Measure and deduct these separately. Mortar volume calculated at 30% of wall volume using 1:5 mix ratio. Always consult a qualified mason or structural engineer before ordering materials.</div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section-sm">
+    <div class="container ad-rectangle-wrap">
+      <div class="ad-placeholder ad-rectangle ad-rectangle-desktop" data-ad-slot="ad-rectangle-1" aria-hidden="true" role="presentation"></div>
+    </div>
+  </section>
+
+  <section class="section" id="howtoSection">
+    <div class="container">
+      <div class="section-header">
+        <h2>How to Use the Brick <span class="grad-text">Calculator</span></h2>
+      </div>
+      <div class="howto-steps">
+        <div class="howto-card anim-up">
+          <div class="howto-number">01</div>
+          <div class="howto-content">
+            <h3>Select Your Unit System</h3>
+            <p>Start by choosing Metric, Imperial, or Pakistani from the unit toggle at the top of the calculator. Pakistani mode automatically fills in the Awwal class standard brick size (9&times;4.5&times;3 inches) with a 0.5-inch mortar joint &mdash; the most common specification across construction sites in KPK, Punjab and Sindh.</p>
+          </div>
+        </div>
+        <div class="howto-card anim-up">
+          <div class="howto-number">02</div>
+          <div class="howto-content">
+            <h3>Choose Wall Type and Enter Dimensions</h3>
+            <p>Select Single or Double brick wall. A single wall is one brick laid flat &mdash; the 4.5-inch wall common in partition and boundary walls. A double wall is two bricks wide &mdash; the 9-inch wall standard for load-bearing external walls. Then enter your wall length and height. The wall area calculates automatically.</p>
+          </div>
+        </div>
+        <div class="howto-card anim-up">
+          <div class="howto-number">03</div>
+          <div class="howto-content">
+            <h3>Adjust Brick Size and Mortar (Optional)</h3>
+            <p>The default brick dimensions match the most common size for your selected unit system. If your bricks are non-standard &mdash; for example modular metric bricks at 215&times;65mm, or locally sourced handmade bricks &mdash; open the Customise Brick Size section and enter your actual measurements. Don't forget to adjust the mortar joint thickness if needed.</p>
+          </div>
+        </div>
+        <div class="howto-card anim-up">
+          <div class="howto-number">04</div>
+          <div class="howto-content">
+            <h3>Set Wastage, Mix Ratio and Calculate</h3>
+            <p>Choose your wastage factor &mdash; 10% is right for most jobs. Select your cement-to-sand mix ratio (1:5 for general work, 1:4 for load-bearing). Hit Calculate and read off your brick count, mortar volume, cement bags and sand quantity. Use the Copy or Print buttons to save your estimate.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="articleSection">
+    <div class="container">
+      <div class="prose">
+        <h2>How Many Bricks Do I Need?</h2>
+        <p>The core formula for estimating bricks is straightforward: <strong>Bricks = Wall Area &divide; ((Brick Length + Mortar Joint) &times; (Brick Height + Mortar Joint))</strong>. This gives you the number of bricks needed to cover one face of the wall. For a double-thickness wall, multiply the result by two.</p>
+        <p>Here is a fully worked example. Consider a wall that is 5 metres long and 3 metres high, giving a wall area of 15 m&sup2;. Using standard metric bricks measuring 230mm &times; 76mm with a 10mm mortar joint:</p>
+        <p>Bricks = 15 &divide; ((0.23 + 0.01) &times; (0.076 + 0.01)) = 15 &divide; (0.24 &times; 0.086) = 15 &divide; 0.02064 &asymp; <strong>727 bricks</strong>. Adding 10% wastage gives 727 &times; 1.10 = 800 bricks to order. For a double brick wall, you would need approximately 1,600 bricks.</p>
+        <p>Always remember that this calculation gives the gross wall area. You must manually deduct the area of any doors, windows or other openings from the wall area before calculating your brick count.</p>
+
+        <h2>Brick Sizes &mdash; Standard Dimensions by Country</h2>
+        <h3>Pakistan &mdash; Awwal (First Class) Bricks</h3>
+        <p>The standard Awwal brick size in Pakistan is 9 inches &times; 4.5 inches &times; 3 inches (228mm &times; 114mm &times; 76mm). With a standard 0.5-inch (approximately 10mm) mortar joint, the nominal working size becomes about 9.5 inches &times; 3.5 inches on the face. These bricks are sold in thousands and prices vary significantly by kiln, region and quality grade. Awwal class bricks are well-fired with a uniform reddish colour and ring when struck together. Second class (Doam) bricks are similar in size but lower in fired density and strength. Note that handmade kiln bricks can vary by &plusmn;5mm in any dimension, so always measure a sample before basing your calculation on the standard size.</p>
+        <h3>UK and International Metric Bricks</h3>
+        <p>The standard UK metric brick measures 215 &times; 65 &times; 102.5mm. With a 10mm mortar joint, the working face size becomes 225 &times; 75mm. This yields approximately 60 bricks per square metre for a single-leaf wall. Metric bricks are highly consistent in size due to factory production and are available in a wide range of colours and textures including wirecut, pressed, and handmade finishes.</p>
+        <h3>US Standard Bricks</h3>
+        <p>The US modular brick measures 194 &times; 57 &times; 92mm (approximately 7&#8541; &times; 2&frac14; &times; 3&#8541; inches). With a standard 10mm (&#8540; inch) mortar joint, the working face becomes approximately 203 &times; 67mm. This gives roughly 6.75 bricks per square foot for a single wythe wall. US bricks are available in modular, queen, king, and utility sizes, each with slightly different dimensions suited to different applications.</p>
+
+        <h2>Single vs Double Brick Walls &mdash; Which Do You Need?</h2>
+        <p>A single brick wall, also called a half-brick or 4.5-inch wall, is one brick thick when laid flat. It is used for non-structural applications such as internal partition walls, garden boundary fences, and decorative screening walls. Single brick walls are not suitable for load-bearing applications above one storey without reinforcement.</p>
+        <p>A double brick wall, also called a full brick or 9-inch wall, is two bricks wide. This is the standard for external load-bearing walls, structural columns, and retaining walls. In Pakistani building practice, 9-inch walls are used for virtually all external walls of residential buildings &mdash; they provide excellent thermal mass for temperature regulation and sufficient structural strength for two- to three-storey construction.</p>
+        <p>For heavy foundations and structures requiring exceptional strength, 13.5-inch walls (three bricks wide) are sometimes used. These are common in basement retaining walls and the lower storeys of commercial buildings in Pakistan where seismic loads are a consideration.</p>
+
+        <h2>How to Calculate Mortar, Cement and Sand</h2>
+        <p>A useful rule of thumb is that mortar occupies approximately 30% of the total wall volume. The total wall volume is calculated as wall area multiplied by wall thickness. For a single brick wall using 110mm (4.5-inch) bricks, the thickness is 0.114 metres; for a double wall, it is 0.228 metres.</p>
+        <p>Here is a worked example using a 1:5 cement-to-sand mix. Consider a single brick wall 5m long &times; 3m high &times; 0.114m thick. The wall volume is 5 &times; 3 &times; 0.114 = 1.71 m&sup3;. The mortar volume is 1.71 &times; 0.30 = 0.513 m&sup3; of wet mortar. Applying a dry volume correction factor of 1.33 gives 0.513 &times; 1.33 = 0.682 m&sup3; of dry materials.</p>
+        <p>For a 1:5 mix, the total ratio parts are 6 (1 cement + 5 sand). Cement volume = 0.682 &times; (1/6) = 0.114 m&sup3;. Converting to weight using cement bulk density of 1,500 kg/m&sup3; gives 0.114 &times; 1500 = <strong>171 kg</strong>, which is approximately <strong>4 bags of 50 kg cement</strong>. Sand volume = 0.682 &times; (5/6) = <strong>0.568 m&sup3;</strong> of loose dry sand.</p>
+        <p>The dry volume correction factor of 1.33 accounts for the bulking of dry sand and cement when measured loosely compared to the compacted volume in the finished mortar joint. This is a critical adjustment that is often overlooked in simple calculations.</p>
+
+        <h2>Wastage &mdash; Why You Must Always Order Extra</h2>
+        <p>Brick wastage comes from several sources: breakage during transit and manual unloading from trucks, cutting bricks at corners and around door and window openings, complex bonding patterns like herringbone or Flemish bond that require more cuts, and colour or batch variation that forces you to discard mismatched units.</p>
+        <p>The standard wastage guidelines are: <strong>5%</strong> for clean machine-cut bricks delivered on pallets to an accessible site with an experienced mason. <strong>10%</strong> for standard residential and commercial projects with normal delivery conditions. <strong>15%</strong> for curved walls, arched openings, herringbone patterns, or sites with difficult access where bricks are handled multiple times.</p>
+        <p>Never order the exact calculated amount. Running short mid-project is far more expensive than having a small surplus. Bricks from a second delivery batch may not match the colour of the first batch &mdash; kilns produce slightly different shades with every firing. Order all your bricks from a single batch if possible.</p>
+
+        <h2>Brick Prices in Pakistan (2024&ndash;2025 Guide)</h2>
+        <p>Brick prices in Pakistan vary significantly by region, kiln quality, and season. As a general guide for 2024&ndash;2025: Awwal (First Class) bricks range from PKR 15&ndash;25 per brick depending on location and quality. Doam (Second Class) bricks are typically PKR 10&ndash;18 per brick. When buying in bulk, prices per 1,000 bricks generally range from PKR 15,000&ndash;25,000.</p>
+        <p>Major cities such as Lahore, Karachi, Islamabad, and Abbottabad each have different prevailing rates influenced by the proximity of brick kilns, transport costs, and local demand. Always get at least three quotes from local kilns or suppliers before committing to a purchase.</p>
+        <p>Note: These prices are estimates for informational purposes only and change frequently due to fuel costs, clay availability, and seasonal demand fluctuations.</p>
+
+        <h2>Tips for Ordering and Laying Bricks</h2>
+        <p><strong>1. Order from a single kiln or batch.</strong> Colour consistency across your wall depends on all bricks coming from the same firing. Mixing batches almost always results in visible colour banding that is impossible to fix once the wall is built.</p>
+        <p><strong>2. Store bricks properly on site.</strong> Stack bricks on a hard, dry surface and cover them with a tarpaulin to protect against rain. Wet bricks absorb less mortar and create weaker joints. Never stack bricks directly on soft ground where they can sink and pick up mud.</p>
+        <p><strong>3. Wet bricks before laying in hot conditions.</strong> In temperatures above 35&deg;C, lightly dampen bricks before laying to improve mortar adhesion and prevent them from drawing moisture out of the mortar too quickly, which causes weak joints.</p>
+        <p><strong>4. Use a spirit level and string line for every course.</strong> Keeping walls plumb (vertical) and level (horizontal) is essential for structural integrity and appearance. Check every three to four courses with a long spirit level and adjust immediately.</p>
+        <p><strong>5. Deduct openings from your wall area.</strong> Before calculating your brick count, subtract the area of all doors, windows, and other openings. A standard door opening (0.9m &times; 2.1m) saves roughly 90 bricks on a single wall &mdash; failing to deduct wastes money.</p>
+        <p><strong>6. Consult a structural engineer for tall walls.</strong> Unreinforced brickwork has height limits that depend on wall thickness, brick strength, and mortar class. For walls over 3 metres high, always get professional advice on whether reinforcement, piers, or buttresses are needed.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="faqSection">
+    <div class="container">
+      <div class="section-header">
+        <h2>Frequently Asked <span class="grad-text">Questions</span></h2>
+      </div>
+      <div class="faq-list">
+        <div class="faq-item">
+          <button class="faq-question" type="button">How many bricks do I need per square meter?<span class="faq-arrow">&#9656;</span></button>
+          <div class="faq-answer">For a standard single-brick wall using 230&times;76mm bricks with a 10mm mortar joint, you need approximately 48 bricks per square metre. For a double brick wall, this doubles to around 96 bricks per m&sup2;. Using Pakistani standard Awwal class bricks (9&times;4.5&times;3 inches) you need approximately 50&ndash;55 bricks per square metre for a 4.5-inch wall.</div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-question" type="button">What is the standard brick size in Pakistan?<span class="faq-arrow">&#9656;</span></button>
+          <div class="faq-answer">The standard Awwal (First Class) brick size in Pakistan is 9 inches &times; 4.5 inches &times; 3 inches (228mm &times; 114mm &times; 76mm). When accounting for a standard 10mm mortar joint, the nominal working size becomes approximately 238mm &times; 124mm &times; 86mm. Second class (Doam) bricks are similar in size but lower in fired density.</div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-question" type="button">What is the difference between a single and double brick wall?<span class="faq-arrow">&#9656;</span></button>
+          <div class="faq-answer">A single brick wall (also called a half-brick or 4.5-inch wall) is one brick laid flat &mdash; used for partition walls and boundary fences. A double brick wall (also called a full brick or 9-inch wall) is two bricks wide &mdash; used for load-bearing external walls, foundations, and structural applications. A double wall requires roughly twice the bricks and mortar.</div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-question" type="button">How much wastage should I add to my brick estimate?<span class="faq-arrow">&#9656;</span></button>
+          <div class="faq-answer">Add 5% wastage for machine-cut bricks delivered on pallets with minimal breakage. Add 10% for standard deliveries involving manual unloading. Add 15% for curved walls, complex patterns such as herringbone or soldier coursing, or difficult site access. Never order without a wastage margin &mdash; running short mid-project causes delays and colour-matching problems.</div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-question" type="button">How do I calculate mortar for a brick wall?<span class="faq-arrow">&#9656;</span></button>
+          <div class="faq-answer">Mortar volume is approximately 30% of the total wall volume for a standard 10mm joint. For every cubic metre of brickwork, you need roughly 0.3 m&sup3; of mortar. A 1:5 cement-to-sand mix by volume requires about 6 bags of 50kg cement and 0.9 m&sup3; of sand per cubic metre of mortar. Our calculator computes this automatically from your wall dimensions.</div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-question" type="button">How many bricks are in one square foot?<span class="faq-arrow">&#9656;</span></button>
+          <div class="faq-answer">Using standard Pakistani Awwal class bricks (9&times;3 inches face size) with a 0.5-inch mortar joint, a single 4.5-inch wall needs approximately 4.5 to 5 bricks per square foot. A 9-inch double wall requires approximately 9 to 10 bricks per square foot.</div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-question" type="button">What cement-to-sand ratio should I use for brick mortar?<span class="faq-arrow">&#9656;</span></button>
+          <div class="faq-answer">For general brickwork, a 1:5 cement-to-sand ratio by volume is most common in Pakistan and gives adequate strength for partition and boundary walls. For load-bearing or exposed walls, a richer 1:4 mix is recommended. For highly structural or below-grade walls, use 1:3. Our calculator lets you choose your mix ratio.</div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-question" type="button">Can I calculate bricks for a curved wall?<span class="faq-arrow">&#9656;</span></button>
+          <div class="faq-answer">For gently curved walls, calculate the wall area normally using the curved length along the face of the wall. Add an extra 10&ndash;15% wastage for the additional cutting required. For tightly curved walls or arches, consult a mason and add 20% or more for wastage. Our calculator uses face area which is compatible with curved wall estimation &mdash; just input the arc length as your wall length.</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section-sm">
+    <div class="container">
+      <div class="ad-placeholder ad-leaderboard" data-ad-slot="ad-leaderboard-2" aria-hidden="true" role="presentation"></div>
+    </div>
+  </section>
+
+  <section class="section" id="relatedSection">
+    <div class="container">
+      <div class="section-header">
+        <h2>Related Construction <span class="grad-text">Calculators</span></h2>
+      </div>
+      <div class="related-grid">
+        <a href="/tools/concrete-calculator/" class="tool-card anim-up">
+          <div class="tool-card-icon">&#127959;&#65039;</div>
+          <div class="tool-card-name">Concrete Volume Calculator</div>
+          <div class="tool-card-desc">Calculate concrete for slabs, columns and footings. Includes bag count and weight estimates.</div>
+          <div class="tool-card-arrow">Use Tool &#8594;</div>
+        </a>
+        <a href="/tools/rebar-calculator/" class="tool-card anim-up">
+          <div class="tool-card-icon">&#128297;</div>
+          <div class="tool-card-name">Rebar / Steel Bar Estimator</div>
+          <div class="tool-card-desc">Estimate rebar quantity, weight and spacing for reinforced concrete walls and slabs.</div>
+          <div class="tool-card-arrow">Use Tool &#8594;</div>
+        </a>
+        <a href="/tools/excavation-calculator/" class="tool-card anim-up">
+          <div class="tool-card-icon">&#128668;</div>
+          <div class="tool-card-name">Excavation Calculator</div>
+          <div class="tool-card-desc">Calculate cut and fill volumes for trenches, foundations and bulk earthworks.</div>
+          <div class="tool-card-arrow">Use Tool &#8594;</div>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <div id="footer"></div>
+  <script src="/assets/js/main.js"></script>
+  <script src="/tools/brick-calculator/brick-calculator.js"></script>
+</body>
+</html>
