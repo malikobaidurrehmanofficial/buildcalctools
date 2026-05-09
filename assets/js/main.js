@@ -33,18 +33,29 @@ window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', e =
 const ICON_SUN = `<svg class="icon-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg>`;
 const ICON_MOON = `<svg class="icon-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>`;
 
-/* ── Navbar HTML ── */
-const NAV_HTML = `
+/* ── Base Path (works on GitHub Pages subdirectory or custom domain) ── */
+function getBasePath() {
+  const scripts = document.querySelectorAll('script[src*="main.js"]');
+  if (scripts.length > 0) {
+    const src = scripts[scripts.length - 1].getAttribute('src');
+    return src.replace('assets/js/main.js', '');
+  }
+  return './';
+}
+
+/* ── Navbar & Footer HTML ── */
+function buildNav(B) {
+  return `
 <nav class="navbar" id="mainNavbar">
   <div class="container navbar-inner">
-    <a href="/index.html" class="nav-logo">
-      <img src="/assets/img/logo.png" alt="BuildCalcTools" class="nav-logo-img">
+    <a href="${B}index.html" class="nav-logo">
+      <img src="${B}assets/img/logo.png" alt="BuildCalcTools" class="nav-logo-img">
     </a>
     <div class="nav-links" id="navLinks">
-      <a href="/index.html">Home</a>
-      <a href="/tools/">Calculators</a>
-      <a href="/blog/">Blog</a>
-      <a href="/about/">About</a>
+      <a href="${B}index.html">Home</a>
+      <a href="${B}tools/">Calculators</a>
+      <a href="${B}blog/">Blog</a>
+      <a href="${B}about/">About</a>
     </div>
     <div class="nav-right">
       <button class="theme-toggle" id="themeToggle" aria-label="Toggle dark/light theme" title="Toggle theme">
@@ -56,61 +67,64 @@ const NAV_HTML = `
     </div>
   </div>
 </nav>`;
+}
 
-/* ── Footer HTML ── */
-const FOOTER_HTML = `
+function buildFooter(B) {
+  return `
 <footer class="footer">
   <div class="container">
     <div class="footer-top">
       <div class="footer-brand">
-        <a href="/index.html" class="nav-logo">
-          <img src="/assets/img/logo.png" alt="BuildCalcTools" class="nav-logo-img">
+        <a href="${B}index.html" class="nav-logo">
+          <img src="${B}assets/img/logo.png" alt="BuildCalcTools" class="nav-logo-img">
         </a>
         <p>Free construction calculators for engineers, contractors and builders. No signup ever required.</p>
       </div>
       <div class="footer-col">
         <div class="footer-links-group">
           <span class="footer-links-title">Calculators</span>
-          <a href="/tools/concrete-calculator.html">Concrete Calculator</a>
-          <a href="/tools/brick-calculator.html">Brick Calculator</a>
-          <a href="/tools/steel-calculator.html">Steel Calculator</a>
-          <a href="/tools/">All Tools</a>
+          <a href="${B}tools/concrete-calculator/">Concrete Calculator</a>
+          <a href="${B}tools/brick-calculator/">Brick Calculator</a>
+          <a href="${B}tools/">All Tools</a>
         </div>
       </div>
       <div class="footer-col">
         <div class="footer-links-group">
           <span class="footer-links-title">Site</span>
-          <a href="/about/">About</a>
-          <a href="/blog/">Blog</a>
-          <a href="/contact/">Contact</a>
+          <a href="${B}about/">About</a>
+          <a href="${B}blog/">Blog</a>
+          <a href="${B}contact/">Contact</a>
         </div>
       </div>
       <div class="footer-col">
         <div class="footer-links-group">
           <span class="footer-links-title">Legal</span>
-          <a href="/privacy-policy/">Privacy Policy</a>
-          <a href="/terms/">Terms of Use</a>
-          <a href="/disclaimer/">Disclaimer</a>
+          <a href="${B}privacy-policy/">Privacy Policy</a>
+          <a href="${B}terms/">Terms of Use</a>
+          <a href="${B}disclaimer/">Disclaimer</a>
         </div>
       </div>
     </div>
     <div class="footer-bottom">
       <p>&copy; <span id="fyear"></span> BuildCalcTools.site &mdash; All rights reserved.</p>
       <span class="footer-free-badge">✦ Free Tool — No Signup Needed</span>
-      <p>Built by <a href="/about/" style="color:var(--color-primary);">Malik Obaid Ur Rehman</a></p>
+      <p>Built by <a href="${B}about/" style="color:var(--color-primary);">Malik Obaid Ur Rehman</a></p>
     </div>
   </div>
 </footer>`;
+}
 
 document.addEventListener('DOMContentLoaded', () => {
 
+  const B = getBasePath();
+
   /* ── Inject navbar ── */
   const nb = document.getElementById('navbar');
-  if (nb) { nb.outerHTML = NAV_HTML; }
+  if (nb) { nb.outerHTML = buildNav(B); }
 
   /* ── Inject footer ── */
   const ft = document.getElementById('footer');
-  if (ft) { ft.outerHTML = FOOTER_HTML; }
+  if (ft) { ft.outerHTML = buildFooter(B); }
 
   /* ── Current year ── */
   const yr = document.getElementById('fyear');
@@ -126,9 +140,10 @@ document.addEventListener('DOMContentLoaded', () => {
   const path = window.location.pathname;
   document.querySelectorAll('.nav-links a').forEach(a => {
     const href = a.getAttribute('href') || '';
-    if (href === '/index.html' && (path === '/' || path === '/index.html')) {
+    const resolved = new URL(href, window.location.href).pathname;
+    if (resolved === path || (resolved.endsWith('/') && path.startsWith(resolved) && resolved.length > 1)) {
       a.classList.add('active');
-    } else if (href !== '/index.html' && href.length > 1 && path.startsWith(href.replace('index.html', ''))) {
+    } else if (href.includes('index.html') && (path === '/' || path.endsWith('/buildcalctools/') || path.endsWith('/index.html'))) {
       a.classList.add('active');
     }
   });
