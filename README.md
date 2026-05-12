@@ -7,7 +7,15 @@ Free construction calculators for engineers, contractors and builders.
 ## Tools
 
 - [Concrete Calculator](https://buildcalctools.site/tools/concrete-calculator/) — Slabs, columns, footings, stairs and tubes
+- [Concrete Mix Ratio Calculator](https://buildcalctools.site/tools/concrete-mix-calculator/) — Cement, sand and aggregate for C10–C40 grades
+- [Rebar / Steel Bar Estimator](https://buildcalctools.site/tools/rebar-calculator/) — Bar quantity, weight and spacing for slabs, beams, footings
+- [Steel Weight Calculator](https://buildcalctools.site/tools/steel-calculator/) — Weight of bars, beams, plates and hollow sections
+- [Excavation Calculator](https://buildcalctools.site/tools/excavation-calculator/) — Cut/fill volumes, swell factors and truck loads
+- [Paint Coverage Calculator](https://buildcalctools.site/tools/paint-calculator/) — Litres and tins for rooms, walls and exteriors
+- [Flooring Calculator](https://buildcalctools.site/tools/flooring-calculator/) — Tiles, laminate and hardwood with box count and cost
 - [Brick Calculator](https://buildcalctools.site/tools/brick-calculator/) — Brick count, mortar volume, cement and sand
+- [Mortar Calculator](https://buildcalctools.site/tools/mortar-calculator/) — Mortar volume, cement bags and sand for any wall
+- [Concrete Block Calculator](https://buildcalctools.site/tools/block-calculator/) — Block count, mortar and cost estimate
 - [All Tools](https://buildcalctools.site/tools/)
 
 ## Blog

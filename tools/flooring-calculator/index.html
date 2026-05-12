@@ -1,0 +1,219 @@
+﻿<!DOCTYPE html><html lang="en"><head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Flooring Calculator &#8212; Tiles, Hardwood &amp; Laminate Estimator | BuildCalcTools</title>
+<meta name="description" content="Free flooring calculator for tiles, hardwood, laminate and vinyl. Calculate area, tile count, boxes needed and total cost with wastage. Metric and imperial.">
+<link rel="canonical" href="https://buildcalctools.site/tools/flooring-calculator/">
+<link rel="icon" href="../../assets/img/fav.png" type="image/png">
+<meta property="og:title" content="Free Flooring Calculator &#8212; Tiles, Hardwood &amp; Laminate | BuildCalcTools">
+<meta property="og:description" content="Calculate area, tile count, boxes and cost for tiles, laminate and hardwood flooring.">
+<meta property="og:url" content="https://buildcalctools.site/tools/flooring-calculator/"><meta property="og:type" content="website">
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"WebApplication","name":"Flooring Calculator","url":"https://buildcalctools.site/tools/flooring-calculator/","description":"Calculate exact tile count, laminate boxes, or hardwood area for any room with wastage and cost.","applicationCategory":"UtilityApplication","operatingSystem":"All","offers":{"@type":"Offer","price":"0","priceCurrency":"USD"}}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"How do I calculate how many tiles I need?","acceptedAnswer":{"@type":"Answer","text":"Measure room area in m2. Calculate tiles per m2 = 1 / ((tile width + grout) x (tile height + grout)) in metres. Multiply area by tiles/m2. Add 10% wastage for straight lay, 15-20% for diagonal."}},{"@type":"Question","name":"How much flooring for a 10x12 room?","acceptedAnswer":{"@type":"Answer","text":"10 x 12 feet = 120 sq ft = 11.15 m2. With 10% wastage you need about 12.3 m2 of flooring. For tiles that is roughly 47 tiles of 500x500mm or 33 tiles of 600x600mm."}},{"@type":"Question","name":"What wastage for tiling?","acceptedAnswer":{"@type":"Answer","text":"10% for straight lay on rectangular rooms. 15% for rooms with many cuts. 20% for diagonal (45 degree) lay. Complex patterns like herringbone may need 20%+. Always order from the same batch."}},{"@type":"Question","name":"How many tiles in a box?","acceptedAnswer":{"@type":"Answer","text":"Varies by size. 300x300mm: typically 10-11 per box. 500x500mm: 4-5 per box. 600x600mm: 3-4 per box. 800x800mm: 2-3 per box. Always check your supplier - it varies by brand."}},{"@type":"Question","name":"Standard tile size in Pakistan?","acceptedAnswer":{"@type":"Answer","text":"Most common sizes are 300x300mm (budget), 400x400mm (mid-range), 600x600mm (standard modern), and 800x800mm (premium). Large format 1200x600mm is growing in popularity for contemporary homes."}},{"@type":"Question","name":"Flooring for L-shaped room?","acceptedAnswer":{"@type":"Answer","text":"Split the L into two rectangles. Calculate area of each and add them together. Our calculator has a built-in L-shape mode that does this automatically with 4 dimension inputs."}},{"@type":"Question","name":"What grout joint width for floor tiles?","acceptedAnswer":{"@type":"Answer","text":"Rectified tiles: 2mm minimum. Standard tiles: 3-5mm. Rustic or handmade tiles: 6-10mm. Wider joints use slightly fewer tiles per m2. Always use the grout width recommended by the tile manufacturer."}},{"@type":"Question","name":"How to calculate flooring cost?","acceptedAnswer":{"@type":"Answer","text":"Total cost = Number of tiles x Price per tile. Or for laminate: Number of boxes x Price per box. Add adhesive, grout, underlay and labour separately. Our calculator includes optional cost fields for material estimates."}}]}</script>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Sans:wght@400;500;600&family=JetBrains+Mono:wght@400;600&display=swap" media="print" onload="this.media='all'">
+<link rel="stylesheet" href="../../assets/css/style.css">
+<link rel="stylesheet" href="flooring-calculator.css">
+</head><body>
+<div id="navbar"></div>
+<section class="page-hero"><div class="hero-orb-1"></div><div class="hero-orb-2"></div><div class="container">
+<div class="breadcrumb"><a href="../../index.html">Home</a><span>/</span><a href="../">Calculators</a><span>/</span><span class="breadcrumb-current">Flooring Calculator</span></div>
+<div class="page-hero-badge">Free Tool</div>
+<h1>Flooring<br><span class="grad-text">Calculator</span></h1>
+<p>Calculate the exact number of tiles, boxes of laminate, or square metres of hardwood needed for any room &#8212; with wastage, grout joints, and cost built in.</p>
+<div class="trust-chips"><span class="badge badge-muted">&#10004; Tiles, Laminate &amp; Hardwood</span><span class="badge badge-muted">&#10004; Box Count</span><span class="badge badge-muted">&#10004; Wastage &amp; Cost</span><span class="badge badge-muted">&#10004; Metric &amp; Imperial</span></div>
+</div></section>
+<div class="container"><div class="ad-placeholder ad-leaderboard" data-ad-slot="flooring-top-leaderboard" aria-hidden="true" role="presentation"></div></div>
+<section class="section" id="calculatorSection"><div class="container"><div class="calculator-wrap">
+<div class="calc-title">Flooring Calculator</div>
+<div class="calc-tabs">
+<button class="calc-tab active" data-tab="tiles">Tiles</button>
+<button class="calc-tab" data-tab="laminate">Laminate / Vinyl</button>
+<button class="calc-tab" data-tab="hardwood">Hardwood</button>
+</div>
+
+<div class="tab-panel active" id="panel-tiles">
+<div class="form-label">Room Area Mode</div>
+<div class="mode-toggle">
+<button class="mode-pill area-mode-pill active" data-mode="single">Single Room</button>
+<button class="mode-pill area-mode-pill" data-mode="multi">Multiple Areas</button>
+</div>
+
+<div class="area-mode-panel active" data-mode="single">
+<div class="form-label">Room Shape</div>
+<div class="room-shape-toggle seg-group">
+<button class="seg-btn shape-pill active" data-shape="rect">Rectangular</button>
+<button class="seg-btn shape-pill" data-shape="lshape">L-Shaped</button>
+</div>
+<div class="shape-panel active" data-shape="rect">
+<div class="form-row"><div class="form-group"><label class="form-label">Length (m)</label><input class="form-input" type="number" id="tRoomL" value="4" min="0.1" step="0.1"></div>
+<div class="form-group"><label class="form-label">Width (m)</label><input class="form-input" type="number" id="tRoomW" value="3" min="0.1" step="0.1"></div></div>
+</div>
+<div class="shape-panel" data-shape="lshape">
+<div class="l-shape-grid">
+<div class="form-group"><label class="form-label">Long Side Length (m)</label><input class="form-input" type="number" id="lLongL" value="5" min="0.1" step="0.1"></div>
+<div class="form-group"><label class="form-label">Long Side Width (m)</label><input class="form-input" type="number" id="lLongW" value="3" min="0.1" step="0.1"></div>
+<div class="form-group"><label class="form-label">Short Side Length (m)</label><input class="form-input" type="number" id="lShortL" value="2" min="0.1" step="0.1"></div>
+<div class="form-group"><label class="form-label">Short Side Width (m)</label><input class="form-input" type="number" id="lShortW" value="2" min="0.1" step="0.1"></div>
+</div></div></div>
+
+<div class="area-mode-panel" data-mode="multi">
+<div id="multiAreas">
+<div class="multi-area-row"><div class="form-group"><input class="form-input" type="text" value="Kitchen"></div>
+<div class="form-group"><label class="form-label">L (m)</label><input class="form-input" type="number" value="4" min="0.1" step="0.1"></div>
+<div class="form-group"><label class="form-label">W (m)</label><input class="form-input" type="number" value="3" min="0.1" step="0.1"></div><div></div></div>
+</div>
+<button class="add-area-btn" id="addAreaBtn" type="button">+ Add Area (max 8)</button>
+</div>
+
+<button class="deductions-toggle" id="dedToggle" type="button"><span id="dedArrow">&#9656;</span> Deduct Fixed Features</button>
+<div id="dedBody" style="display:none">
+<div class="form-group"><label class="form-label">Area to Deduct (m&#178;)</label><input class="form-input" type="number" id="dedArea" value="0" min="0" step="0.1"><p class="form-hint">Islands, pillars, built-in units, etc.</p></div>
+</div>
+
+<div class="form-label">Tile Size</div>
+<div class="form-row"><div class="form-group"><label class="form-label">Preset</label><select class="form-select" id="tileSizeSelect">
+<option value="300x300">300&#215;300mm</option><option value="400x400">400&#215;400mm</option><option value="450x450">450&#215;450mm</option>
+<option value="500x500" selected>500&#215;500mm</option><option value="600x300">600&#215;300mm (plank)</option><option value="600x600">600&#215;600mm</option>
+<option value="800x800">800&#215;800mm</option><option value="1200x600">1200&#215;600mm (large)</option><option value="custom">Custom&#8230;</option>
+</select></div><div class="form-group"><label class="form-label">Width (mm)</label><input class="form-input" type="number" id="tileW" value="500" readonly></div>
+<div class="form-group"><label class="form-label">Height (mm)</label><input class="form-input" type="number" id="tileH" value="500" readonly></div></div>
+<div class="tiles-per-m2-display" id="tilesPerM2Disp">3.84 tiles/m&#178;</div>
+
+<div class="form-row"><div class="form-group"><label class="form-label">Grout Joint (mm)</label><input class="form-input" type="number" id="groutW" value="3" min="0" max="15" step="0.5"><p class="form-hint">Rectified: 2mm. Standard: 3&#8211;5mm.</p></div>
+<div class="form-group"><label class="form-label">Tiles per Box</label><input class="form-input" type="number" id="tilesPerBox" value="4" min="1" step="1"><p class="form-hint">Check your supplier&#8217;s box count.</p></div></div>
+
+<div class="form-label">Orientation</div>
+<div class="seg-group">
+<button class="seg-btn orient-btn active" data-orient="straight">Straight</button>
+<button class="seg-btn orient-btn" data-orient="diagonal">Diagonal (45&#176;)</button>
+</div>
+
+<div class="form-label">Wastage</div>
+<div class="seg-group">
+<button class="seg-btn wastage-btn" data-value="5">5%</button>
+<button class="seg-btn wastage-btn active" data-value="10">10%</button>
+<button class="seg-btn wastage-btn" data-value="15">15%</button>
+<button class="seg-btn wastage-btn" data-value="20">20%</button>
+</div>
+
+<div class="form-group"><label class="form-label">Price per Tile (PKR, optional)</label><input class="form-input" type="number" id="tilePrice" value="" min="0" step="1" placeholder="Leave blank to skip"></div>
+</div>
+
+<div class="tab-panel" id="panel-laminate">
+<div class="form-row"><div class="form-group"><label class="form-label">Room Length (m)</label><input class="form-input" type="number" id="lamL" value="4" min="0.1" step="0.1"></div>
+<div class="form-group"><label class="form-label">Room Width (m)</label><input class="form-input" type="number" id="lamW" value="3" min="0.1" step="0.1"></div></div>
+<div class="form-group"><label class="form-label">m&#178; per Box</label><input class="form-input" type="number" id="lamM2Box" value="2.0" min="0.1" step="0.1"><p class="form-hint">Most laminate packs cover 1.8&#8211;2.4 m&#178;. Check your pack.</p></div>
+<label class="checkbox-row"><input type="checkbox" id="chkUnderlay" checked>Include underlay calculation</label>
+<div class="form-group"><label class="form-label">Underlay Roll Size (m&#178;)</label><input class="form-input" type="number" id="underlayRoll" value="15" min="1" step="1"></div>
+<div class="form-label">Wastage</div>
+<div class="seg-group"><button class="seg-btn wastage-btn active" data-value="5">5%</button><button class="seg-btn wastage-btn" data-value="10">10%</button><button class="seg-btn wastage-btn" data-value="15">15%</button></div>
+<div class="form-group"><label class="form-label">Price per Box (PKR, optional)</label><input class="form-input" type="number" id="lamPrice" value="" min="0" step="1" placeholder="Leave blank to skip"></div>
+</div>
+
+<div class="tab-panel" id="panel-hardwood">
+<div class="form-row"><div class="form-group"><label class="form-label">Room Length (m)</label><input class="form-input" type="number" id="hwL" value="4" min="0.1" step="0.1"></div>
+<div class="form-group"><label class="form-label">Room Width (m)</label><input class="form-input" type="number" id="hwW" value="3" min="0.1" step="0.1"></div></div>
+<div class="form-row"><div class="form-group"><label class="form-label">Board Width (mm)</label><input class="form-input" type="number" id="hwBoardW" value="120" min="50" step="1"></div>
+<div class="form-group"><label class="form-label">Board Length (m)</label><input class="form-input" type="number" id="hwBoardL" value="1.8" min="0.1" step="0.1"></div></div>
+<p class="form-hint">10mm perimeter expansion gap is standard.</p>
+<div class="form-label">Wastage</div>
+<div class="seg-group"><button class="seg-btn wastage-btn active" data-value="8">8%</button><button class="seg-btn wastage-btn" data-value="12">12%</button><button class="seg-btn wastage-btn" data-value="15">15%</button></div>
+<div class="form-group"><label class="form-label">Price per m&#178; (PKR, optional)</label><input class="form-input" type="number" id="hwPrice" value="" min="0" step="1" placeholder="Leave blank to skip"></div>
+</div>
+
+<button class="btn btn-primary btn-full btn-lg" id="calcBtn">Calculate Flooring &#8594;</button>
+</div>
+
+<div class="result-box results-section">
+<div class="result-actions"><h3>Results</h3><div class="result-actions-btns"><button class="btn btn-secondary btn-sm" id="copyBtn">&#128203; Copy</button><button class="btn btn-secondary btn-sm" id="printBtn">&#128424; Print</button></div></div>
+<div class="result-grid">
+<div class="result-card primary"><div class="result-lbl">ROOM AREA (NET)</div><div class="result-num"><span id="resNetArea">0</span> <small>m&#178;</small></div><div class="result-sub">After deductions</div></div>
+
+<div class="result-card res-tiles"><div class="result-lbl">TILES REQUIRED (NET)</div><div class="result-num"><span id="resTilesNet">0</span></div><div class="result-sub">Before wastage</div></div>
+<div class="result-card res-tiles highlight"><div class="result-lbl">TOTAL TILES TO ORDER</div><div class="result-num"><span id="resTilesOrder">0</span></div><div class="result-sub" id="resTilesOrderSub">+10% wastage</div></div>
+<div class="result-card res-tiles"><div class="result-lbl">BOXES REQUIRED</div><div class="result-num"><span id="resBoxes">0</span> <small>boxes</small></div><div class="result-sub" id="resBoxesSub">4 tiles per box</div></div>
+<div class="result-card res-tiles"><div class="result-lbl">TILES PER m&#178;</div><div class="result-num"><span id="resTpm2">0</span></div><div class="result-sub" id="resTpm2Sub">Including 3mm grout</div></div>
+<div class="result-card res-tiles" id="resCostCard" style="display:none"><div class="result-lbl">ESTIMATED COST</div><div class="result-num"><span id="resCost">0</span></div><div class="result-sub" id="resCostSub"></div></div>
+
+<div class="result-card res-laminate" style="display:none"><div class="result-lbl">AREA WITH WASTAGE</div><div class="result-num"><span id="resLamArea">0</span> <small>m&#178;</small></div><div class="result-sub">Including wastage</div></div>
+<div class="result-card res-laminate highlight" style="display:none"><div class="result-lbl">BOXES REQUIRED</div><div class="result-num"><span id="resLamBoxes">0</span> <small>boxes</small></div><div class="result-sub" id="resLamBoxesSub">2.0 m&#178; per box</div></div>
+<div class="result-card res-laminate" id="resUnderlayCard" style="display:none"><div class="result-lbl">UNDERLAY ROLLS</div><div class="result-num"><span id="resUnderlayRolls">0</span> <small>rolls</small></div><div class="result-sub">15 m&#178; per roll</div></div>
+<div class="result-card res-laminate" id="resLamCostCard" style="display:none"><div class="result-lbl">ESTIMATED COST</div><div class="result-num"><span id="resLamCost">0</span></div><div class="result-sub" id="resLamCostSub"></div></div>
+
+<div class="result-card res-hardwood" style="display:none"><div class="result-lbl">AREA WITH WASTAGE</div><div class="result-num"><span id="resHwArea">0</span> <small>m&#178;</small></div><div class="result-sub">Including wastage</div></div>
+<div class="result-card res-hardwood highlight" style="display:none"><div class="result-lbl">BOARDS REQUIRED</div><div class="result-num"><span id="resHwBoards">0</span></div><div class="result-sub">Individual boards</div></div>
+<div class="result-card res-hardwood" id="resHwCostCard" style="display:none"><div class="result-lbl">ESTIMATED COST</div><div class="result-num"><span id="resHwCost">0</span></div><div class="result-sub" id="resHwCostSub"></div></div>
+</div>
+<div class="results-note">Tile count includes wastage for cuts, breakage and pattern matching. Always order a few extra boxes from the same batch &#8212; tiles vary in shade between production runs.</div>
+</div>
+</div></section>
+
+<div class="container"><div class="ad-placeholder ad-rectangle" data-ad-slot="flooring-mid-rectangle" aria-hidden="true" role="presentation"></div></div>
+
+<section class="section"><div class="container">
+<div class="section-header centered"><h2>How to Use the Flooring Calculator</h2></div>
+<div class="steps-grid">
+<div class="step-card anim-up"><div class="step-num">01</div><div class="step-title">Select Flooring</div><div class="step-desc">Choose tiles, laminate or hardwood. Each has specific inputs for size, box coverage, and wastage.</div></div>
+<div class="step-card anim-up"><div class="step-num">02</div><div class="step-title">Enter Dimensions</div><div class="step-desc">Input room length and width, or use L-shaped or multi-area mode for complex floor plans.</div></div>
+<div class="step-card anim-up"><div class="step-num">03</div><div class="step-title">Set Options</div><div class="step-desc">Choose tile size and grout width, set orientation (straight or diagonal), and pick your wastage %.</div></div>
+<div class="step-card anim-up"><div class="step-num">04</div><div class="step-title">Read Results</div><div class="step-desc">Get exact tile count, boxes needed, tiles per m&#178;, and optional cost estimate.</div></div>
+</div></div></section>
+
+<section class="section"><div class="container"><div class="prose">
+<h2>How to Calculate Flooring Area</h2>
+<p>For a rectangular room: <strong>Area = Length &#215; Width</strong>. A 4m &#215; 3m room = 12 m&#178;. For L-shaped rooms, split into two rectangles and add the areas. Always add wastage: 10% for straight lay gives 12 &#215; 1.10 = 13.2 m&#178;, round up to 14 m&#178;. Measure at the widest and longest points of the room, not at the skirting.</p>
+
+<h2>How Many Tiles Per Square Metre?</h2>
+<p>The formula is: <strong>tiles/m&#178; = 1 &#247; ((tileWidth + grout) &#215; (tileHeight + grout))</strong> where dimensions are in metres. Including a 3mm grout joint:</p>
+<table><thead><tr><th>Tile Size</th><th>Grout</th><th>Tiles/m&#178;</th></tr></thead><tbody>
+<tr><td>300&#215;300mm</td><td>3mm</td><td>10.24</td></tr>
+<tr><td>400&#215;400mm</td><td>3mm</td><td>5.92</td></tr>
+<tr><td>500&#215;500mm</td><td>3mm</td><td>3.84</td></tr>
+<tr><td>600&#215;600mm</td><td>3mm</td><td>2.68</td></tr>
+<tr><td>600&#215;300mm</td><td>3mm</td><td>5.35</td></tr>
+<tr><td>800&#215;800mm</td><td>3mm</td><td>1.52</td></tr>
+</tbody></table>
+
+<h2>Standard Tile Sizes in Pakistan</h2>
+<p><strong>300&#215;300mm</strong>: budget floor tile, staircases, small bathrooms. <strong>400&#215;400mm</strong>: mid-range, popular in KPK and Punjab homes. <strong>600&#215;600mm</strong>: standard modern floor and wall tile, the most popular choice. <strong>800&#215;800mm</strong>: premium living rooms and large open spaces. <strong>1200&#215;600mm</strong>: contemporary large format, requires a very flat subfloor and careful handling.</p>
+
+<h2>Wastage &#8212; How Much Extra to Order</h2>
+<p><strong>Straight lay</strong>: 10% standard for rectangular rooms. <strong>Diagonal (45&#176;)</strong>: 15&#8211;20% because every edge tile must be cut at an angle. <strong>Complex patterns</strong> (herringbone, Versailles): 20%+ due to precise cutting. <strong>Irregular rooms</strong> with many alcoves: 15%. Always buy from the same production batch &#8212; tiles vary in shade between batches and mis-matched tiles are obvious once laid.</p>
+
+<h2>Laminate Flooring &#8212; How to Calculate Boxes</h2>
+<p>Laminate is sold by the box, typically covering 1.8&#8211;2.4 m&#178; per pack. Divide your total area (with wastage) by the m&#178; per box and round up. Add 10% wastage minimum for staggered joints and perimeter cuts. Most laminate requires underlay (12&#8211;15 m&#178; per roll). Our calculator includes an optional underlay calculation.</p>
+
+<h2>Grout Joint Width &#8212; Why It Matters</h2>
+<p><strong>Narrow (1&#8211;2mm)</strong>: rectified tiles only, precise installation needed. <strong>Standard (3&#8211;5mm)</strong>: most floor tiles, allows for slight size variation. <strong>Wide (6&#8211;10mm)</strong>: rustic or handmade tiles with uneven edges. Wider grout joints mean fewer tiles per m&#178; &#8212; always include the grout width in your calculation for an accurate count.</p>
+
+<h2>Tile Buying Tips for Pakistan</h2>
+<p>Always buy 10&#8211;15% extra tiles from the same batch/lot number. Inspect tiles on delivery for lippage (uneven edges) &#8212; reject any box with chipped or warped tiles. For laminate, allow 48 hours for acclimatisation in the room before installation. Never mix boxes from different lot numbers on the same floor &#8212; even the same model can show visible colour difference between production runs.</p>
+</div></div></section>
+
+<section class="section"><div class="container">
+<div class="section-header"><h2>Frequently Asked Questions</h2></div>
+<div class="faq-list">
+<div class="faq-item"><button class="faq-question">How do I calculate how many tiles I need?<span class="faq-arrow">&#9656;</span></button><div class="faq-answer">Measure room area in m&#178;. Calculate tiles per m&#178; = 1 &#247; ((tile width + grout) &#215; (tile height + grout)) in metres. Multiply area by tiles/m&#178;. Add 10% wastage for straight lay, 15&#8211;20% for diagonal.</div></div>
+<div class="faq-item"><button class="faq-question">How much flooring for a 10&#215;12 room?<span class="faq-arrow">&#9656;</span></button><div class="faq-answer">10 &#215; 12 feet = 120 sq ft = 11.15 m&#178;. With 10% wastage you need about 12.3 m&#178;. For 500&#215;500mm tiles that is roughly 47 tiles, or 33 tiles for 600&#215;600mm.</div></div>
+<div class="faq-item"><button class="faq-question">What wastage percentage for tiling?<span class="faq-arrow">&#9656;</span></button><div class="faq-answer">10% for straight lay on simple rectangular rooms. 15% for rooms with many cuts. 20% for diagonal lay. Complex patterns like herringbone need 20%+. Always order from the same production batch.</div></div>
+<div class="faq-item"><button class="faq-question">How many tiles come in a box?<span class="faq-arrow">&#9656;</span></button><div class="faq-answer">Varies by size: 300&#215;300mm typically 10&#8211;11 per box. 500&#215;500mm: 4&#8211;5. 600&#215;600mm: 3&#8211;4. 800&#215;800mm: 2&#8211;3. Always check your supplier as it varies by brand.</div></div>
+<div class="faq-item"><button class="faq-question">Standard tile size in Pakistan?<span class="faq-arrow">&#9656;</span></button><div class="faq-answer">300&#215;300mm (budget), 400&#215;400mm (mid-range), 600&#215;600mm (standard modern), 800&#215;800mm (premium). Large format 1200&#215;600mm is growing in popularity for contemporary homes.</div></div>
+<div class="faq-item"><button class="faq-question">Flooring for an L-shaped room?<span class="faq-arrow">&#9656;</span></button><div class="faq-answer">Split the L into two rectangles. Calculate area of each and add together. Our calculator has a built-in L-shape mode with 4 dimension inputs that does this automatically.</div></div>
+<div class="faq-item"><button class="faq-question">What grout joint width for floor tiles?<span class="faq-arrow">&#9656;</span></button><div class="faq-answer">Rectified tiles: 2mm minimum. Standard tiles: 3&#8211;5mm. Rustic/handmade: 6&#8211;10mm. Wider joints reduce the tile count slightly per m&#178;. Use the width recommended by the tile manufacturer.</div></div>
+<div class="faq-item"><button class="faq-question">How to calculate flooring cost?<span class="faq-arrow">&#9656;</span></button><div class="faq-answer">Total cost = Number of tiles &#215; Price per tile. For laminate: boxes &#215; price per box. For hardwood: area &#215; price per m&#178;. Add adhesive, grout, underlay and labour costs separately.</div></div>
+</div></div></section>
+
+<div class="container"><div class="ad-placeholder ad-leaderboard" data-ad-slot="flooring-bottom-leaderboard" aria-hidden="true" role="presentation"></div></div>
+
+<section class="section"><div class="container">
+<div class="section-header"><h2>Related Construction Calculators</h2></div>
+<div class="related-grid">
+<a href="../paint-calculator/" class="tool-card anim-up"><div class="tool-card-icon">&#128396;&#65039;</div><div class="tool-card-name">Paint Coverage Calculator</div><div class="tool-card-desc">Calculate litres and tins of paint for rooms, walls and exterior surfaces.</div><div class="tool-card-arrow">Use Tool &#8594;</div></a>
+<a href="../brick-calculator/" class="tool-card anim-up"><div class="tool-card-icon">&#129521;</div><div class="tool-card-name">Brick Calculator</div><div class="tool-card-desc">Calculate brick count, mortar volume, cement and sand for any wall.</div><div class="tool-card-arrow">Use Tool &#8594;</div></a>
+<a href="../" class="tool-card anim-up"><div class="tool-card-icon">&#128203;</div><div class="tool-card-name">View All Calculators</div><div class="tool-card-desc">Browse the full library of free construction calculators.</div><div class="tool-card-arrow">Browse All &#8594;</div></a>
+</div></div></section>
+
+<div id="footer"></div>
+<script src="../../assets/js/main.js" defer></script>
+<script src="flooring-calculator.js" defer></script>
+</body></html>

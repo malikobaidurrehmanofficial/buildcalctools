@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Concrete Block Calculator &#8212; Blocks, Mortar &amp; Cost Estimator | BuildCalcTools</title>
+  <meta name="description" content="Free concrete block calculator. Find out how many blocks you need for any wall, plus mortar cement and sand. Supports all block sizes and metric or imperial.">
+  <meta name="keywords" content="concrete block calculator, how many blocks do I need, block wall calculator, cinder block calculator, concrete block estimator Pakistan, block mortar calculator">
+  <link rel="canonical" href="https://buildcalctools.site/tools/block-calculator/">
+  <link rel="icon" href="../../assets/img/fav.png" type="image/png">
+  <meta property="og:title" content="Free Concrete Block Calculator | BuildCalcTools">
+  <meta property="og:description" content="Calculate how many concrete blocks you need for any wall plus mortar, cement and sand quantities.">
+  <meta property="og:url" content="https://buildcalctools.site/tools/block-calculator/">
+  <meta property="og:type" content="website">
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"WebApplication","name":"Concrete Block Calculator","url":"https://buildcalctools.site/tools/block-calculator/","description":"Calculate how many concrete blocks you need for any wall — plus mortar, cement and sand quantities. Supports standard and custom block sizes.","applicationCategory":"UtilityApplication","operatingSystem":"All","offers":{"@type":"Offer","price":"0","priceCurrency":"USD"}}</script>
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"How many concrete blocks do I need per square metre?","acceptedAnswer":{"@type":"Answer","text":"For standard 400x200mm blocks with 15mm mortar joints, you need approximately 10-11 blocks per square metre. The exact number depends on block size and joint thickness."}},{"@type":"Question","name":"What is the standard size of a concrete block?","acceptedAnswer":{"@type":"Answer","text":"The international standard is 400x200x200mm (length x height x width). In Pakistan, 390x190x190mm is common. Larger 450x225x225mm blocks are used for faster construction."}},{"@type":"Question","name":"How much mortar do I need for concrete blocks?","acceptedAnswer":{"@type":"Answer","text":"Block walls use approximately 25% of wall volume as mortar with standard 15mm joints. This is less than brickwork (30%) because blocks have fewer joints per square metre."}},{"@type":"Question","name":"How many blocks in a cubic metre of blockwork?","acceptedAnswer":{"@type":"Answer","text":"For 400x200x200mm blocks, approximately 50 blocks fill one cubic metre of wall (including mortar joints). The exact count depends on block size and joint thickness."}},{"@type":"Question","name":"What is the difference between hollow and solid blocks?","acceptedAnswer":{"@type":"Answer","text":"Hollow blocks have internal voids making them lighter, faster to lay, and better for thermal insulation. Solid blocks are heavier and stronger, used for foundations, retaining walls, and load-bearing base courses. Hollow blocks can be filled with concrete and rebar for structural walls."}},{"@type":"Question","name":"How many blocks for a 10x10 room?","acceptedAnswer":{"@type":"Answer","text":"A 10x10 foot room (3.05m x 3.05m) with 2.7m wall height has approximately 33 square metres of wall area. Using 390x190mm blocks at 11 per square metre, you need about 363 blocks plus 10% wastage = 400 blocks. Deduct openings for doors and windows."}},{"@type":"Question","name":"What cement-to-sand ratio for concrete block mortar?","acceptedAnswer":{"@type":"Answer","text":"A 1:5 cement-to-sand ratio is standard for general blockwork above ground. For structural or load-bearing block walls, use 1:4. For below-ground or retaining walls, use 1:3."}},{"@type":"Question","name":"How much does a concrete block weigh?","acceptedAnswer":{"@type":"Answer","text":"A standard 400x200x200mm hollow block weighs 12-15 kg. Solid blocks of the same size weigh 20-25 kg. Weight varies by aggregate type and density of the concrete mix used in manufacturing."}}]}</script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Sans:wght@400;500;600&family=JetBrains+Mono:wght@400;600&display=swap" media="print" onload="this.media='all'">
+  <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Sans:wght@400;500;600&family=JetBrains+Mono:wght@400;600&display=swap"></noscript>
+  <link rel="stylesheet" href="../../assets/css/style.css">
+  <link rel="stylesheet" href="block-calculator.css">
+</head>
+<body>
+  <div id="navbar"></div>
+
+  <section class="page-hero">
+    <div class="hero-orb-1"></div><div class="hero-orb-2"></div>
+    <div class="container">
+      <div class="breadcrumb"><a href="../../index.html">Home</a><span>/</span><a href="../">Calculators</a><span>/</span><span class="breadcrumb-current">Block Calculator</span></div>
+      <div class="page-hero-badge">&#9723;&#65039; Blockwork</div>
+      <h1>Concrete Block<br><span class="grad-text">Calculator</span></h1>
+      <p>Work out how many concrete blocks you need for any wall &#8212; along with the mortar, cement, and sand required. Supports hollow blocks, solid blocks, and all standard sizes used in Pakistan and internationally.</p>
+      <div class="trust-chips">
+        <span class="trust-chip"><span class="trust-chip-icon">&#10004;</span> All Block Sizes</span>
+        <span class="trust-chip"><span class="trust-chip-icon">&#10004;</span> Mortar Included</span>
+        <span class="trust-chip"><span class="trust-chip-icon">&#10004;</span> Cost Estimate</span>
+        <span class="trust-chip"><span class="trust-chip-icon">&#10004;</span> Metric &amp; Imperial</span>
+      </div>
+    </div>
+  </section>
+
+  <div class="container"><div class="ad-placeholder ad-leaderboard" data-ad-slot="block-top-leaderboard" aria-hidden="true" role="presentation"></div></div>
+
+  <section class="section">
+    <div class="container">
+      <div class="card">
+        <div class="card-header"><h2 class="card-title">&#9723;&#65039; Calculator</h2></div>
+        <div class="card-body">
+
+          <label class="input-label">Unit System</label>
+          <div class="unit-toggle">
+            <button class="unit-toggle-btn active" data-unit="metric">Metric</button>
+            <button class="unit-toggle-btn" data-unit="imperial">Imperial</button>
+          </div>
+
+          <label class="input-label">Wall Area Input</label>
+          <div class="mode-toggle">
+            <button class="mode-toggle-btn active" data-mode="area">Enter Area</button>
+            <button class="mode-toggle-btn" data-mode="lxh">Enter L &#215; H</button>
+          </div>
+          <div class="input-panel active" data-panel="area">
+            <div class="input-group"><label class="input-label" for="wallArea">Wall Area (m&#178; or ft&#178;)</label><input class="input-field" type="number" id="wallArea" value="24" min="0.1" step="0.1"></div>
+          </div>
+          <div class="input-panel" data-panel="lxh">
+            <div class="input-row-2">
+              <div class="input-group"><label class="input-label" for="wallLength">Wall Length</label><input class="input-field" type="number" id="wallLength" value="8" min="0.1" step="0.1"></div>
+              <div class="input-group"><label class="input-label" for="wallHeight">Wall Height</label><input class="input-field" type="number" id="wallHeight" value="3" min="0.1" step="0.1"></div>
+            </div>
+          </div>
+
+          <div class="input-group">
+            <label class="input-label" for="blockSize">Block Size</label>
+            <select class="input-field" id="blockSize">
+              <option value="400x200x200" selected>400 &#215; 200 &#215; 200 mm (Standard International)</option>
+              <option value="450x225x225">450 &#215; 225 &#215; 225 mm (Larger block)</option>
+              <option value="390x190x190">390 &#215; 190 &#215; 190 mm (Common Pakistan)</option>
+              <option value="290x190x190">290 &#215; 190 &#215; 190 mm (Half block)</option>
+              <option value="custom">Custom dimensions</option>
+            </select>
+          </div>
+          <div class="input-panel" id="customBlockPanel">
+            <div class="input-row-3">
+              <div class="input-group"><label class="input-label" for="customBlockL">Length (mm)</label><input class="input-field" type="number" id="customBlockL" value="400" min="100"></div>
+              <div class="input-group"><label class="input-label" for="customBlockH">Height (mm)</label><input class="input-field" type="number" id="customBlockH" value="200" min="100"></div>
+              <div class="input-group"><label class="input-label" for="customBlockW">Width (mm)</label><input class="input-field" type="number" id="customBlockW" value="200" min="100"></div>
+            </div>
+          </div>
+
+          <label class="input-label">Wall Type</label>
+          <div class="seg-control" data-group="skin">
+            <button class="seg-btn active" data-value="single">Single Skin</button>
+            <button class="seg-btn" data-value="double">Double Skin</button>
+          </div>
+
+          <div class="input-group"><label class="input-label" for="jointThickness">Mortar Joint Thickness (mm)</label><input class="input-field" type="number" id="jointThickness" value="15" min="5" max="25" step="1"></div>
+
+          <div class="input-group">
+            <label class="input-label" for="mixRatio">Mortar Mix Ratio</label>
+            <select class="input-field" id="mixRatio">
+              <option value="1:3">1:3 &#8212; Strong structural</option>
+              <option value="1:4">1:4 &#8212; Load-bearing</option>
+              <option value="1:5" selected>1:5 &#8212; General blockwork</option>
+              <option value="1:6">1:6 &#8212; Light partitions</option>
+              <option value="custom">Custom ratio</option>
+            </select>
+          </div>
+          <div class="input-panel" id="customMixPanel">
+            <div class="input-row-2">
+              <div class="input-group"><label class="input-label" for="customCement">Cement Parts</label><input class="input-field" type="number" id="customCement" value="1" min="0.1" step="0.1"></div>
+              <div class="input-group"><label class="input-label" for="customSand">Sand Parts</label><input class="input-field" type="number" id="customSand" value="5" min="0.1" step="0.1"></div>
+            </div>
+          </div>
+
+          <label class="input-label">Cement Bag Size</label>
+          <div class="seg-control" data-group="bag">
+            <button class="seg-btn" data-value="25">25 kg</button>
+            <button class="seg-btn" data-value="40">40 kg</button>
+            <button class="seg-btn active" data-value="50">50 kg &#9733;</button>
+          </div>
+
+          <div class="wastage-section">
+            <label class="input-label">Wastage Allowance</label>
+            <div class="seg-control" data-group="wastage">
+              <button class="seg-btn" data-value="5">5%</button>
+              <button class="seg-btn active" data-value="10">10% &#9733;</button>
+              <button class="seg-btn" data-value="15">15%</button>
+            </div>
+          </div>
+
+          <button class="advanced-toggle" type="button"><span class="advanced-toggle-arrow">&#9656;</span> Optional: Block Cost Estimate</button>
+          <div class="advanced-body">
+            <div class="input-group"><label class="input-label" for="blockPrice">Price per block (PKR)</label><input class="input-field" type="number" id="blockPrice" placeholder="e.g. 85" min="0"></div>
+          </div>
+
+          <div class="calc-actions"><button class="btn btn-primary btn-lg" id="calcBtn">Calculate Blocks &amp; Materials &#8594;</button></div>
+        </div>
+      </div>
+
+      <div class="results-box">
+        <div class="results-grid">
+          <div class="result-card primary"><div class="result-card-label">BLOCKS REQUIRED (NET)</div><div class="result-card-value" id="resBlocksNet">0</div><div class="result-card-unit">without wastage</div></div>
+          <div class="result-card" style="border-left:3px solid var(--color-primary)"><div class="result-card-label">BLOCKS TO ORDER</div><div class="result-card-value" id="resBlocksOrder">0</div><div class="result-card-unit">with wastage included</div></div>
+          <div class="result-card"><div class="result-card-label">BLOCKS PER M&#178;</div><div class="result-card-value" id="resBlocksPerM2">0</div><div class="result-card-unit">informational</div></div>
+          <div class="result-card"><div class="result-card-label">MORTAR VOLUME</div><div class="result-card-value"><span id="resMortarVol">0</span> <small>m&#179;</small></div><div class="result-card-unit">wet mortar</div></div>
+          <div class="result-card"><div class="result-card-label">CEMENT REQUIRED</div><div class="result-card-value"><span id="resCementKg">0</span> <small>kg</small></div><div class="result-card-unit" id="resCementBags">0 bags</div></div>
+          <div class="result-card"><div class="result-card-label">SAND REQUIRED</div><div class="result-card-value"><span id="resSandVol">0</span> <small>m&#179;</small></div><div class="result-card-unit">volume</div></div>
+          <div class="result-card"><div class="result-card-label">WALL AREA</div><div class="result-card-value"><span id="resWallArea">0</span> <small>m&#178;</small></div><div class="result-card-unit">calculated</div></div>
+          <div class="result-card hidden" id="resCostCard"><div class="result-card-label">ESTIMATED BLOCK COST</div><div class="result-card-value">PKR <span id="resCost">0</span></div><div class="result-card-unit">approximate</div></div>
+        </div>
+        <div class="results-note">Block count based on face area method. Mortar estimated at 25% of wall volume for standard 15mm joints. Deduct door and window openings from wall area manually.</div>
+      </div>
+    </div>
+  </section>
+
+  <div class="container"><div class="ad-placeholder ad-rectangle" data-ad-slot="block-mid-rectangle" aria-hidden="true" role="presentation"></div></div>
+
+  <section class="section">
+    <div class="container">
+      <h2 class="section-title">How to Use This Calculator</h2>
+      <div class="how-to-steps">
+        <div class="how-to-step anim-up"><div class="how-to-step-num">01</div><div class="how-to-step-title">Enter Wall Area</div><div class="how-to-step-desc">Enter your wall area directly or use length &#215; height dimensions.</div></div>
+        <div class="how-to-step anim-up"><div class="how-to-step-num">02</div><div class="how-to-step-title">Select Block Size</div><div class="how-to-step-desc">Choose from preset sizes or enter custom block dimensions.</div></div>
+        <div class="how-to-step anim-up"><div class="how-to-step-num">03</div><div class="how-to-step-title">Set Wall Type</div><div class="how-to-step-desc">Choose single or double skin wall and set your wastage factor.</div></div>
+        <div class="how-to-step anim-up"><div class="how-to-step-num">04</div><div class="how-to-step-title">Get Results</div><div class="how-to-step-desc">Read block count, mortar volume, cement bags and sand quantity.</div></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container">
+      <div class="article-content">
+        <h2>How Many Concrete Blocks Do I Need?</h2>
+        <p>The formula is: blocks = wall area &#247; ((block length + joint) &#215; (block height + joint)). For an 8m &#215; 3m wall with 400&#215;200mm blocks and 15mm joints: face area = 0.415 &#215; 0.215 = 0.0892 m&#178;. Blocks = 24 / 0.0892 = 269 blocks. Add 10% wastage = 296 blocks to order.</p>
+
+        <h2>Standard Concrete Block Sizes</h2>
+        <table>
+          <thead><tr><th>Size (mm)</th><th>Use Case</th><th>Blocks per m&#178;</th></tr></thead>
+          <tbody>
+            <tr><td>400&#215;200&#215;200</td><td>Standard walls</td><td>~11</td></tr>
+            <tr><td>390&#215;190&#215;190</td><td>Pakistan (common)</td><td>~12</td></tr>
+            <tr><td>450&#215;225&#215;225</td><td>Faster construction</td><td>~9</td></tr>
+            <tr><td>290&#215;190&#215;190</td><td>Half block, corners</td><td>~16</td></tr>
+          </tbody>
+        </table>
+        <p>Nominal dimensions include the mortar joint. Actual block dimensions are smaller &#8212; the joint fills the difference.</p>
+
+        <h2>Hollow vs Solid Concrete Blocks</h2>
+        <p>Hollow blocks have internal voids, making them lighter (12&#8211;15 kg vs 20&#8211;25 kg), faster to lay, and better for thermal insulation. They are the most common type in Pakistan. Solid blocks are used for foundations, retaining walls, and load-bearing base courses. Hollow blocks can be filled with concrete and rebar to create reinforced columns within the wall.</p>
+
+        <h2>How Much Mortar for a Block Wall?</h2>
+        <p>Block walls use approximately 25% of wall volume as mortar, less than brickwork (30%) because blocks have fewer joints per square metre. With 1:5 cement-sand mix, a 24 m&#178; wall (200mm thick) needs roughly 0.40 m&#179; of wet mortar, 0.53 m&#179; dry, requiring about 3 bags of 50kg cement and 0.44 m&#179; of sand.</p>
+
+        <h2>Block Walls vs Brick Walls</h2>
+        <p><strong>Speed:</strong> Blocks are faster &#8212; fewer units per m&#178; means less laying time. <strong>Cost:</strong> Blocks are often cheaper per m&#178; in Pakistan. <strong>Strength:</strong> Well-constructed block walls match brick strength. <strong>Thermal:</strong> Hollow blocks provide better insulation. <strong>Finish:</strong> Brick has superior unfaced aesthetic, blocks need render or plaster.</p>
+
+        <h2>How Many Blocks for Common Room Sizes</h2>
+        <table>
+          <thead><tr><th>Room Size</th><th>Perimeter</th><th>Wall Area</th><th>Blocks (approx.)</th></tr></thead>
+          <tbody>
+            <tr><td>10&#215;10 ft</td><td>12.2m</td><td>33 m&#178;</td><td>~400</td></tr>
+            <tr><td>12&#215;12 ft</td><td>14.6m</td><td>39.5 m&#178;</td><td>~480</td></tr>
+            <tr><td>15&#215;20 ft</td><td>21.3m</td><td>57.6 m&#178;</td><td>~698</td></tr>
+          </tbody>
+        </table>
+        <p>Based on 390&#215;190mm blocks, 2.7m wall height, 10% wastage. Deduct doors and windows from wall area.</p>
+
+        <h2>Block Wall Construction Tips</h2>
+        <p>Always start with a level foundation course using a string line. Keep perpend joints (vertical) staggered in a running bond pattern. Wet blocks in dry or hot weather before laying to prevent premature moisture loss. Check for plumb every 3 courses. Allow walls to cure for 7 days before applying heavy loads or rendering.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container">
+      <h2 class="section-title">Frequently Asked Questions</h2>
+      <div class="faq-list">
+        <div class="faq-item"><button class="faq-question">How many concrete blocks do I need per square metre?<span class="faq-arrow">&#9656;</span></button><div class="faq-answer">For standard 400&#215;200mm blocks with 15mm joints, you need approximately 10&#8211;11 blocks per square metre. Smaller 390&#215;190mm blocks (common in Pakistan) need about 12 per square metre. The exact number depends on block size and joint thickness.</div></div>
+        <div class="faq-item"><button class="faq-question">What is the standard size of a concrete block?<span class="faq-arrow">&#9656;</span></button><div class="faq-answer">The international standard is 400&#215;200&#215;200mm (L&#215;H&#215;W). In Pakistan, 390&#215;190&#215;190mm is the most common size. Larger 450&#215;225&#215;225mm blocks allow faster construction with fewer units per square metre.</div></div>
+        <div class="faq-item"><button class="faq-question">How much mortar do I need for concrete blocks?<span class="faq-arrow">&#9656;</span></button><div class="faq-answer">Block walls use approximately 25% of wall volume as mortar with standard 15mm joints. This is lower than brickwork (30%) because blocks have fewer joints per square metre due to their larger size.</div></div>
+        <div class="faq-item"><button class="faq-question">How many blocks in a cubic metre of blockwork?<span class="faq-arrow">&#9656;</span></button><div class="faq-answer">For 400&#215;200&#215;200mm blocks, approximately 50 blocks make up one cubic metre of wall including mortar joints. The count varies with block size and joint thickness.</div></div>
+        <div class="faq-item"><button class="faq-question">What is the difference between hollow and solid blocks?<span class="faq-arrow">&#9656;</span></button><div class="faq-answer">Hollow blocks have internal voids &#8212; lighter (12&#8211;15 kg), faster to lay, better thermal insulation. Solid blocks are heavier (20&#8211;25 kg) and stronger, used for foundations, retaining walls and load-bearing base courses. Hollow blocks can be filled with concrete and rebar for structural use.</div></div>
+        <div class="faq-item"><button class="faq-question">How many blocks for a 10&#215;10 room?<span class="faq-arrow">&#9656;</span></button><div class="faq-answer">A 10&#215;10 foot room with 2.7m wall height has approximately 33 m&#178; of wall area. Using 390&#215;190mm blocks at ~11 per m&#178;, you need about 363 blocks. Add 10% wastage = approximately 400 blocks. Deduct openings for doors and windows.</div></div>
+        <div class="faq-item"><button class="faq-question">What cement-to-sand ratio for block mortar?<span class="faq-arrow">&#9656;</span></button><div class="faq-answer">1:5 (cement:sand) is standard for general blockwork above ground. Use 1:4 for structural or load-bearing walls, and 1:3 for below-ground or retaining walls.</div></div>
+        <div class="faq-item"><button class="faq-question">How much does a concrete block weigh?<span class="faq-arrow">&#9656;</span></button><div class="faq-answer">A standard 400&#215;200&#215;200mm hollow block weighs 12&#8211;15 kg. Solid blocks of the same size weigh 20&#8211;25 kg. Weight varies by aggregate type and concrete density used in manufacturing.</div></div>
+      </div>
+    </div>
+  </section>
+
+  <div class="container"><div class="ad-placeholder ad-leaderboard" data-ad-slot="block-bottom-leaderboard" aria-hidden="true" role="presentation"></div></div>
+
+  <section class="section">
+    <div class="container">
+      <h2 class="section-title">Related Tools</h2>
+      <div class="related-tools-grid">
+        <a href="../brick-calculator/" class="tool-card anim-up"><div class="tool-card-icon">&#129521;</div><div class="tool-card-name">Brick Calculator</div><div class="tool-card-desc">Estimate bricks, mortar and cement for any wall area.</div><div class="tool-card-arrow">Use Tool &#8594;</div></a>
+        <a href="../mortar-calculator/" class="tool-card anim-up"><div class="tool-card-icon">&#129514;</div><div class="tool-card-name">Mortar Calculator</div><div class="tool-card-desc">Calculate mortar volume, cement bags and sand for any wall.</div><div class="tool-card-arrow">Use Tool &#8594;</div></a>
+        <a href="../concrete-calculator/" class="tool-card anim-up"><div class="tool-card-icon">&#127959;&#65039;</div><div class="tool-card-name">Concrete Volume Calculator</div><div class="tool-card-desc">Calculate concrete for slabs, columns, footings and stairs.</div><div class="tool-card-arrow">Use Tool &#8594;</div></a>
+      </div>
+    </div>
+  </section>
+
+  <div id="footer"></div>
+  <script src="../../assets/js/main.js" defer></script>
+  <script src="block-calculator.js" defer></script>
+</body>
+</html>

@@ -1,0 +1,260 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Rebar Calculator &#8212; Steel Bar Quantity, Weight &amp; Spacing | BuildCalcTools</title>
+  <meta name="description" content="Free rebar calculator for slabs, beams and columns. Calculate steel bar quantity, total weight and spacing. Supports all bar diameters. Metric and imperial.">
+  <meta name="keywords" content="rebar calculator, steel bar calculator, rebar quantity estimator, how much rebar do I need, rebar weight calculator, rebar spacing calculator, deformed bar calculator Pakistan">
+  <link rel="canonical" href="https://buildcalctools.site/tools/rebar-calculator/">
+  <link rel="icon" href="../../assets/img/fav.png" type="image/png">
+  <meta property="og:title" content="Free Rebar Calculator &#8212; Quantity, Weight &amp; Spacing | BuildCalcTools">
+  <meta property="og:description" content="Calculate rebar quantity, total weight and bar spacing for concrete slabs, beams, columns and footings.">
+  <meta property="og:url" content="https://buildcalctools.site/tools/rebar-calculator/">
+  <meta property="og:type" content="website">
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"WebApplication","name":"Rebar / Steel Bar Estimator","url":"https://buildcalctools.site/tools/rebar-calculator/","description":"Calculate rebar quantity, total weight and bar spacing for concrete slabs, beams, columns and footings.","applicationCategory":"UtilityApplication","operatingSystem":"All","offers":{"@type":"Offer","price":"0","priceCurrency":"USD"}}</script>
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"How do I calculate how much rebar I need?","acceptedAnswer":{"@type":"Answer","text":"Divide the slab width by bar spacing to get bars in one direction, repeat for the other direction, then multiply total bars by bar length plus lap length. For beams, multiply the number of main bars by element length and add stirrup steel separately."}},{"@type":"Question","name":"What is the standard rebar spacing for a concrete slab?","acceptedAnswer":{"@type":"Answer","text":"Standard rebar spacing for residential slabs is 150mm to 200mm centre-to-centre in both directions. Heavily loaded slabs may use 100mm spacing. The spacing is specified by the structural engineer based on load calculations."}},{"@type":"Question","name":"How heavy is 1 metre of 12mm rebar?","acceptedAnswer":{"@type":"Answer","text":"One metre of 12mm deformed steel bar weighs 0.888 kg. This is calculated using the formula: weight per metre = d squared / 162, where d is diameter in mm. So 12 x 12 / 162 = 0.888 kg/m."}},{"@type":"Question","name":"What rebar size should I use for a house slab in Pakistan?","acceptedAnswer":{"@type":"Answer","text":"For standard residential house slabs in Pakistan, 10mm or 12mm Y-bars at 150mm spacing are most common. 12mm bars at 150mm c/c in both directions (double layer) is a typical specification for 125-150mm thick slabs."}},{"@type":"Question","name":"What is the minimum concrete cover for rebar?","acceptedAnswer":{"@type":"Answer","text":"Minimum cover depends on exposure: 25mm for internal floor slabs, 40mm for external slabs and walls, 50mm for foundations in ground contact, and 75mm for marine exposure. In Pakistan residential construction, 25-40mm is standard."}},{"@type":"Question","name":"How do I calculate rebar weight?","acceptedAnswer":{"@type":"Answer","text":"Rebar weight per metre = (diameter in mm)squared / 162 in kg/m. Multiply by total length of all bars. For example, 100 metres of 12mm bar = 100 x 0.888 = 88.8 kg. This formula is based on steel density of 7850 kg per cubic metre."}},{"@type":"Question","name":"What is the difference between Y (deformed) and R (round) bar?","acceptedAnswer":{"@type":"Answer","text":"Y bars (deformed/ribbed) have surface ridges that grip concrete better, providing superior bond strength. They are used for all structural reinforcement. R bars (round/plain) are smooth and used mainly for stirrups, links, and light mesh where bending is needed."}},{"@type":"Question","name":"How do I calculate lap length for rebar?","acceptedAnswer":{"@type":"Answer","text":"Standard lap length is 40 times the bar diameter. For 12mm bar: 40 x 12 = 480mm, rounded to 500mm. In seismic zones, 50 times diameter or more may be required. Laps should be staggered and not all occur at the same section."}}]}</script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Sans:wght@400;500;600&family=JetBrains+Mono:wght@400;600&display=swap" media="print" onload="this.media='all'">
+  <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Sans:wght@400;500;600&family=JetBrains+Mono:wght@400;600&display=swap"></noscript>
+  <link rel="stylesheet" href="../../assets/css/style.css">
+  <link rel="stylesheet" href="rebar-calculator.css">
+</head>
+<body>
+  <div id="navbar"></div>
+
+  <section class="page-hero">
+    <div class="hero-orb-1"></div><div class="hero-orb-2"></div>
+    <div class="container">
+      <div class="breadcrumb"><a href="../../index.html">Home</a><span>/</span><a href="../">Calculators</a><span>/</span><span class="breadcrumb-current">Rebar Estimator</span></div>
+      <div class="page-hero-badge">&#128297; Steel Reinforcement</div>
+      <h1>Rebar / Steel Bar<br><span class="grad-text">Estimator</span></h1>
+      <p>Calculate the exact quantity and total weight of steel reinforcement bars needed for any concrete element &#8212; slabs, beams, columns, and footings. Supports all standard bar diameters from 6mm to 40mm.</p>
+      <div class="trust-chips">
+        <span class="trust-chip"><span class="trust-chip-icon">&#10004;</span> All Bar Diameters</span>
+        <span class="trust-chip"><span class="trust-chip-icon">&#10004;</span> Weight &amp; Quantity</span>
+        <span class="trust-chip"><span class="trust-chip-icon">&#10004;</span> Lap Length Included</span>
+        <span class="trust-chip"><span class="trust-chip-icon">&#10004;</span> Metric &amp; Imperial</span>
+      </div>
+    </div>
+  </section>
+
+  <div class="container"><div class="ad-placeholder ad-leaderboard" data-ad-slot="rebar-top-leaderboard" aria-hidden="true" role="presentation"></div></div>
+
+  <section class="section">
+    <div class="container">
+      <div class="card">
+        <div class="card-header"><h2 class="card-title">&#128297; Calculator</h2></div>
+        <div class="card-body">
+
+          <label class="input-label">Unit System</label>
+          <div class="unit-toggle">
+            <button class="unit-toggle-btn active" data-unit="metric">Metric (m, mm)</button>
+            <button class="unit-toggle-btn" data-unit="imperial">Imperial (ft, in)</button>
+          </div>
+
+          <div class="shape-tabs">
+            <button class="shape-tab active" data-tab="slab"><span class="shape-tab-icon">&#9632;</span> Slab</button>
+            <button class="shape-tab" data-tab="beam"><span class="shape-tab-icon">&#9644;</span> Beam / Column</button>
+            <button class="shape-tab" data-tab="footing"><span class="shape-tab-icon">&#9635;</span> Footing</button>
+          </div>
+
+          <!-- SLAB -->
+          <div class="input-panel active" data-panel="slab">
+            <div class="input-row-2">
+              <div class="input-group"><label class="input-label" for="slabLength">Slab Length</label><input class="input-field" type="number" id="slabLength" value="6" min="0.1" step="0.1"></div>
+              <div class="input-group"><label class="input-label" for="slabWidth">Slab Width</label><input class="input-field" type="number" id="slabWidth" value="4" min="0.1" step="0.1"></div>
+            </div>
+            <div class="input-row-2">
+              <div class="input-group">
+                <label class="input-label" for="slabBarDia">Bar Diameter (mm)</label>
+                <select class="input-field" id="slabBarDia">
+                  <option value="6">6mm</option><option value="8">8mm</option><option value="10">10mm</option>
+                  <option value="12" selected>12mm</option><option value="16">16mm</option><option value="20">20mm</option>
+                  <option value="25">25mm</option><option value="32">32mm</option><option value="40">40mm</option>
+                </select>
+              </div>
+              <div class="input-group"><label class="input-label" for="slabSpacing">Spacing (mm)</label><input class="input-field" type="number" id="slabSpacing" value="150" min="50" step="10"></div>
+            </div>
+            <label class="input-label">Layers</label>
+            <div class="seg-control" data-group="layers">
+              <button class="seg-btn" data-value="1">Single</button>
+              <button class="seg-btn active" data-value="2">Double &#9733;</button>
+            </div>
+            <div class="input-group" ><label class="input-label" for="slabLap">Lap Length (mm)</label><input class="input-field" type="number" id="slabLap" value="500" min="0" step="10"><span class="input-hint">Standard lap = 40&#215; bar diameter (e.g. 12mm &#8594; 480mm)</span></div>
+          </div>
+
+          <!-- BEAM -->
+          <div class="input-panel" data-panel="beam">
+            <div class="input-row-2">
+              <div class="input-group"><label class="input-label" for="beamLength">Element Length</label><input class="input-field" type="number" id="beamLength" value="5" min="0.1" step="0.1"></div>
+              <div class="input-group"><label class="input-label" for="beamBars">Number of Main Bars</label><input class="input-field" type="number" id="beamBars" value="4" min="1" step="1"></div>
+            </div>
+            <div class="input-row-2">
+              <div class="input-group"><label class="input-label" for="beamWidth">Section Width (m)</label><input class="input-field" type="number" id="beamWidth" value="0.3" min="0.1" step="0.05"></div>
+              <div class="input-group"><label class="input-label" for="beamHeight">Section Height (m)</label><input class="input-field" type="number" id="beamHeight" value="0.5" min="0.1" step="0.05"></div>
+            </div>
+            <div class="input-row-2">
+              <div class="input-group">
+                <label class="input-label" for="beamBarDia">Main Bar Diameter</label>
+                <select class="input-field" id="beamBarDia">
+                  <option value="10">10mm</option><option value="12">12mm</option>
+                  <option value="16" selected>16mm</option><option value="20">20mm</option><option value="25">25mm</option><option value="32">32mm</option>
+                </select>
+              </div>
+              <div class="input-group">
+                <label class="input-label" for="stirrupDia">Stirrup Diameter</label>
+                <select class="input-field" id="stirrupDia">
+                  <option value="6">6mm</option><option value="8">8mm</option><option value="10" selected>10mm</option>
+                </select>
+              </div>
+            </div>
+            <div class="input-group"><label class="input-label" for="stirrupSpacing">Stirrup Spacing (mm)</label><input class="input-field" type="number" id="stirrupSpacing" value="200" min="50" step="10"></div>
+          </div>
+
+          <!-- FOOTING -->
+          <div class="input-panel" data-panel="footing">
+            <div class="input-row-2">
+              <div class="input-group"><label class="input-label" for="footLength">Footing Length</label><input class="input-field" type="number" id="footLength" value="3" min="0.1" step="0.1"></div>
+              <div class="input-group"><label class="input-label" for="footWidth">Footing Width</label><input class="input-field" type="number" id="footWidth" value="3" min="0.1" step="0.1"></div>
+            </div>
+            <div class="input-row-2">
+              <div class="input-group">
+                <label class="input-label" for="footBarDia">Bar Diameter</label>
+                <select class="input-field" id="footBarDia">
+                  <option value="10">10mm</option><option value="12" selected>12mm</option><option value="16">16mm</option><option value="20">20mm</option>
+                </select>
+              </div>
+              <div class="input-group"><label class="input-label" for="footSpacing">Spacing (mm)</label><input class="input-field" type="number" id="footSpacing" value="200" min="50" step="10"></div>
+            </div>
+          </div>
+
+          <div class="wastage-section">
+            <label class="input-label">Wastage Allowance</label>
+            <div class="seg-control" data-group="wastage">
+              <button class="seg-btn active" data-value="5">5% &#9733;</button>
+              <button class="seg-btn" data-value="10">10%</button>
+              <button class="seg-btn" data-value="15">15%</button>
+            </div>
+          </div>
+
+          <button class="advanced-toggle" type="button"><span class="advanced-toggle-arrow">&#9656;</span> Optional: Steel Price Estimate</button>
+          <div class="advanced-body">
+            <div class="input-group"><label class="input-label" for="steelPrice">Price per kg (PKR)</label><input class="input-field" type="number" id="steelPrice" placeholder="e.g. 280" min="0"></div>
+          </div>
+
+          <div class="calc-actions"><button class="btn btn-primary btn-lg" id="calcBtn">Calculate Rebar &#8594;</button></div>
+        </div>
+      </div>
+
+      <div class="results-box" id="resultsBox">
+        <div class="results-grid">
+          <div class="result-card primary"><div class="result-card-label">TOTAL BARS REQUIRED</div><div class="result-card-value" id="resTotalBars">0</div><div class="result-card-unit">bars (rounded up)</div></div>
+          <div class="result-card"><div class="result-card-label">TOTAL LENGTH OF STEEL</div><div class="result-card-value"><span id="resTotalLength">0</span> <small>m</small></div><div class="result-card-unit">metres</div></div>
+          <div class="result-card"><div class="result-card-label">TOTAL WEIGHT</div><div class="result-card-value"><span id="resTotalWeightKg">0</span> <small>kg</small></div><div class="result-card-unit">kilograms</div></div>
+          <div class="result-card"><div class="result-card-label">TOTAL WEIGHT</div><div class="result-card-value"><span id="resTotalWeightT">0</span> <small>t</small></div><div class="result-card-unit">tonnes</div></div>
+          <div class="result-card" id="resSpacingCard"><div class="result-card-label">BAR SPACING</div><div class="result-card-value"><span id="resSpacing">0</span> <small>mm</small></div><div class="result-card-unit">centre to centre</div></div>
+          <div class="result-card hidden" id="resStirrupCard"><div class="result-card-label">STIRRUP COUNT</div><div class="result-card-value" id="resStirrupCount">0</div><div class="result-card-unit">stirrups</div></div>
+          <div class="result-card hidden" id="resStirrupLenCard"><div class="result-card-label">STIRRUP TOTAL LENGTH</div><div class="result-card-value"><span id="resStirrupLen">0</span> <small>m</small></div><div class="result-card-unit">metres</div></div>
+          <div class="result-card hidden" id="resCostCard"><div class="result-card-label">ESTIMATED COST</div><div class="result-card-value">PKR <span id="resCost">0</span></div><div class="result-card-unit">approximate</div></div>
+        </div>
+        <div class="results-note">Weight based on steel density 7850 kg/m&#179;. Bar weight per metre = (d&#178;/162) kg/m where d is diameter in mm. Always verify quantities with your structural engineer&#8217;s bar bending schedule.</div>
+      </div>
+    </div>
+  </section>
+
+  <div class="container"><div class="ad-placeholder ad-rectangle" data-ad-slot="rebar-mid-rectangle" aria-hidden="true" role="presentation"></div></div>
+
+  <section class="section">
+    <div class="container">
+      <h2 class="section-title">How to Use This Calculator</h2>
+      <div class="how-to-steps">
+        <div class="how-to-step anim-up"><div class="how-to-step-num">01</div><div class="how-to-step-title">Choose Element</div><div class="how-to-step-desc">Select your element type: slab, beam/column, or footing.</div></div>
+        <div class="how-to-step anim-up"><div class="how-to-step-num">02</div><div class="how-to-step-title">Enter Dimensions</div><div class="how-to-step-desc">Enter your dimensions and select bar diameter from the dropdown.</div></div>
+        <div class="how-to-step anim-up"><div class="how-to-step-num">03</div><div class="how-to-step-title">Set Spacing</div><div class="how-to-step-desc">Set bar spacing or count and choose your wastage factor.</div></div>
+        <div class="how-to-step anim-up"><div class="how-to-step-num">04</div><div class="how-to-step-title">Read Results</div><div class="how-to-step-desc">Get bar quantity, total length, total weight and optional cost.</div></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container">
+      <div class="article-content">
+        <h2>How to Calculate Rebar Quantity for a Concrete Slab</h2>
+        <p>To calculate rebar for a slab, divide the slab width by bar spacing to get bars running in one direction, and the slab length by spacing for the other direction. Add 1 to each count for the edge bar. Multiply by the number of layers (single or double).</p>
+        <p><strong>Worked example:</strong> 6m &#215; 4m slab, 12mm bars at 150mm spacing, double layer. Bars in X = ceil(4/0.15) + 1 = 28. Bars in Y = ceil(6/0.15) + 1 = 41. Total = (28 + 41) &#215; 2 = 138 bars. With 500mm lap, total length &#8776; 138 &#215; avg 5.5m &#215; 1.05 wastage &#8776; 798m. Weight = 798 &#215; 0.888 = 709 kg.</p>
+
+        <h2>Standard Rebar Sizes and Weight Per Metre</h2>
+        <table>
+          <thead><tr><th>Dia (mm)</th><th>Weight (kg/m)</th><th>Common Use</th></tr></thead>
+          <tbody>
+            <tr><td>6</td><td>0.222</td><td>Stirrups, light mesh</td></tr>
+            <tr><td>8</td><td>0.395</td><td>Light slabs, links</td></tr>
+            <tr><td>10</td><td>0.617</td><td>Residential slabs</td></tr>
+            <tr><td>12</td><td>0.888</td><td>Standard slabs, beams</td></tr>
+            <tr><td>16</td><td>1.578</td><td>Beams, columns</td></tr>
+            <tr><td>20</td><td>2.466</td><td>Heavy structural</td></tr>
+            <tr><td>25</td><td>3.854</td><td>Large columns</td></tr>
+            <tr><td>32</td><td>6.313</td><td>Bridge structures</td></tr>
+          </tbody>
+        </table>
+
+        <h2>Minimum Concrete Cover Requirements</h2>
+        <p>Cover protects rebar from corrosion and provides fire resistance. Insufficient cover is one of the most common causes of structural deterioration.</p>
+        <table>
+          <thead><tr><th>Location</th><th>Min Cover</th></tr></thead>
+          <tbody>
+            <tr><td>Internal floor slab</td><td>25mm</td></tr>
+            <tr><td>External slab / wall</td><td>40mm</td></tr>
+            <tr><td>Foundation (ground contact)</td><td>50mm</td></tr>
+            <tr><td>Exposed to seawater</td><td>75mm</td></tr>
+          </tbody>
+        </table>
+
+        <h2>What Is Lap Length and Why Does It Matter?</h2>
+        <p>Reinforcing bars come in stock lengths of 6m or 12m. Where two bars must be joined, they overlap by a defined lap length to transfer stress. Standard lap = 40 &#215; bar diameter. For 12mm bar: 40 &#215; 12 = 480mm, rounded to 500mm. Seismic zones may require 50&#215;d or more. Laps should be staggered so all bars don&#8217;t join at the same section.</p>
+
+        <h2>Y Bar vs R Bar &#8212; Which Should You Use?</h2>
+        <p>Y bars (deformed/ribbed) have surface ridges for superior concrete bond. They are used for all structural reinforcement. R bars (round/plain) are smooth and used for stirrups, links and light mesh where bending is required. In Pakistan, Y10, Y12 and Y16 are the most commonly stocked sizes. Always specify grade 60 (420 MPa) for structural work.</p>
+
+        <h2>Bar Bending Schedule</h2>
+        <p>A bar bending schedule (BBS) is a detailed list of every bar mark, diameter, length, shape, and bend in a structure. This calculator provides quantity estimates; the actual BBS must come from structural drawings prepared by a qualified engineer. Never substitute a calculator estimate for a proper BBS on a real project.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container">
+      <h2 class="section-title">Frequently Asked Questions</h2>
+      <div class="faq-list">
+        <div class="faq-item"><button class="faq-question">How do I calculate how much rebar I need?<span class="faq-arrow">&#9656;</span></button><div class="faq-answer">Divide the slab width by bar spacing to get bars in one direction, repeat for the other direction, then multiply total bars by bar length plus lap length. For beams, multiply the number of main bars by element length and add stirrup steel separately.</div></div>
+        <div class="faq-item"><button class="faq-question">What is the standard rebar spacing for a concrete slab?<span class="faq-arrow">&#9656;</span></button><div class="faq-answer">Standard rebar spacing for residential slabs is 150mm to 200mm centre-to-centre in both directions. Heavily loaded slabs may use 100mm spacing. The exact spacing is specified by the structural engineer based on load calculations and code requirements.</div></div>
+        <div class="faq-item"><button class="faq-question">How heavy is 1 metre of 12mm rebar?<span class="faq-arrow">&#9656;</span></button><div class="faq-answer">One metre of 12mm deformed steel bar weighs 0.888 kg. This is calculated using the standard formula: weight per metre = d&#178; / 162, where d is the diameter in mm. So 12 &#215; 12 / 162 = 0.888 kg/m.</div></div>
+        <div class="faq-item"><button class="faq-question">What rebar size should I use for a house slab in Pakistan?<span class="faq-arrow">&#9656;</span></button><div class="faq-answer">For standard residential house slabs in Pakistan, 10mm or 12mm Y-bars at 150mm spacing are most common. 12mm bars at 150mm c/c in both directions (double layer) is a typical specification for 125&#8211;150mm thick slabs on a solid sub-base.</div></div>
+        <div class="faq-item"><button class="faq-question">What is the minimum concrete cover for rebar?<span class="faq-arrow">&#9656;</span></button><div class="faq-answer">Minimum cover depends on exposure: 25mm for internal floor slabs, 40mm for external slabs and walls, 50mm for foundations in ground contact, and 75mm for marine exposure. In Pakistan residential construction, 25&#8211;40mm is standard practice.</div></div>
+        <div class="faq-item"><button class="faq-question">How do I calculate rebar weight?<span class="faq-arrow">&#9656;</span></button><div class="faq-answer">Rebar weight per metre = (diameter in mm)&#178; / 162 in kg/m. Multiply this by the total length of all bars. For example, 100 metres of 12mm bar = 100 &#215; 0.888 = 88.8 kg. This formula is derived from steel density of 7850 kg/m&#179;.</div></div>
+        <div class="faq-item"><button class="faq-question">What is the difference between Y and R bar?<span class="faq-arrow">&#9656;</span></button><div class="faq-answer">Y bars (deformed/ribbed) have surface ridges that grip concrete better, providing superior bond strength for structural reinforcement. R bars (round/plain) are smooth and used mainly for stirrups, links, and light mesh where tight bending is needed.</div></div>
+        <div class="faq-item"><button class="faq-question">How do I calculate lap length for rebar?<span class="faq-arrow">&#9656;</span></button><div class="faq-answer">Standard lap length is 40 times the bar diameter. For 12mm bar: 40 &#215; 12 = 480mm, typically rounded to 500mm. In seismic zones, 50 times diameter or more may be required. Laps should be staggered and not all placed at the same cross-section.</div></div>
+      </div>
+    </div>
+  </section>
+
+  <div class="container"><div class="ad-placeholder ad-leaderboard" data-ad-slot="rebar-bottom-leaderboard" aria-hidden="true" role="presentation"></div></div>
+
+  <section class="section">
+    <div class="container">
+      <h2 class="section-title">Related Tools</h2>
+      <div class="related-tools-grid">
+        <a href="../concrete-calculator/" class="tool-card anim-up"><div class="tool-card-icon">&#127959;&#65039;</div><div class="tool-card-name">Concrete Volume Calculator</div><div class="tool-card-desc">Calculate concrete for slabs, columns, footings, stairs and tubes.</div><div class="tool-card-arrow">Use Tool &#8594;</div></a>
+        <a href="../concrete-mix-calculator/" class="tool-card anim-up"><div class="tool-card-icon">&#129514;</div><div class="tool-card-name">Concrete Mix Ratio Calculator</div><div class="tool-card-desc">Work out cement, sand and aggregate for any concrete grade.</div><div class="tool-card-arrow">Use Tool &#8594;</div></a>
+        <a href="../brick-calculator/" class="tool-card anim-up"><div class="tool-card-icon">&#129521;</div><div class="tool-card-name">Brick Calculator</div><div class="tool-card-desc">Estimate bricks, mortar and cement for any wall area.</div><div class="tool-card-arrow">Use Tool &#8594;</div></a>
+      </div>
+    </div>
+  </section>
+
+  <div id="footer"></div>
+  <script src="../../assets/js/main.js" defer></script>
+  <script src="rebar-calculator.js" defer></script>
+</body>
+</html>

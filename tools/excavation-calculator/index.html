@@ -1,0 +1,167 @@
+﻿<!DOCTYPE html><html lang="en"><head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Excavation Calculator &#8212; Cut &amp; Fill Volume Estimator | BuildCalcTools</title>
+<meta name="description" content="Free excavation calculator for cut and fill volumes, trench excavation, foundation pits and bulk earthworks. Metric and imperial with soil swell and shrinkage factors.">
+<link rel="canonical" href="https://buildcalctools.site/tools/excavation-calculator/">
+<link rel="icon" href="../../assets/img/fav.png" type="image/png">
+<meta property="og:title" content="Free Excavation Calculator | BuildCalcTools">
+<meta property="og:description" content="Calculate cut and fill volumes for trenches, foundation pits, slopes and bulk earthworks.">
+<meta property="og:url" content="https://buildcalctools.site/tools/excavation-calculator/"><meta property="og:type" content="website">
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"WebApplication","name":"Excavation Calculator","url":"https://buildcalctools.site/tools/excavation-calculator/","description":"Calculate cut and fill volumes for trenches, foundation pits, slopes and bulk earthworks with soil swell and shrinkage factors.","applicationCategory":"UtilityApplication","operatingSystem":"All","offers":{"@type":"Offer","price":"0","priceCurrency":"USD"}}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"How do I calculate excavation volume?","acceptedAnswer":{"@type":"Answer","text":"For rectangular excavations: Volume = Length x Width x Depth. For pits with side slopes use the prismatoid formula: V = h/6 x (A_bottom + A_top + 4 x A_mid). Always distinguish between bank volume (in-situ) and loose volume (after digging, which is 5-40% larger due to swell)."}},{"@type":"Question","name":"What is the difference between cut volume and fill volume?","acceptedAnswer":{"@type":"Answer","text":"Cut volume is material removed from the ground. Fill volume is material placed to raise ground level. On sloped sites you often have both - cut from high areas and fill in low areas. Ideally you balance cut and fill to minimise material import or export."}},{"@type":"Question","name":"What is soil swell factor?","acceptedAnswer":{"@type":"Answer","text":"When soil is excavated it breaks up and occupies more space than it did in the ground. This increase is the swell factor. Rock swells 25-40%, clay 15-30%, sand 5-10%. You must account for swell when ordering trucks because you are transporting loose volume, not bank volume."}},{"@type":"Question","name":"How many cubic metres can a skip hold?","acceptedAnswer":{"@type":"Answer","text":"Standard skip sizes: mini skip 2-3 m3, midi skip 4-5 m3, builder skip 6-8 m3, maxi skip 12-14 m3. In Pakistan standard tipper trucks carry 4-8 m3 of loose soil."}},{"@type":"Question","name":"How deep can you excavate without shoring?","acceptedAnswer":{"@type":"Answer","text":"In Pakistan general practice allows unsupported vertical excavation up to 1.2m in firm soil. Beyond 1.5m shoring or stepping is required. Sandy or loose soils need support at any depth. Always follow local regulations and conduct soil tests for deep excavations."}},{"@type":"Question","name":"How do I calculate truck loads?","acceptedAnswer":{"@type":"Answer","text":"Truck loads = Loose volume / Truck capacity. Always round up. Example: 45 m3 loose volume with 6 m3 trucks = ceil(45/6) = 8 truck loads. Use loose volume not bank volume because excavated soil is bulkier."}},{"@type":"Question","name":"What is soil shrinkage factor?","acceptedAnswer":{"@type":"Answer","text":"When loose soil is compacted as fill it shrinks below its original bank volume. Shrinkage is typically 5-25% depending on soil type. This means 100 m3 of bank material may only produce 80-95 m3 of compacted fill."}},{"@type":"Question","name":"How do I calculate excavation for a sloped site?","acceptedAnswer":{"@type":"Answer","text":"Use average cut and fill depths from a site survey. Divide the site into a grid, measure the cut/fill depth at each point, and average them. Volume = Area x Average Depth. For more accuracy use the prismatoid formula or cross-section method."}}]}</script>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Sans:wght@400;500;600&family=JetBrains+Mono:wght@400;600&display=swap" media="print" onload="this.media='all'">
+<link rel="stylesheet" href="../../assets/css/style.css">
+<link rel="stylesheet" href="excavation-calculator.css">
+</head><body>
+<div id="navbar"></div>
+<section class="page-hero"><div class="hero-orb-1"></div><div class="hero-orb-2"></div><div class="container">
+<div class="breadcrumb"><a href="../../index.html">Home</a><span>/</span><a href="../">Calculators</a><span>/</span><span class="breadcrumb-current">Excavation Calculator</span></div>
+<div class="page-hero-badge">Free Tool</div>
+<h1>Excavation<br><span class="grad-text">Calculator</span></h1>
+<p>Calculate cut volume, fill volume, and truck loads for trenches, foundation pits, basement excavations, and sloped sites. Includes soil swell and shrinkage factors for accurate earthwork quantity estimates.</p>
+<div class="trust-chips"><span class="badge badge-muted">&#10004; Trench &amp; Pit</span><span class="badge badge-muted">&#10004; Swell &amp; Shrinkage</span><span class="badge badge-muted">&#10004; Truck Loads</span><span class="badge badge-muted">&#10004; Metric &amp; Imperial</span></div>
+</div></section>
+<div class="container"><div class="ad-placeholder ad-leaderboard" data-ad-slot="excavation-top-leaderboard" aria-hidden="true" role="presentation"></div></div>
+<section class="section" id="calculatorSection"><div class="container"><div class="calculator-wrap">
+<div class="calc-title">Excavation &amp; Earthworks Calculator</div>
+<div class="unit-toggle"><button class="unit-pill active" data-unit="metric">Metric (m/m&#179;)</button><button class="unit-pill" data-unit="imperial">Imperial (ft/yd&#179;)</button></div>
+<div class="calc-tabs">
+<button class="calc-tab active" data-tab="trench">Trench</button>
+<button class="calc-tab" data-tab="pit">Foundation Pit</button>
+<button class="calc-tab" data-tab="basement">Basement / Bulk</button>
+<button class="calc-tab" data-tab="sloped">Sloped Site</button>
+</div>
+
+<div class="tab-panel active" id="panel-trench">
+<div class="form-row"><div class="form-group"><label class="form-label" data-label-metric="Length (m)" data-label-imperial="Length (ft)">Length (m)</label><input class="form-input" type="number" id="trL" value="10" min="0.01" step="0.01"><div class="field-error-msg">Enter a value &gt; 0</div></div>
+<div class="form-group"><label class="form-label" data-label-metric="Width (m)" data-label-imperial="Width (ft)">Width (m)</label><input class="form-input" type="number" id="trW" value="0.6" min="0.01" step="0.01"><div class="field-error-msg">Enter a value &gt; 0</div></div></div>
+<div class="form-row"><div class="form-group"><label class="form-label" data-label-metric="Depth (m)" data-label-imperial="Depth (ft)">Depth (m)</label><input class="form-input" type="number" id="trD" value="1.5" min="0.01" step="0.01"><div class="field-error-msg">Enter a value &gt; 0</div></div>
+<div class="form-group"><label class="form-label">Quantity</label><input class="form-input" type="number" id="trQ" value="1" min="1" step="1"><div class="field-error-msg">Enter a value &gt; 0</div></div></div>
+<p class="form-hint">Standard drainage trench: 0.45&#8211;0.6m wide</p></div>
+
+<div class="tab-panel" id="panel-pit">
+<div class="form-row"><div class="form-group"><label class="form-label" data-label-metric="Length at bottom (m)" data-label-imperial="Length at bottom (ft)">Length at bottom (m)</label><input class="form-input" type="number" id="pitL" value="3" min="0.01" step="0.01"><div class="field-error-msg">Enter a value &gt; 0</div></div>
+<div class="form-group"><label class="form-label" data-label-metric="Width at bottom (m)" data-label-imperial="Width at bottom (ft)">Width at bottom (m)</label><input class="form-input" type="number" id="pitW" value="3" min="0.01" step="0.01"><div class="field-error-msg">Enter a value &gt; 0</div></div></div>
+<div class="form-row"><div class="form-group"><label class="form-label" data-label-metric="Depth (m)" data-label-imperial="Depth (ft)">Depth (m)</label><input class="form-input" type="number" id="pitD" value="1.2" min="0.01" step="0.01"><div class="field-error-msg">Enter a value &gt; 0</div></div>
+<div class="form-group"><label class="form-label">Side Slope (H:V)</label><select class="form-select" id="pitSlope"><option value="0">Vertical (0:1) &#8212; shored</option><option value="0.25">1:4 (0.25:1) &#8212; hard rock</option><option value="0.5">1:2 (0.5:1) &#8212; firm clay</option><option value="1" selected>1:1 &#8212; loose soil</option><option value="1.5">3:2 (1.5:1) &#8212; sandy</option><option value="2">2:1 &#8212; loose sand</option></select></div></div></div>
+
+<div class="tab-panel" id="panel-basement">
+<div class="form-row"><div class="form-group"><label class="form-label" data-label-metric="Length (m)" data-label-imperial="Length (ft)">Length (m)</label><input class="form-input" type="number" id="bsL" value="20" min="0.01" step="0.01"><div class="field-error-msg">Enter a value &gt; 0</div></div>
+<div class="form-group"><label class="form-label" data-label-metric="Width (m)" data-label-imperial="Width (ft)">Width (m)</label><input class="form-input" type="number" id="bsW" value="15" min="0.01" step="0.01"><div class="field-error-msg">Enter a value &gt; 0</div></div></div>
+<div class="form-group"><label class="form-label" data-label-metric="Depth (m)" data-label-imperial="Depth (ft)">Depth (m)</label><input class="form-input" type="number" id="bsD" value="3" min="0.01" step="0.01"><div class="field-error-msg">Enter a value &gt; 0</div></div>
+<p class="form-hint">For irregular shapes, break into rectangles and sum.</p></div>
+
+<div class="tab-panel" id="panel-sloped">
+<div class="form-row"><div class="form-group"><label class="form-label" data-label-metric="Length (m)" data-label-imperial="Length (ft)">Length (m)</label><input class="form-input" type="number" id="slL" value="20" min="0.01" step="0.01"><div class="field-error-msg">Enter a value &gt; 0</div></div>
+<div class="form-group"><label class="form-label" data-label-metric="Width (m)" data-label-imperial="Width (ft)">Width (m)</label><input class="form-input" type="number" id="slW" value="10" min="0.01" step="0.01"><div class="field-error-msg">Enter a value &gt; 0</div></div></div>
+<div class="form-row"><div class="form-group"><label class="form-label" data-label-metric="Avg Cut Depth (m)" data-label-imperial="Avg Cut Depth (ft)">Avg Cut Depth (m)</label><input class="form-input" type="number" id="slCut" value="1.0" min="0" step="0.01"><div class="field-error-msg">Enter a value &gt;= 0</div></div>
+<div class="form-group"><label class="form-label" data-label-metric="Avg Fill Depth (m)" data-label-imperial="Avg Fill Depth (ft)">Avg Fill Depth (m)</label><input class="form-input" type="number" id="slFill" value="0.5" min="0" step="0.01"><div class="field-error-msg">Enter a value &gt;= 0</div></div></div>
+<p class="form-hint">Use average depths from site survey levels.</p></div>
+
+<div class="form-label" style="margin-top:24px">Soil Type</div>
+<div class="soil-type-grid">
+<div class="soil-card" data-soil="rock"><div class="soil-card-name">Rock</div><div class="soil-card-swell">Swell 25&#8211;40%</div></div>
+<div class="soil-card" data-soil="hardclay"><div class="soil-card-name">Hard Clay</div><div class="soil-card-swell">Swell 20&#8211;30%</div></div>
+<div class="soil-card active" data-soil="medclay"><div class="soil-card-name">Medium Clay</div><div class="soil-card-swell">Swell 15&#8211;20%</div></div>
+<div class="soil-card" data-soil="sandyclay"><div class="soil-card-name">Sandy Clay</div><div class="soil-card-swell">Swell 10&#8211;15%</div></div>
+<div class="soil-card" data-soil="sand"><div class="soil-card-name">Sand</div><div class="soil-card-swell">Swell 5&#8211;10%</div></div>
+<div class="soil-card" data-soil="topsoil"><div class="soil-card-name">Topsoil</div><div class="soil-card-swell">Swell 15&#8211;25%</div></div>
+</div>
+<div class="form-row"><div class="form-group"><label class="form-label">Swell Factor (%)</label><input class="form-input" type="number" id="swellInput" value="17" min="0" max="60" step="1"></div>
+<div class="form-group"><label class="form-label">Shrinkage Factor (%)</label><input class="form-input" type="number" id="shrinkInput" value="15" min="0" max="40" step="1"></div></div>
+
+<div class="form-group"><label class="form-label">Truck Capacity (m&#179; loose)</label><input class="form-input" type="number" id="truckCap" value="5" min="0.5" step="0.5"><p class="form-hint">Standard tipper truck: 4&#8211;8 m&#179;. Check your supplier.</p></div>
+
+<div class="form-label">Wastage / Extra</div>
+<div class="wastage-group">
+<button class="wastage-btn" data-value="0">0%</button>
+<button class="wastage-btn active" data-value="5">5% &#9733;</button>
+<button class="wastage-btn" data-value="10">10%</button>
+<button class="wastage-btn" data-value="15">15%</button>
+</div>
+<p class="form-hint">Extra for over-excavation and irregular edges.</p>
+<button class="btn btn-primary btn-full btn-lg" id="calcBtn">Calculate Excavation Volume &#8594;</button>
+</div>
+
+<div class="result-box results-section">
+<div class="result-actions"><h3>Results</h3><div class="result-actions-btns"><button class="btn btn-secondary btn-sm" id="copyBtn">&#128203; Copy</button><button class="btn btn-secondary btn-sm" id="printBtn">&#128424; Print</button></div></div>
+<div class="result-grid">
+<div class="result-card primary"><div class="result-lbl">BANK VOLUME (IN-SITU)</div><div class="result-num"><span id="resBankVol">0</span> <small id="resBankUnit">m&#179;</small></div><div class="result-sub" id="resBankSub">Natural ground before excavation</div></div>
+<div class="result-card yellow"><div class="result-lbl">LOOSE VOLUME (EXCAVATED)</div><div class="result-num"><span id="resLooseVol">0</span> <small id="resLooseUnit">m&#179;</small></div><div class="result-sub" id="resLooseSub">Volume after excavation</div></div>
+<div class="result-card"><div class="result-lbl">COMPACTED FILL VOLUME</div><div class="result-num"><span id="resCompactVol">0</span> <small id="resCompactUnit">m&#179;</small></div><div class="result-sub">If used as fill after compaction</div></div>
+<div class="result-card highlight"><div class="result-lbl">TRUCK LOADS REQUIRED</div><div class="result-num"><span id="resTrucks">0</span> <small>loads</small></div><div class="result-sub" id="resTruckSub">Based on truck capacity (loose)</div></div>
+<div class="result-card"><div class="result-lbl">WEIGHT OF MATERIAL</div><div class="result-num"><span id="resWeight">0</span> <small>tonnes</small></div><div class="result-sub">Approximate based on soil density</div></div>
+<div class="result-card" id="resTopDims" style="display:none"><div class="result-lbl">TOP DIMENSIONS</div><div class="result-num"><span id="resTopVal">0</span> <small id="resTopUnit">m</small></div><div class="result-sub">At ground surface with side slopes</div></div>
+<div class="result-card" id="resFillCard" style="display:none"><div class="result-lbl">FILL VOLUME NEEDED</div><div class="result-num"><span id="resFillVol">0</span> <small id="resFillUnit">m&#179;</small></div><div class="result-sub">Loose fill material required</div></div>
+</div>
+<div class="results-note">Bank volume = in-situ material before disturbance. Loose volume = material once excavated (increases due to swell). Compacted fill = same material re-compacted (decreases from bank). Truck loads based on loose volume. Always verify with soil reports.</div>
+</div>
+</div></section>
+
+<div class="container"><div class="ad-placeholder ad-rectangle" data-ad-slot="excavation-mid-rectangle" aria-hidden="true" role="presentation"></div></div>
+
+<section class="section"><div class="container">
+<div class="section-header centered"><h2>How to Use the Excavation Calculator</h2></div>
+<div class="steps-grid">
+<div class="step-card anim-up"><div class="step-num">01</div><div class="step-title">Choose Shape</div><div class="step-desc">Select trench, foundation pit with side slopes, basement bulk excavation, or sloped cut-and-fill site.</div></div>
+<div class="step-card anim-up"><div class="step-num">02</div><div class="step-title">Enter Dimensions</div><div class="step-desc">Input length, width, and depth in metres or feet. For pits, set the side slope ratio for your soil type.</div></div>
+<div class="step-card anim-up"><div class="step-num">03</div><div class="step-title">Select Soil Type</div><div class="step-desc">Choose your soil to auto-set swell and shrinkage factors. Fine-tune the percentage if you have soil test data.</div></div>
+<div class="step-card anim-up"><div class="step-num">04</div><div class="step-title">Read Results</div><div class="step-desc">Get bank volume, loose volume, truck loads, material weight, and compacted fill volume instantly.</div></div>
+</div></div></section>
+
+<section class="section"><div class="container"><div class="prose">
+<h2>How to Calculate Excavation Volume</h2>
+<p>The basic formula for rectangular excavations is <strong>Volume = Length &#215; Width &#215; Depth</strong>. For a standard drainage trench 20m long, 0.6m wide, and 1.5m deep: V = 20 &#215; 0.6 &#215; 1.5 = 18 m&#179; of bank (in-situ) material. However, once excavated, soil swells and occupies more space. If the soil has a 17% swell factor, the loose volume becomes 18 &#215; 1.17 = 21.1 m&#179;. This is the volume you need to transport away &#8212; always use loose volume when ordering trucks.</p>
+
+<h2>Bank, Loose, and Compacted Volume &#8212; The Three States of Soil</h2>
+<p><strong>Bank volume</strong> is the soil in its natural, undisturbed state in the ground. <strong>Loose volume</strong> is the same soil once excavated &#8212; it breaks up and swells by 5&#8211;40% depending on soil type. <strong>Compacted volume</strong> is soil that has been placed as fill and compacted with rollers or tampers &#8212; it shrinks below bank volume by 5&#8211;25%.</p>
+<table><thead><tr><th>Soil Type</th><th>Swell</th><th>Shrinkage</th><th>Density (kg/m&#179;)</th></tr></thead><tbody>
+<tr><td>Rock</td><td>25&#8211;40%</td><td>20&#8211;30%</td><td>1800&#8211;2200</td></tr>
+<tr><td>Hard Clay</td><td>20&#8211;30%</td><td>16&#8211;23%</td><td>1700&#8211;1900</td></tr>
+<tr><td>Medium Clay</td><td>15&#8211;20%</td><td>13&#8211;17%</td><td>1600&#8211;1800</td></tr>
+<tr><td>Sandy Clay</td><td>10&#8211;15%</td><td>9&#8211;13%</td><td>1650&#8211;1750</td></tr>
+<tr><td>Sand</td><td>5&#8211;10%</td><td>5&#8211;9%</td><td>1500&#8211;1700</td></tr>
+<tr><td>Topsoil</td><td>15&#8211;25%</td><td>13&#8211;20%</td><td>1200&#8211;1500</td></tr>
+</tbody></table>
+
+<h2>How Many Truck Loads Do I Need?</h2>
+<p>Truck loads = Loose volume &#247; Truck capacity. Standard tipper trucks in Pakistan carry 4&#8211;8 m&#179; of loose material. Always round UP &#8212; you cannot order a partial truck load. For 45 m&#179; of loose soil with 6 m&#179; trucks: ceil(45/6) = 8 loads. Account for loading time of 15&#8211;30 minutes per truck when planning your excavation schedule.</p>
+
+<h2>Excavation with Side Slopes</h2>
+<p>When excavating without shoring, you must cut side slopes to prevent collapse. The required slope depends on soil type. The prismatoid formula accurately calculates volume for sloped pits: V = h/6 &#215; (A_bottom + A_top + 4&#215;A_mid). Firm rock can be cut vertically. Hard clay uses 1:4 to 1:2 slopes. Medium clay needs 1:1 slopes. Sandy and loose soils require 1.5:1 to 2:1 slopes &#8212; meaning the excavation widens significantly at the top.</p>
+
+<h2>Cut and Fill on Sloped Sites</h2>
+<p>On sloping ground, the goal is to balance cut and fill to minimise importing or exporting soil. Survey the site, establish a datum level, and calculate average cut and fill depths across the area. If cut volume exceeds fill, you export the surplus. If fill exceeds cut, you import material. A topographic survey with level readings on a grid gives the best accuracy for large sites.</p>
+
+<h2>Safety and Legal Requirements</h2>
+<p>In Pakistan, excavations deeper than 1.2m in firm soil generally require shoring or stepping. Never allow workers in an unsupported trench deeper than 1.5m. Sandy or waterlogged soils can collapse without warning at any depth. Always conduct soil tests before deep excavations. Check the water table level &#8212; dewatering may be needed for basement excavations below the water table, which adds significant cost.</p>
+</div></div></section>
+
+<section class="section"><div class="container">
+<div class="section-header"><h2>Frequently Asked Questions</h2></div>
+<div class="faq-list">
+<div class="faq-item"><button class="faq-question">How do I calculate excavation volume?<span class="faq-arrow">&#9656;</span></button><div class="faq-answer">For rectangular excavations: Volume = Length &#215; Width &#215; Depth. For pits with side slopes use the prismatoid formula: V = h/6 &#215; (A_bottom + A_top + 4&#215;A_mid). Always distinguish between bank volume (in-situ) and loose volume (after digging, which is 5&#8211;40% larger).</div></div>
+<div class="faq-item"><button class="faq-question">What is the difference between cut and fill?<span class="faq-arrow">&#9656;</span></button><div class="faq-answer">Cut is material removed from the ground. Fill is material placed to raise ground level. On sloped sites you often have both. Ideally you balance cut and fill to minimise import or export of material.</div></div>
+<div class="faq-item"><button class="faq-question">What is soil swell factor?<span class="faq-arrow">&#9656;</span></button><div class="faq-answer">When soil is excavated it breaks up and occupies more space. This increase is the swell factor. Rock swells 25&#8211;40%, clay 15&#8211;30%, sand 5&#8211;10%. Account for swell when ordering trucks &#8212; you transport loose volume, not bank volume.</div></div>
+<div class="faq-item"><button class="faq-question">How many cubic metres can a skip hold?<span class="faq-arrow">&#9656;</span></button><div class="faq-answer">Standard skip sizes: mini skip 2&#8211;3 m&#179;, midi skip 4&#8211;5 m&#179;, builder skip 6&#8211;8 m&#179;, maxi skip 12&#8211;14 m&#179;. In Pakistan standard tipper trucks carry 4&#8211;8 m&#179; of loose soil.</div></div>
+<div class="faq-item"><button class="faq-question">How deep without shoring in Pakistan?<span class="faq-arrow">&#9656;</span></button><div class="faq-answer">General practice allows unsupported vertical excavation up to 1.2m in firm soil. Beyond 1.5m, shoring or stepping is required. Sandy or loose soils need support at any depth.</div></div>
+<div class="faq-item"><button class="faq-question">How do I calculate truck loads?<span class="faq-arrow">&#9656;</span></button><div class="faq-answer">Truck loads = Loose volume &#247; Truck capacity. Always round up. Example: 45 m&#179; loose volume with 6 m&#179; trucks = ceil(45/6) = 8 loads. Use loose volume not bank volume.</div></div>
+<div class="faq-item"><button class="faq-question">What is soil shrinkage factor?<span class="faq-arrow">&#9656;</span></button><div class="faq-answer">When loose soil is compacted as fill it shrinks below its original bank volume. Shrinkage is typically 5&#8211;25% depending on soil type. 100 m&#179; of bank material may only produce 80&#8211;95 m&#179; of compacted fill.</div></div>
+<div class="faq-item"><button class="faq-question">How to calculate excavation for a sloped site?<span class="faq-arrow">&#9656;</span></button><div class="faq-answer">Use average cut and fill depths from a site survey. Divide the site into a grid, measure depth at each point, and average. Volume = Area &#215; Average Depth. For more accuracy use the prismatoid or cross-section method.</div></div>
+</div></div></section>
+
+<div class="container"><div class="ad-placeholder ad-leaderboard" data-ad-slot="excavation-bottom-leaderboard" aria-hidden="true" role="presentation"></div></div>
+
+<section class="section"><div class="container">
+<div class="section-header"><h2>Related Construction Calculators</h2></div>
+<div class="related-grid">
+<a href="../concrete-calculator/" class="tool-card anim-up"><div class="tool-card-icon">&#127959;&#65039;</div><div class="tool-card-name">Concrete Volume Calculator</div><div class="tool-card-desc">Calculate concrete for slabs, columns and footings in metric or imperial.</div><div class="tool-card-arrow">Use Tool &#8594;</div></a>
+<a href="../block-calculator/" class="tool-card anim-up"><div class="tool-card-icon">&#9723;&#65039;</div><div class="tool-card-name">Concrete Block Calculator</div><div class="tool-card-desc">How many blocks you need for any wall plus mortar and cement.</div><div class="tool-card-arrow">Use Tool &#8594;</div></a>
+<a href="../" class="tool-card anim-up"><div class="tool-card-icon">&#128203;</div><div class="tool-card-name">View All Calculators</div><div class="tool-card-desc">Browse the full library of free construction calculators.</div><div class="tool-card-arrow">Browse All &#8594;</div></a>
+</div></div></section>
+
+<div id="footer"></div>
+<script src="../../assets/js/main.js" defer></script>
+<script src="excavation-calculator.js" defer></script>
+</body></html>

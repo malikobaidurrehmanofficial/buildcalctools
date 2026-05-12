@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Mortar Calculator &#8212; Cement &amp; Sand for Brickwork &amp; Blockwork | BuildCalcTools</title>
+  <meta name="description" content="Free mortar calculator for brickwork, blockwork and stone walls. Calculate cement bags and sand volume for any mix ratio and wall area. Metric and imperial.">
+  <meta name="keywords" content="mortar calculator, cement sand mortar calculator, how much mortar for brickwork, mortar mix calculator, cement bags brickwork, mortar volume calculator Pakistan">
+  <link rel="canonical" href="https://buildcalctools.site/tools/mortar-calculator/">
+  <link rel="icon" href="../../assets/img/fav.png" type="image/png">
+  <meta property="og:title" content="Free Mortar Calculator &#8212; Cement &amp; Sand for Any Wall | BuildCalcTools">
+  <meta property="og:description" content="Calculate mortar volume, cement bags and sand for brickwork, blockwork and stone walls using any mix ratio.">
+  <meta property="og:url" content="https://buildcalctools.site/tools/mortar-calculator/">
+  <meta property="og:type" content="website">
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"WebApplication","name":"Mortar Volume Calculator","url":"https://buildcalctools.site/tools/mortar-calculator/","description":"Calculate mortar volume, cement bags and sand for brickwork, blockwork and stone walls using any cement-to-sand mix ratio.","applicationCategory":"UtilityApplication","operatingSystem":"All","offers":{"@type":"Offer","price":"0","priceCurrency":"USD"}}</script>
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"How do I calculate how much mortar I need?","acceptedAnswer":{"@type":"Answer","text":"Mortar volume is approximately 30% of the total wall volume for brickwork and 25% for blockwork. Calculate wall volume (area x thickness), multiply by the mortar fraction, then add 10-15% wastage. Use the dry volume factor of 1.33 to find actual material quantities."}},{"@type":"Question","name":"How much mortar do I need per brick?","acceptedAnswer":{"@type":"Answer","text":"For standard Pakistani bricks (9x4.5x3 inches) with 10mm joints, approximately 0.3 cubic metres of mortar is needed per 1000 bricks, or about 0.0003 cubic metres per brick."}},{"@type":"Question","name":"What is the best mortar mix ratio for brickwork?","acceptedAnswer":{"@type":"Answer","text":"For general brickwork above damp-proof course, a 1:5 cement-to-sand ratio is standard. For structural walls and below DPC, use 1:4 or 1:3. For internal non-load-bearing partitions, 1:6 is acceptable."}},{"@type":"Question","name":"How many bags of cement per cubic metre of mortar?","acceptedAnswer":{"@type":"Answer","text":"For 1:5 mortar mix, one cubic metre requires approximately 7 bags of 50kg cement. The calculation: 1 m3 wet x 1.33 dry factor = 1.33 m3 dry. Cement = 1.33/6 x 1440 = 319 kg = 6.4 bags, rounded to 7."}},{"@type":"Question","name":"What is the difference between mortar and concrete?","acceptedAnswer":{"@type":"Answer","text":"Mortar is cement plus sand plus water, used for bonding bricks and blocks. Concrete adds coarse aggregate (gravel/stone) for structural strength. Never substitute mortar for concrete in structural applications or vice versa."}},{"@type":"Question","name":"How much sand do I need for 1000 bricks?","acceptedAnswer":{"@type":"Answer","text":"For 1000 standard bricks with 1:5 mortar mix: mortar volume is approximately 0.30 m3 wet, 0.40 m3 dry. Sand = 0.40 x 5/6 = 0.33 m3 (approximately 530 kg). Cement = 0.40 x 1/6 x 1440 = 96 kg (2 bags of 50kg)."}},{"@type":"Question","name":"Can I use any cement for brickwork mortar?","acceptedAnswer":{"@type":"Answer","text":"Ordinary Portland Cement (OPC) is standard for brickwork mortar. Rapid-setting cement should be avoided as it gives less working time. Masonry cement or lime-cement mortars can be used for better workability. Always use cement within its expiry date."}},{"@type":"Question","name":"How long does mortar take to set?","acceptedAnswer":{"@type":"Answer","text":"OPC mortar begins initial setting in 30-60 minutes and achieves final set in 6-10 hours. Full strength develops over 28 days. Mortar should be used within 2 hours of mixing and never re-tempered once stiffening begins."}}]}</script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Sans:wght@400;500;600&family=JetBrains+Mono:wght@400;600&display=swap" media="print" onload="this.media='all'">
+  <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Sans:wght@400;500;600&family=JetBrains+Mono:wght@400;600&display=swap"></noscript>
+  <link rel="stylesheet" href="../../assets/css/style.css">
+  <link rel="stylesheet" href="mortar-calculator.css">
+</head>
+<body>
+  <div id="navbar"></div>
+
+  <section class="page-hero">
+    <div class="hero-orb-1"></div><div class="hero-orb-2"></div>
+    <div class="container">
+      <div class="breadcrumb"><a href="../../index.html">Home</a><span>/</span><a href="../">Calculators</a><span>/</span><span class="breadcrumb-current">Mortar Calculator</span></div>
+      <div class="page-hero-badge">&#129514; Mortar</div>
+      <h1>Mortar Volume<br><span class="grad-text">Calculator</span></h1>
+      <p>Calculate the exact volume of mortar &#8212; and the cement bags and sand needed &#8212; for any brickwork, blockwork, or stone wall. Choose your mix ratio, wall area, and joint thickness to get instant results.</p>
+      <div class="trust-chips">
+        <span class="trust-chip"><span class="trust-chip-icon">&#10004;</span> Any Mix Ratio</span>
+        <span class="trust-chip"><span class="trust-chip-icon">&#10004;</span> Cement Bags &amp; Sand</span>
+        <span class="trust-chip"><span class="trust-chip-icon">&#10004;</span> Bricks &amp; Blocks</span>
+        <span class="trust-chip"><span class="trust-chip-icon">&#10004;</span> Metric &amp; Imperial</span>
+      </div>
+    </div>
+  </section>
+
+  <div class="container"><div class="ad-placeholder ad-leaderboard" data-ad-slot="mortar-top-leaderboard" aria-hidden="true" role="presentation"></div></div>
+
+  <section class="section">
+    <div class="container">
+      <div class="card">
+        <div class="card-header"><h2 class="card-title">&#129514; Calculator</h2></div>
+        <div class="card-body">
+
+          <label class="input-label">Unit System</label>
+          <div class="unit-toggle">
+            <button class="unit-toggle-btn active" data-unit="metric">Metric</button>
+            <button class="unit-toggle-btn" data-unit="imperial">Imperial</button>
+          </div>
+
+          <label class="input-label">Wall Type</label>
+          <div class="seg-control" data-group="walltype">
+            <button class="seg-btn active" data-value="single-brick">Single Brick (4.5")</button>
+            <button class="seg-btn" data-value="double-brick">Double Brick (9")</button>
+            <button class="seg-btn" data-value="single-block">Single Block</button>
+            <button class="seg-btn" data-value="double-block">Double Block</button>
+          </div>
+
+          <label class="input-label">Wall Area Input</label>
+          <div class="mode-toggle">
+            <button class="mode-toggle-btn active" data-mode="area">Enter Area</button>
+            <button class="mode-toggle-btn" data-mode="lxh">Enter L &#215; H</button>
+          </div>
+
+          <div class="input-panel active" data-panel="area">
+            <div class="input-group"><label class="input-label" for="wallArea">Wall Area (m&#178; or ft&#178;)</label><input class="input-field" type="number" id="wallArea" value="15" min="0.1" step="0.1"></div>
+          </div>
+          <div class="input-panel" data-panel="lxh">
+            <div class="input-row-2">
+              <div class="input-group"><label class="input-label" for="wallLength">Wall Length</label><input class="input-field" type="number" id="wallLength" value="5" min="0.1" step="0.1"></div>
+              <div class="input-group"><label class="input-label" for="wallHeight">Wall Height</label><input class="input-field" type="number" id="wallHeight" value="3" min="0.1" step="0.1"></div>
+            </div>
+          </div>
+
+          <div class="input-group">
+            <label class="input-label" for="mixRatio">Mortar Mix Ratio</label>
+            <select class="input-field" id="mixRatio">
+              <option value="1:2">1:2 &#8212; Rich structural mix</option>
+              <option value="1:3">1:3 &#8212; Strong exposed walls</option>
+              <option value="1:4">1:4 &#8212; Load-bearing brickwork</option>
+              <option value="1:5" selected>1:5 &#8212; General brickwork</option>
+              <option value="1:6">1:6 &#8212; Light partitions</option>
+              <option value="custom">Custom ratio</option>
+            </select>
+          </div>
+          <div class="input-panel" id="customMixPanel" data-panel="custom-mix">
+            <div class="input-row-2">
+              <div class="input-group"><label class="input-label" for="customCement">Cement Parts</label><input class="input-field" type="number" id="customCement" value="1" min="0.1" step="0.1"></div>
+              <div class="input-group"><label class="input-label" for="customSand">Sand Parts</label><input class="input-field" type="number" id="customSand" value="5" min="0.1" step="0.1"></div>
+            </div>
+          </div>
+
+          <label class="input-label">Cement Bag Size</label>
+          <div class="seg-control" data-group="bag">
+            <button class="seg-btn" data-value="25">25 kg</button>
+            <button class="seg-btn" data-value="40">40 kg</button>
+            <button class="seg-btn active" data-value="50">50 kg &#9733;</button>
+          </div>
+
+          <div class="wastage-section">
+            <label class="input-label">Wastage Allowance</label>
+            <div class="seg-control" data-group="wastage">
+              <button class="seg-btn active" data-value="10">10% &#9733;</button>
+              <button class="seg-btn" data-value="15">15%</button>
+              <button class="seg-btn" data-value="20">20%</button>
+            </div>
+            <span class="input-hint">Mortar wastage is higher than bricks &#8212; 10&#8211;15% is standard.</span>
+          </div>
+
+          <div class="calc-actions"><button class="btn btn-primary btn-lg" id="calcBtn">Calculate Mortar &amp; Materials &#8594;</button></div>
+        </div>
+      </div>
+
+      <div class="results-box">
+        <div class="results-grid">
+          <div class="result-card primary"><div class="result-card-label">MORTAR VOLUME</div><div class="result-card-value"><span id="resMortarVol">0</span> <small>m&#179;</small></div><div class="result-card-unit">wet mortar required</div></div>
+          <div class="result-card"><div class="result-card-label">DRY VOLUME</div><div class="result-card-value"><span id="resDryVol">0</span> <small>m&#179;</small></div><div class="result-card-unit">&#215;1.33 bulking factor</div></div>
+          <div class="result-card"><div class="result-card-label">CEMENT REQUIRED</div><div class="result-card-value"><span id="resCementKg">0</span> <small>kg</small></div><div class="result-card-unit" id="resCementBags">0 bags</div></div>
+          <div class="result-card"><div class="result-card-label">SAND VOLUME</div><div class="result-card-value"><span id="resSandVol">0</span> <small>m&#179;</small></div><div class="result-card-unit" id="resSandKg">0 kg approx.</div></div>
+        </div>
+        <div class="results-note">Mortar volume estimated at 30% of wall volume for brickwork (25% for blockwork) with standard 10&#8211;15mm joints. Dry volume multiplied by 1.33 for material bulking. Quantities are estimates &#8212; site conditions vary.</div>
+      </div>
+    </div>
+  </section>
+
+  <div class="container"><div class="ad-placeholder ad-rectangle" data-ad-slot="mortar-mid-rectangle" aria-hidden="true" role="presentation"></div></div>
+
+  <section class="section">
+    <div class="container">
+      <h2 class="section-title">How to Use This Calculator</h2>
+      <div class="how-to-steps">
+        <div class="how-to-step anim-up"><div class="how-to-step-num">01</div><div class="how-to-step-title">Select Wall Type</div><div class="how-to-step-desc">Choose brickwork or blockwork and enter your wall area or dimensions.</div></div>
+        <div class="how-to-step anim-up"><div class="how-to-step-num">02</div><div class="how-to-step-title">Choose Mix Ratio</div><div class="how-to-step-desc">Select 1:5 for general brickwork or a stronger mix for structural walls.</div></div>
+        <div class="how-to-step anim-up"><div class="how-to-step-num">03</div><div class="how-to-step-title">Set Wastage</div><div class="how-to-step-desc">Set your wastage allowance and cement bag size preference.</div></div>
+        <div class="how-to-step anim-up"><div class="how-to-step-num">04</div><div class="how-to-step-title">Get Results</div><div class="how-to-step-desc">Read your mortar volume, cement bags and sand quantity instantly.</div></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container">
+      <div class="article-content">
+        <h2>How to Calculate Mortar for a Brick Wall</h2>
+        <p>Mortar constitutes approximately 30% of the total volume of a brick wall with 10mm joints. The formula is: mortar volume = wall area &#215; wall thickness &#215; 0.30. For a 5m &#215; 3m single brick wall (114mm thick): wall volume = 15 &#215; 0.114 = 1.71 m&#179;. Mortar (wet) = 1.71 &#215; 0.30 = 0.513 m&#179;. Dry volume = 0.513 &#215; 1.33 = 0.682 m&#179;. Using 1:5 mix: cement = 0.682/6 = 0.114 m&#179; = 164 kg = 4 bags of 50kg. Sand = 0.682 &#215; 5/6 = 0.568 m&#179;.</p>
+
+        <h2>Mortar Mix Ratios &#8212; Which to Choose?</h2>
+        <table>
+          <thead><tr><th>Ratio</th><th>Strength</th><th>Use Case</th></tr></thead>
+          <tbody>
+            <tr><td>1:2</td><td>Very high</td><td>Structural, below DPC</td></tr>
+            <tr><td>1:3</td><td>High</td><td>Exposed external walls</td></tr>
+            <tr><td>1:4</td><td>Medium</td><td>Load-bearing brickwork</td></tr>
+            <tr><td>1:5</td><td>Standard</td><td>General brickwork (most common)</td></tr>
+            <tr><td>1:6</td><td>Weak</td><td>Internal partitions only</td></tr>
+          </tbody>
+        </table>
+
+        <h2>Mortar vs Concrete &#8212; What Is the Difference?</h2>
+        <p>Mortar is cement + sand + water (no coarse aggregate). It is used for bonding, bedding, and pointing. Concrete adds coarse aggregate (gravel or crushed stone) for structural strength. Never substitute concrete for mortar or vice versa &#8212; they serve fundamentally different purposes.</p>
+
+        <h2>Brickwork vs Blockwork &#8212; Mortar Differences</h2>
+        <p>Brick walls typically use 10mm joints while block walls use 15mm joints. Despite larger joints, block walls use less mortar per m&#178; because there are fewer joints (larger units). The mortar fraction for blockwork is approximately 25% vs 30% for brickwork.</p>
+
+        <h2>How Much Sand for 1000 Bricks?</h2>
+        <p>Standard Pakistani Awwal brick: 9&#215;4.5&#215;3 inches. 1000 bricks build approximately one cubic metre of single-skin wall. Mortar &#8776; 0.30 m&#179; wet, 0.40 m&#179; dry. With 1:5 mix: sand = 0.40 &#215; 5/6 = 0.33 m&#179; (&#8776;530 kg). Cement = 0.40 &#215; 1/6 &#215; 1440 = 96 kg (2 bags of 50kg).</p>
+
+        <h2>Tips for Mixing Mortar On Site</h2>
+        <p>Always dry-mix cement and sand before adding water. Add water gradually until you reach a workable consistency &#8212; the mortar should hold its shape on a trowel without slumping. Use within 2 hours of mixing. Never re-temper stiffened mortar. In hot weather, dampen bricks before laying to prevent them absorbing moisture from the mortar.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container">
+      <h2 class="section-title">Frequently Asked Questions</h2>
+      <div class="faq-list">
+        <div class="faq-item"><button class="faq-question">How do I calculate how much mortar I need?<span class="faq-arrow">&#9656;</span></button><div class="faq-answer">Mortar volume is approximately 30% of total wall volume for brickwork and 25% for blockwork. Calculate wall volume (area &#215; thickness), multiply by the mortar fraction, then add 10&#8211;15% wastage. Use the dry volume factor of 1.33 to find actual cement and sand quantities.</div></div>
+        <div class="faq-item"><button class="faq-question">How much mortar do I need per brick?<span class="faq-arrow">&#9656;</span></button><div class="faq-answer">For standard Pakistani bricks with 10mm joints, approximately 0.3 m&#179; of mortar is needed per 1000 bricks, which works out to roughly 0.0003 m&#179; per individual brick.</div></div>
+        <div class="faq-item"><button class="faq-question">What is the best mortar mix ratio for brickwork?<span class="faq-arrow">&#9656;</span></button><div class="faq-answer">For general brickwork above damp-proof course, 1:5 (cement:sand) is standard. For structural walls and below DPC, use 1:4 or 1:3. For internal non-load-bearing partitions, 1:6 is acceptable.</div></div>
+        <div class="faq-item"><button class="faq-question">How many bags of cement per cubic metre of mortar?<span class="faq-arrow">&#9656;</span></button><div class="faq-answer">For 1:5 mix: 1 m&#179; wet &#215; 1.33 = 1.33 m&#179; dry. Cement = 1.33/6 &#215; 1440 = 319 kg &#8776; 7 bags of 50kg. Richer mixes like 1:3 need more cement, leaner mixes like 1:6 need less.</div></div>
+        <div class="faq-item"><button class="faq-question">What is the difference between mortar and concrete?<span class="faq-arrow">&#9656;</span></button><div class="faq-answer">Mortar is cement + sand + water, used for bonding bricks and blocks. Concrete adds coarse aggregate for structural strength. They serve different purposes and should never be substituted for each other.</div></div>
+        <div class="faq-item"><button class="faq-question">How much sand do I need for 1000 bricks?<span class="faq-arrow">&#9656;</span></button><div class="faq-answer">With 1:5 mortar mix, 1000 standard bricks require approximately 0.33 m&#179; of sand (about 530 kg) and 96 kg of cement (2 bags of 50kg). This assumes standard 10mm joints.</div></div>
+        <div class="faq-item"><button class="faq-question">Can I use any cement for brickwork mortar?<span class="faq-arrow">&#9656;</span></button><div class="faq-answer">Ordinary Portland Cement (OPC) is standard. Avoid rapid-setting cement as it gives insufficient working time. Masonry cement or lime-cement blends improve workability. Always use cement within its expiry date and store in a dry location.</div></div>
+        <div class="faq-item"><button class="faq-question">How long does mortar take to set?<span class="faq-arrow">&#9656;</span></button><div class="faq-answer">OPC mortar begins initial setting in 30&#8211;60 minutes and final set in 6&#8211;10 hours. Full strength develops over 28 days of curing. Mortar should be used within 2 hours of mixing and never re-tempered once stiffening begins.</div></div>
+      </div>
+    </div>
+  </section>
+
+  <div class="container"><div class="ad-placeholder ad-leaderboard" data-ad-slot="mortar-bottom-leaderboard" aria-hidden="true" role="presentation"></div></div>
+
+  <section class="section">
+    <div class="container">
+      <h2 class="section-title">Related Tools</h2>
+      <div class="related-tools-grid">
+        <a href="../brick-calculator/" class="tool-card anim-up"><div class="tool-card-icon">&#129521;</div><div class="tool-card-name">Brick Calculator</div><div class="tool-card-desc">Estimate bricks, mortar and cement for any wall area.</div><div class="tool-card-arrow">Use Tool &#8594;</div></a>
+        <a href="../block-calculator/" class="tool-card anim-up"><div class="tool-card-icon">&#9723;&#65039;</div><div class="tool-card-name">Concrete Block Calculator</div><div class="tool-card-desc">Calculate blocks, mortar and cement for block walls.</div><div class="tool-card-arrow">Use Tool &#8594;</div></a>
+        <a href="../concrete-calculator/" class="tool-card anim-up"><div class="tool-card-icon">&#127959;&#65039;</div><div class="tool-card-name">Concrete Volume Calculator</div><div class="tool-card-desc">Calculate concrete for slabs, columns, footings and stairs.</div><div class="tool-card-arrow">Use Tool &#8594;</div></a>
+      </div>
+    </div>
+  </section>
+
+  <div id="footer"></div>
+  <script src="../../assets/js/main.js" defer></script>
+  <script src="mortar-calculator.js" defer></script>
+</body>
+</html>

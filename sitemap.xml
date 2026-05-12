@@ -87,6 +87,70 @@
     <priority>0.9</priority>
   </url>
 
+  <!-- Concrete Mix Ratio Calculator -->
+  <url>
+    <loc>https://buildcalctools.site/tools/concrete-mix-calculator/</loc>
+    <lastmod>2025-06-20</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+  </url>
+
+  <!-- Rebar / Steel Bar Estimator -->
+  <url>
+    <loc>https://buildcalctools.site/tools/rebar-calculator/</loc>
+    <lastmod>2025-06-20</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+  </url>
+
+  <!-- Mortar Volume Calculator -->
+  <url>
+    <loc>https://buildcalctools.site/tools/mortar-calculator/</loc>
+    <lastmod>2025-06-20</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+  </url>
+
+  <!-- Concrete Block Calculator -->
+  <url>
+    <loc>https://buildcalctools.site/tools/block-calculator/</loc>
+    <lastmod>2025-06-20</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+  </url>
+
+  <!-- Steel Weight Calculator -->
+  <url>
+    <loc>https://buildcalctools.site/tools/steel-calculator/</loc>
+    <lastmod>2025-06-25</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+  </url>
+
+  <!-- Excavation Calculator -->
+  <url>
+    <loc>https://buildcalctools.site/tools/excavation-calculator/</loc>
+    <lastmod>2025-06-25</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+  </url>
+
+  <!-- Paint Coverage Calculator -->
+  <url>
+    <loc>https://buildcalctools.site/tools/paint-calculator/</loc>
+    <lastmod>2025-06-25</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+  </url>
+
+  <!-- Flooring Calculator -->
+  <url>
+    <loc>https://buildcalctools.site/tools/flooring-calculator/</loc>
+    <lastmod>2025-06-25</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+  </url>
+
   <!-- ============================================
        SECTION 3: BLOG
        Educational content and guides. The blog

@@ -1,0 +1,188 @@
+﻿<!DOCTYPE html><html lang="en"><head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Paint Calculator &#8212; Coverage Estimator for Walls &amp; Ceilings | BuildCalcTools</title>
+<meta name="description" content="Free paint coverage calculator. Find out how many litres of paint you need for rooms, walls, ceilings and exterior surfaces. Supports multiple coats and door/window deductions.">
+<link rel="canonical" href="https://buildcalctools.site/tools/paint-calculator/">
+<link rel="icon" href="../../assets/img/fav.png" type="image/png">
+<meta property="og:title" content="Free Paint Coverage Calculator | BuildCalcTools">
+<meta property="og:description" content="Calculate how many litres of paint you need for rooms, walls, ceilings and exterior surfaces.">
+<meta property="og:url" content="https://buildcalctools.site/tools/paint-calculator/"><meta property="og:type" content="website">
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"WebApplication","name":"Paint Coverage Calculator","url":"https://buildcalctools.site/tools/paint-calculator/","description":"Calculate how many litres of paint you need for any room, wall, ceiling or exterior surface.","applicationCategory":"UtilityApplication","operatingSystem":"All","offers":{"@type":"Offer","price":"0","priceCurrency":"USD"}}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"How many litres of paint per square metre?","acceptedAnswer":{"@type":"Answer","text":"Standard interior emulsion covers 10-12 m2 per litre. So you need approximately 0.08-0.10 litres per square metre per coat. Exterior masonry paint covers only 6-8 m2/L, so you need more."}},{"@type":"Question","name":"How do I calculate paint for a room?","acceptedAnswer":{"@type":"Answer","text":"Wall area = 2 x (length + width) x height. Add ceiling = length x width. Subtract doors (1.8 m2 each) and windows (1.2 m2 each). Divide net area by coverage rate, multiply by number of coats, add 5% wastage."}},{"@type":"Question","name":"How many coats of paint do I need?","acceptedAnswer":{"@type":"Answer","text":"2 coats is standard for most situations. Use 1 coat for maintenance repaints in the same colour. Use 3 coats when painting new plaster, changing from dark to light, or for exterior surfaces in harsh weather."}},{"@type":"Question","name":"What is the coverage rate of standard emulsion?","acceptedAnswer":{"@type":"Answer","text":"Standard interior emulsion covers 10-12 m2 per litre on smooth plaster. Premium emulsions cover 12-14 m2/L. Coverage drops significantly on rough, textured or porous surfaces - as low as 4-7 m2/L."}},{"@type":"Question","name":"Should I deduct doors and windows?","acceptedAnswer":{"@type":"Answer","text":"Yes if openings make up more than 10% of the wall area. Standard door = 1.8 m2, standard window = 1.2 m2. For small rooms with many openings this can save you buying an extra tin."}},{"@type":"Question","name":"How much extra paint for wastage?","acceptedAnswer":{"@type":"Answer","text":"Add 5% for experienced painters on smooth walls. Add 10-15% for textured surfaces, spray application, or if cutting in around many features. Always buy one extra tin for future touch-ups."}},{"@type":"Question","name":"Interior vs exterior paint coverage?","acceptedAnswer":{"@type":"Answer","text":"Exterior masonry paint covers 6-8 m2/L vs 10-12 for interior. Exterior paint is thicker for weather protection. Never use interior paint outdoors - it lacks UV and moisture resistance."}},{"@type":"Question","name":"Paint for textured or rough surfaces?","acceptedAnswer":{"@type":"Answer","text":"Rough surfaces absorb more paint. Coverage drops to 4-7 m2/L depending on texture depth. Use a long-nap roller (18-25mm) and add 15-20% extra paint. A primer/sealer coat first can reduce absorption."}}]}</script>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Sans:wght@400;500;600&family=JetBrains+Mono:wght@400;600&display=swap" media="print" onload="this.media='all'">
+<link rel="stylesheet" href="../../assets/css/style.css">
+<link rel="stylesheet" href="paint-calculator.css">
+</head><body>
+<div id="navbar"></div>
+<section class="page-hero"><div class="hero-orb-1"></div><div class="hero-orb-2"></div><div class="container">
+<div class="breadcrumb"><a href="../../index.html">Home</a><span>/</span><a href="../">Calculators</a><span>/</span><span class="breadcrumb-current">Paint Calculator</span></div>
+<div class="page-hero-badge">Free Tool</div>
+<h1>Paint Coverage<br><span class="grad-text">Calculator</span></h1>
+<p>Calculate exactly how many litres of paint you need for any room, wall, ceiling, or exterior surface. Deduct doors and windows, choose your coat count, and account for surface texture &#8212; all in one calculation.</p>
+<div class="trust-chips"><span class="badge badge-muted">&#10004; Multi-Room</span><span class="badge badge-muted">&#10004; Door &amp; Window Deductions</span><span class="badge badge-muted">&#10004; Coats &amp; Wastage</span><span class="badge badge-muted">&#10004; Litres &amp; Tins</span></div>
+</div></section>
+<div class="container"><div class="ad-placeholder ad-leaderboard" data-ad-slot="paint-top-leaderboard" aria-hidden="true" role="presentation"></div></div>
+<section class="section" id="calculatorSection"><div class="container"><div class="calculator-wrap">
+<div class="calc-title">Paint Coverage Calculator</div>
+<div class="mode-toggle">
+<button class="mode-pill" data-mode="wall">Single Wall</button>
+<button class="mode-pill active" data-mode="room">Full Room</button>
+<button class="mode-pill" data-mode="exterior">Exterior / Multiple</button>
+</div>
+
+<div class="mode-panel" id="mode-wall">
+<div class="form-row"><div class="form-group"><label class="form-label">Width (m)</label><input class="form-input" type="number" id="wallW" value="4" min="0.1" step="0.1"></div>
+<div class="form-group"><label class="form-label">Height (m)</label><input class="form-input" type="number" id="wallH" value="2.7" min="0.1" step="0.1"></div></div></div>
+
+<div class="mode-panel active" id="mode-room">
+<div class="form-row"><div class="form-group"><label class="form-label">Room Length (m)</label><input class="form-input" type="number" id="roomL" value="4" min="0.1" step="0.1"></div>
+<div class="form-group"><label class="form-label">Room Width (m)</label><input class="form-input" type="number" id="roomW" value="3" min="0.1" step="0.1"></div></div>
+<div class="form-group"><label class="form-label">Room Height (m)</label><input class="form-input" type="number" id="roomH" value="2.7" min="0.1" step="0.1"></div>
+<div class="form-label" style="margin-top:16px">Surfaces to Paint</div>
+<label class="surface-checkbox-row"><input type="checkbox" id="chkWalls" checked>All 4 Walls</label>
+<label class="surface-checkbox-row"><input type="checkbox" id="chkCeil" checked>Ceiling</label>
+<label class="surface-checkbox-row"><input type="checkbox" id="chkFloor">Floor</label>
+<div class="area-display-row">
+<div class="area-display"><div class="area-display-val" id="wallAreaDisp">37.8 m&#178;</div><div class="area-display-lbl">Wall Area</div></div>
+<div class="area-display"><div class="area-display-val" id="ceilAreaDisp">12.0 m&#178;</div><div class="area-display-lbl">Ceiling Area</div></div>
+</div></div>
+
+<div class="mode-panel" id="mode-exterior">
+<div class="exterior-surfaces" id="extSurfaces">
+<div class="surface-row" data-idx="1">
+<div class="form-group"><label class="form-label">Surface Name</label><input class="form-input" type="text" value="Front Wall"></div>
+<div class="form-group"><label class="form-label">Width (m)</label><input class="form-input" type="number" value="8" min="0.1" step="0.1"></div>
+<div class="form-group"><label class="form-label">Height (m)</label><input class="form-input" type="number" value="3" min="0.1" step="0.1"></div>
+<div></div>
+</div></div>
+<button class="add-surface-btn" id="addSurfaceBtn" type="button">+ Add Surface (max 10)</button>
+</div>
+
+<button class="deductions-toggle" id="deductionsToggle" type="button"><span id="dedArrow">&#9662;</span> Subtract Doors &amp; Windows</button>
+<div class="deductions-body" id="deductionsBody">
+<div class="form-row"><div class="form-group"><label class="form-label">Doors (1.8 m&#178; each)</label><input class="form-input" type="number" id="doorCount" value="1" min="0" step="1"></div>
+<div class="form-group"><label class="form-label">Windows (1.2 m&#178; each)</label><input class="form-input" type="number" id="winCount" value="2" min="0" step="1"></div></div>
+<div class="form-group"><label class="form-label">Manual Deduction (m&#178;)</label><input class="form-input" type="number" id="manualDed" value="0" min="0" step="0.1"><p class="form-hint">For built-in wardrobes, tiled splashbacks, etc.</p></div>
+</div>
+
+<div class="form-row"><div class="form-group"><label class="form-label">Paint Type</label><select class="form-select" id="coverageSelect">
+<option value="standard" selected>Standard Emulsion (10 m&#178;/L)</option>
+<option value="premium">Premium Emulsion (12 m&#178;/L)</option>
+<option value="gloss">Gloss / Satin (14 m&#178;/L)</option>
+<option value="masonry">Masonry / Exterior (8 m&#178;/L)</option>
+<option value="textured">Textured Surface (6 m&#178;/L)</option>
+<option value="primer">Undercoat / Primer (8 m&#178;/L)</option>
+<option value="custom">Custom&#8230;</option>
+</select></div>
+<div class="form-group"><label class="form-label">Coverage (m&#178;/litre)</label><input class="form-input" type="number" id="coverageInput" value="10" min="1" max="30" step="0.5" readonly></div></div>
+<p class="form-hint">Coverage varies by brand and surface porosity. Check your paint tin.</p>
+
+<div class="form-label">Number of Coats</div>
+<div class="seg-group">
+<button class="seg-btn coat-btn" data-value="1">1</button>
+<button class="seg-btn coat-btn active" data-value="2">2 &#9733;</button>
+<button class="seg-btn coat-btn" data-value="3">3</button>
+</div>
+<p class="form-hint">2 coats standard. New plaster or colour change: 3 coats.</p>
+
+<div class="form-label">Wastage</div>
+<div class="seg-group">
+<button class="seg-btn wastage-btn active" data-value="5">5% &#9733;</button>
+<button class="seg-btn wastage-btn" data-value="10">10%</button>
+<button class="seg-btn wastage-btn" data-value="15">15%</button>
+</div>
+
+<div class="form-label">Tin Sizes (select all that apply)</div>
+<div class="tin-chips">
+<button class="tin-chip" data-size="1">1L</button>
+<button class="tin-chip" data-size="2.5">2.5L</button>
+<button class="tin-chip" data-size="4">4L</button>
+<button class="tin-chip active" data-size="5">5L</button>
+<button class="tin-chip" data-size="10">10L</button>
+<button class="tin-chip" data-size="15">15L</button>
+<button class="tin-chip" data-size="20">20L</button>
+</div>
+
+<button class="btn btn-primary btn-full btn-lg" id="calcBtn">Calculate Paint Required &#8594;</button>
+</div>
+
+<div class="result-box results-section">
+<div class="result-actions"><h3>Results</h3><div class="result-actions-btns"><button class="btn btn-secondary btn-sm" id="copyBtn">&#128203; Copy</button><button class="btn btn-secondary btn-sm" id="printBtn">&#128424; Print</button></div></div>
+<div class="result-grid">
+<div class="result-card primary"><div class="result-lbl">NET PAINTABLE AREA</div><div class="result-num"><span id="resNetArea">0</span> <small>m&#178;</small></div><div class="result-sub">After door &amp; window deductions</div></div>
+<div class="result-card"><div class="result-lbl">PAINT PER COAT</div><div class="result-num"><span id="resPerCoat">0</span> <small>litres</small></div><div class="result-sub" id="resPerCoatSub">At 10 m&#178; per litre</div></div>
+<div class="result-card yellow"><div class="result-lbl">TOTAL PAINT REQUIRED</div><div class="result-num"><span id="resTotalLitres">0</span> <small>litres</small></div><div class="result-sub" id="resTotalSub">2 coats + 5% wastage</div></div>
+<div class="result-card" id="resTinsCard"><div class="result-lbl">TINS REQUIRED</div><div class="tin-breakdown" id="tinBreakdown"></div></div>
+<div class="result-card" id="resWallCard" style="display:none"><div class="result-lbl">WALLS AREA</div><div class="result-num"><span id="resWallArea">0</span> <small>m&#178;</small></div><div class="result-sub">Before deductions</div></div>
+<div class="result-card" id="resCeilCard" style="display:none"><div class="result-lbl">CEILING AREA</div><div class="result-num"><span id="resCeilArea">0</span> <small>m&#178;</small></div><div class="result-sub">If included</div></div>
+</div>
+<div class="results-note">Paint quantities are estimates. Surface porosity, application method (brush, roller, spray), and paint brand significantly affect actual coverage. Always buy one extra tin for touch-ups.</div>
+</div>
+</div></section>
+
+<div class="container"><div class="ad-placeholder ad-rectangle" data-ad-slot="paint-mid-rectangle" aria-hidden="true" role="presentation"></div></div>
+
+<section class="section"><div class="container">
+<div class="section-header centered"><h2>How to Use the Paint Calculator</h2></div>
+<div class="steps-grid">
+<div class="step-card anim-up"><div class="step-num">01</div><div class="step-title">Choose Mode</div><div class="step-desc">Select single wall, full room, or exterior mode. Full room automatically calculates all wall and ceiling areas.</div></div>
+<div class="step-card anim-up"><div class="step-num">02</div><div class="step-title">Enter Dimensions</div><div class="step-desc">Type your room length, width and height. Wall and ceiling areas calculate live as you type.</div></div>
+<div class="step-card anim-up"><div class="step-num">03</div><div class="step-title">Set Options</div><div class="step-desc">Deduct doors and windows, choose paint type and coverage rate, pick coat count and wastage percentage.</div></div>
+<div class="step-card anim-up"><div class="step-num">04</div><div class="step-title">Read Tins</div><div class="step-desc">Select your preferred tin sizes and read off exactly how many tins to buy at the paint shop.</div></div>
+</div></div></section>
+
+<section class="section"><div class="container"><div class="prose">
+<h2>How to Calculate How Much Paint You Need</h2>
+<p>The formula is: <strong>Litres = (Net Area &#215; Coats) &#247; Coverage Rate &#215; (1 + Wastage)</strong>. Worked example for a typical 4m &#215; 3m room with 2.7m ceiling height: Wall area = 2 &#215; (4+3) &#215; 2.7 = 37.8 m&#178;. Ceiling = 4 &#215; 3 = 12.0 m&#178;. Total gross = 49.8 m&#178;. Subtract 2 doors (3.6 m&#178;) and 2 windows (2.4 m&#178;) = 43.8 m&#178; net. At 10 m&#178;/litre with 2 coats: 43.8 &#247; 10 &#215; 2 = 8.76 litres. Add 5% wastage = 9.2 litres. Buy 2 &#215; 5L tins (10L total), giving you 0.8L spare for touch-ups.</p>
+
+<h2>Standard Paint Coverage Rates</h2>
+<table><thead><tr><th>Paint Type</th><th>Coverage (m&#178;/L)</th><th>Typical Use</th></tr></thead><tbody>
+<tr><td>Standard emulsion</td><td>10&#8211;12</td><td>Interior walls</td></tr>
+<tr><td>Premium/silk emulsion</td><td>12&#8211;14</td><td>Feature walls</td></tr>
+<tr><td>Masonry paint</td><td>6&#8211;9</td><td>Exterior brick/render</td></tr>
+<tr><td>Gloss/satin</td><td>12&#8211;16</td><td>Woodwork, trim</td></tr>
+<tr><td>Undercoat/primer</td><td>8&#8211;10</td><td>New surfaces</td></tr>
+<tr><td>Textured coatings</td><td>4&#8211;7</td><td>Feature/rough walls</td></tr>
+</tbody></table>
+
+<h2>How Many Coats of Paint Do You Need?</h2>
+<p><strong>1 coat</strong> is only sufficient for maintenance repaints using the same colour on a well-prepared surface. <strong>2 coats</strong> is the standard for new work and most repaints &#8212; the first coat seals the surface and the second provides full coverage and uniform finish. <strong>3 coats</strong> are needed when painting new plaster (which is highly porous), making a drastic colour change (especially dark to light), or painting exterior surfaces exposed to harsh weather and UV.</p>
+
+<h2>Deducting Doors and Windows &#8212; When It Matters</h2>
+<p>A standard internal door measures approximately 2.0m &#215; 0.9m = 1.8 m&#178;. A standard window is roughly 1.2m &#215; 1.0m = 1.2 m&#178;. In a small room with multiple openings, deductions can total 10&#8211;20% of the wall area, saving you an entire tin. As a rule, always deduct openings if they exceed 10% of total wall area. For rooms with minimal openings (e.g. one door), the difference is marginal and the extra paint serves as touch-up reserve.</p>
+
+<h2>Interior vs Exterior Paint &#8212; Key Differences</h2>
+<p>Exterior paint is formulated to resist UV radiation, rain, temperature fluctuations and fungal growth. It has lower coverage (6&#8211;9 m&#178;/L) because it forms a thicker, more protective film. Interior paint has lower VOC (volatile organic compounds), better washability, and higher coverage (10&#8211;14 m&#178;/L). Never use interior paint outdoors &#8212; it will chalk, peel, and fail within one season. Conversely, exterior paint indoors is safe but unnecessarily expensive and has stronger odour during application.</p>
+
+<h2>Tips for Reducing Paint Wastage</h2>
+<p>1. <strong>Prepare surfaces properly</strong> &#8212; fill cracks and sand smooth before painting to improve coverage. 2. <strong>Use the right roller nap</strong> &#8212; short nap (5&#8211;10mm) for smooth walls, long nap (15&#8211;25mm) for textured. 3. <strong>Maintain consistent technique</strong> &#8212; use W-pattern rolling and maintain a wet edge. 4. <strong>Don&#8217;t overload your brush</strong> &#8212; dip only one-third of bristle length. 5. <strong>Seal leftover paint</strong> &#8212; strain back into the tin, seal tightly, store upside-down to create an airtight seal for touch-ups.</p>
+</div></div></section>
+
+<section class="section"><div class="container">
+<div class="section-header"><h2>Frequently Asked Questions</h2></div>
+<div class="faq-list">
+<div class="faq-item"><button class="faq-question">How many litres of paint per square metre?<span class="faq-arrow">&#9656;</span></button><div class="faq-answer">Standard interior emulsion covers 10&#8211;12 m&#178; per litre, so you need approximately 0.08&#8211;0.10 litres per square metre per coat. Exterior masonry paint covers only 6&#8211;8 m&#178;/L, so you need more. Always check the coverage stated on your specific paint tin.</div></div>
+<div class="faq-item"><button class="faq-question">How do I calculate paint for a room?<span class="faq-arrow">&#9656;</span></button><div class="faq-answer">Wall area = 2 &#215; (length + width) &#215; height. Add ceiling = length &#215; width. Subtract doors (1.8 m&#178; each) and windows (1.2 m&#178; each). Divide net area by coverage rate, multiply by number of coats, and add 5&#8211;10% for wastage.</div></div>
+<div class="faq-item"><button class="faq-question">How many coats of paint do I need?<span class="faq-arrow">&#9656;</span></button><div class="faq-answer">2 coats is standard for most situations. Use 1 coat for maintenance repaints in the same colour. Use 3 coats for new plaster, drastic colour changes (dark to light), or exterior surfaces in harsh climates.</div></div>
+<div class="faq-item"><button class="faq-question">What is the coverage rate of standard emulsion?<span class="faq-arrow">&#9656;</span></button><div class="faq-answer">Standard emulsion covers 10&#8211;12 m&#178; per litre on smooth plaster. Premium emulsions may reach 14 m&#178;/L. Coverage drops to 4&#8211;7 m&#178;/L on rough, textured, or highly porous surfaces like new plaster or breeze block.</div></div>
+<div class="faq-item"><button class="faq-question">Should I deduct doors and windows?<span class="faq-arrow">&#9656;</span></button><div class="faq-answer">Yes, especially in small rooms with many openings. A standard door is about 1.8 m&#178; and a window about 1.2 m&#178;. If total openings exceed 10% of wall area, deducting them can save you buying an extra tin.</div></div>
+<div class="faq-item"><button class="faq-question">How much extra paint for wastage?<span class="faq-arrow">&#9656;</span></button><div class="faq-answer">Add 5% for experienced painters on smooth walls. 10&#8211;15% for textured surfaces, spray application, or cutting in around many features. Always buy one extra tin for future touch-ups regardless.</div></div>
+<div class="faq-item"><button class="faq-question">Interior vs exterior paint coverage?<span class="faq-arrow">&#9656;</span></button><div class="faq-answer">Exterior masonry paint covers 6&#8211;8 m&#178;/L because it forms a thicker protective film. Interior emulsion covers 10&#8211;12 m&#178;/L. Never use interior paint outdoors as it lacks UV and moisture resistance and will fail within one season.</div></div>
+<div class="faq-item"><button class="faq-question">Paint for textured or rough surfaces?<span class="faq-arrow">&#9656;</span></button><div class="faq-answer">Rough surfaces absorb more paint, reducing coverage to 4&#8211;7 m&#178;/L. Use a long-nap roller (18&#8211;25mm) and add 15&#8211;20% extra paint. Applying a primer/sealer coat first can reduce absorption and improve the finish coat coverage.</div></div>
+</div></div></section>
+
+<div class="container"><div class="ad-placeholder ad-leaderboard" data-ad-slot="paint-bottom-leaderboard" aria-hidden="true" role="presentation"></div></div>
+
+<section class="section"><div class="container">
+<div class="section-header"><h2>Related Construction Calculators</h2></div>
+<div class="related-grid">
+<a href="../brick-calculator/" class="tool-card anim-up"><div class="tool-card-icon">&#129521;</div><div class="tool-card-name">Brick Calculator</div><div class="tool-card-desc">Calculate brick count, mortar volume, cement and sand for any wall.</div><div class="tool-card-arrow">Use Tool &#8594;</div></a>
+<a href="../concrete-calculator/" class="tool-card anim-up"><div class="tool-card-icon">&#127959;&#65039;</div><div class="tool-card-name">Concrete Volume Calculator</div><div class="tool-card-desc">Calculate concrete for slabs, columns and footings in metric or imperial.</div><div class="tool-card-arrow">Use Tool &#8594;</div></a>
+<a href="../" class="tool-card anim-up"><div class="tool-card-icon">&#128203;</div><div class="tool-card-name">View All Calculators</div><div class="tool-card-desc">Browse the full library of free construction calculators.</div><div class="tool-card-arrow">Browse All &#8594;</div></a>
+</div></div></section>
+
+<div id="footer"></div>
+<script src="../../assets/js/main.js" defer></script>
+<script src="paint-calculator.js" defer></script>
+</body></html>

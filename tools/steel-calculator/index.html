@@ -1,0 +1,230 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Steel Weight Calculator — Bars, Beams &amp; Plates | BuildCalcTools</title>
+<meta name="description" content="Free steel weight calculator for bars, beams, plates and hollow sections. Get instant weight in kg and tonnes for any steel section size and length.">
+<link rel="canonical" href="https://buildcalctools.site/tools/steel-calculator/">
+<link rel="icon" href="../../assets/img/fav.png" type="image/png">
+<meta property="og:title" content="Steel Weight Calculator | BuildCalcTools">
+<meta property="og:description" content="Calculate steel weight for bars, beams, plates and hollow sections instantly. Free, no signup.">
+<meta property="og:url" content="https://buildcalctools.site/tools/steel-calculator/"><meta property="og:type" content="website">
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"WebApplication","name":"Steel Weight Calculator","url":"https://buildcalctools.site/tools/steel-calculator/","description":"Calculate the weight of steel bars, beams, plates, round bars and hollow sections by size and length.","applicationCategory":"UtilityApplication","operatingSystem":"All","offers":{"@type":"Offer","price":"0","priceCurrency":"USD"}}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"How do I calculate steel weight?","acceptedAnswer":{"@type":"Answer","text":"Steel weight = Volume x Density. For round bar: kg/m = d squared / 162 where d is diameter in mm. For plate: kg = L x W x T x 7.85 (dimensions in m, thickness in mm)."}},{"@type":"Question","name":"What is the density of steel?","acceptedAnswer":{"@type":"Answer","text":"Structural/mild steel density is 7850 kg per cubic metre. Stainless steel is 7900-8000 kg/m3."}},{"@type":"Question","name":"How much does 1m of 12mm bar weigh?","acceptedAnswer":{"@type":"Answer","text":"12mm round bar weighs 0.888 kg/m calculated as 12 squared / 162 = 0.888 kg/m."}},{"@type":"Question","name":"How do I calculate steel plate weight?","acceptedAnswer":{"@type":"Answer","text":"Plate weight (kg) = Length(m) x Width(m) x Thickness(mm) x 7.85."}},{"@type":"Question","name":"What does an I-beam weigh per metre?","acceptedAnswer":{"@type":"Answer","text":"Varies by size. 100x50mm is about 8 kg/m, 200x100mm about 26 kg/m, 300x150mm about 52 kg/m."}},{"@type":"Question","name":"How many kg in a tonne?","acceptedAnswer":{"@type":"Answer","text":"1 tonne = 1000 kg. Steel is priced per tonne. Our calculator shows both kg and tonnes."}},{"@type":"Question","name":"What is mild steel?","acceptedAnswer":{"@type":"Answer","text":"Low-carbon steel (0.15-0.3% carbon). Same density as structural steel (7850 kg/m3) for weight calculations."}},{"@type":"Question","name":"How to calculate hollow section weight?","acceptedAnswer":{"@type":"Answer","text":"For SHS: Weight = 4 x wall x (width - wall) x length x 7850. For CHS: Weight = pi x wall x (OD - wall) x length x 7850."}}]}</script>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Sans:wght@400;500;600&family=JetBrains+Mono:wght@400;600&display=swap" media="print" onload="this.media='all'">
+<link rel="stylesheet" href="../../assets/css/style.css">
+<link rel="stylesheet" href="steel-calculator.css">
+</head>
+<body>
+<div id="navbar"></div>
+
+<section class="page-hero"><div class="hero-orb-1"></div><div class="hero-orb-2"></div>
+<div class="container">
+<div class="breadcrumb"><a href="../../index.html">Home</a><span>/</span><a href="../">Calculators</a><span>/</span><span class="breadcrumb-current">Steel Weight Calculator</span></div>
+<div class="page-hero-badge">Free Tool</div>
+<h1>Steel Weight<br><span class="grad-text">Calculator</span></h1>
+<p>Calculate the exact weight of any steel section &#8212; round bars, flat plates, I-beams, channels, angles, and hollow sections &#8212; in seconds. Results in kg and tonnes with unit toggle.</p>
+<div class="trust-chips">
+<span class="badge badge-muted">&#10004; 9 Section Types</span>
+<span class="badge badge-muted">&#10004; Kg &amp; Tonnes</span>
+<span class="badge badge-muted">&#10004; Metric &amp; Imperial</span>
+<span class="badge badge-muted">&#10004; Instant Results</span>
+</div></div></section>
+
+<div class="container"><div class="ad-placeholder ad-leaderboard" data-ad-slot="steel-top-leaderboard" aria-hidden="true" role="presentation"></div></div>
+
+<section class="section" id="calculatorSection"><div class="container">
+<div class="calculator-wrap">
+<div class="calc-title">Steel Weight Calculator</div>
+<div class="unit-toggle">
+<button class="unit-pill active" data-unit="metric">Metric (mm/m/kg)</button>
+<button class="unit-pill" data-unit="imperial">Imperial (in/ft/lb)</button>
+</div>
+<div class="calc-tabs">
+<button class="calc-tab active" data-tab="round">Round Bar</button>
+<button class="calc-tab" data-tab="square">Square Bar</button>
+<button class="calc-tab" data-tab="flat">Flat/Plate</button>
+<button class="calc-tab" data-tab="ibeam">I-Beam</button>
+<button class="calc-tab" data-tab="channel">Channel</button>
+<button class="calc-tab" data-tab="angle">Angle</button>
+<button class="calc-tab" data-tab="shs">SHS</button>
+<button class="calc-tab" data-tab="rhs">RHS</button>
+<button class="calc-tab" data-tab="chs">CHS/Pipe</button>
+</div>
+
+<div class="tab-panel active" id="panel-round">
+<div class="form-row"><div class="form-group"><label class="form-label" data-label-metric="Diameter (mm)" data-label-imperial="Diameter (in)">Diameter (mm)</label><input class="form-input" type="number" id="roundDia" value="20" min="0.1" step="0.1"><div class="field-error-msg">Enter a value greater than 0</div></div>
+<div class="form-group"><label class="form-label" data-label-metric="Length (m)" data-label-imperial="Length (ft)">Length (m)</label><input class="form-input" type="number" id="roundLen" value="6" min="0.01" step="0.01"><div class="field-error-msg">Enter a value greater than 0</div></div></div>
+<div class="form-group"><label class="form-label">Quantity</label><input class="form-input" type="number" id="roundQty" value="1" min="1" step="1"><div class="field-error-msg">Enter a value greater than 0</div></div>
+<p class="form-hint">Weight/m = d&#178;/162 (d in mm)</p></div>
+
+<div class="tab-panel" id="panel-square">
+<div class="form-row"><div class="form-group"><label class="form-label" data-label-metric="Side (mm)" data-label-imperial="Side (in)">Side (mm)</label><input class="form-input" type="number" id="sqSide" value="20" min="0.1" step="0.1"><div class="field-error-msg">Enter a value greater than 0</div></div>
+<div class="form-group"><label class="form-label" data-label-metric="Length (m)" data-label-imperial="Length (ft)">Length (m)</label><input class="form-input" type="number" id="sqLen" value="6" min="0.01" step="0.01"><div class="field-error-msg">Enter a value greater than 0</div></div></div>
+<div class="form-group"><label class="form-label">Quantity</label><input class="form-input" type="number" id="sqQty" value="1" min="1" step="1"><div class="field-error-msg">Enter a value greater than 0</div></div></div>
+
+<div class="tab-panel" id="panel-flat">
+<div class="form-row"><div class="form-group"><label class="form-label" data-label-metric="Width (mm)" data-label-imperial="Width (in)">Width (mm)</label><input class="form-input" type="number" id="flatW" value="100" min="0.1" step="0.1"><div class="field-error-msg">Enter a value greater than 0</div></div>
+<div class="form-group"><label class="form-label" data-label-metric="Thickness (mm)" data-label-imperial="Thickness (in)">Thickness (mm)</label><input class="form-input" type="number" id="flatT" value="10" min="0.1" step="0.1"><div class="field-error-msg">Enter a value greater than 0</div></div></div>
+<div class="form-row"><div class="form-group"><label class="form-label" data-label-metric="Length (m)" data-label-imperial="Length (ft)">Length (m)</label><input class="form-input" type="number" id="flatLen" value="6" min="0.01" step="0.01"><div class="field-error-msg">Enter a value greater than 0</div></div>
+<div class="form-group"><label class="form-label">Quantity</label><input class="form-input" type="number" id="flatQty" value="1" min="1" step="1"><div class="field-error-msg">Enter a value greater than 0</div></div></div>
+<p class="form-hint">Also use for MS sheet and chequered plate</p></div>
+
+<div class="tab-panel" id="panel-ibeam">
+<div class="sub-mode-toggle"><button class="unit-pill active" data-mode="standard">Standard Size</button><button class="unit-pill" data-mode="custom">Custom Dimensions</button></div>
+<div class="sub-panel active" data-submode="standard">
+<div class="standard-size-row"><div class="form-group"><label class="form-label">I-Beam Size</label><select class="form-select" id="ibeamSelect">
+<option>100&#215;50&#215;5mm</option><option>150&#215;75&#215;6mm</option><option>200&#215;100&#215;7mm</option><option>250&#215;125&#215;8mm</option><option>300&#215;150&#215;9mm</option><option>350&#215;165&#215;11mm</option><option>400&#215;180&#215;13mm</option>
+</select></div><div class="kgpm-display" id="kgpmDisplay">8.1 kg/m</div></div></div>
+<div class="sub-panel" data-submode="custom">
+<div class="form-row"><div class="form-group"><label class="form-label" data-label-metric="Overall Height (mm)" data-label-imperial="Overall Height (in)">Overall Height (mm)</label><input class="form-input" type="number" id="ibeamH" value="200" min="1"><div class="field-error-msg">Enter a value greater than 0</div></div>
+<div class="form-group"><label class="form-label" data-label-metric="Flange Width (mm)" data-label-imperial="Flange Width (in)">Flange Width (mm)</label><input class="form-input" type="number" id="ibeamFW" value="100" min="1"><div class="field-error-msg">Enter a value greater than 0</div></div></div>
+<div class="form-row"><div class="form-group"><label class="form-label" data-label-metric="Flange Thickness (mm)" data-label-imperial="Flange Thickness (in)">Flange Thickness (mm)</label><input class="form-input" type="number" id="ibeamFT" value="7" min="0.1" step="0.1"><div class="field-error-msg">Enter a value greater than 0</div></div>
+<div class="form-group"><label class="form-label" data-label-metric="Web Thickness (mm)" data-label-imperial="Web Thickness (in)">Web Thickness (mm)</label><input class="form-input" type="number" id="ibeamWT" value="5" min="0.1" step="0.1"><div class="field-error-msg">Enter a value greater than 0</div></div></div></div>
+<div class="form-row"><div class="form-group"><label class="form-label" data-label-metric="Length (m)" data-label-imperial="Length (ft)">Length (m)</label><input class="form-input" type="number" id="ibeamLen" value="6" min="0.01" step="0.01"><div class="field-error-msg">Enter a value greater than 0</div></div>
+<div class="form-group"><label class="form-label">Quantity</label><input class="form-input" type="number" id="ibeamQty" value="1" min="1" step="1"><div class="field-error-msg">Enter a value greater than 0</div></div></div></div>
+
+<div class="tab-panel" id="panel-channel">
+<div class="form-row"><div class="form-group"><label class="form-label" data-label-metric="Height (mm)" data-label-imperial="Height (in)">Height (mm)</label><input class="form-input" type="number" id="chH" value="100" min="1"><div class="field-error-msg">Enter a value greater than 0</div></div>
+<div class="form-group"><label class="form-label" data-label-metric="Flange Width (mm)" data-label-imperial="Flange Width (in)">Flange Width (mm)</label><input class="form-input" type="number" id="chFW" value="50" min="1"><div class="field-error-msg">Enter a value greater than 0</div></div></div>
+<div class="form-row"><div class="form-group"><label class="form-label" data-label-metric="Flange Thickness (mm)" data-label-imperial="Flange T (in)">Flange Thickness (mm)</label><input class="form-input" type="number" id="chFT" value="6" min="0.1" step="0.1"><div class="field-error-msg">Enter a value greater than 0</div></div>
+<div class="form-group"><label class="form-label" data-label-metric="Web Thickness (mm)" data-label-imperial="Web T (in)">Web Thickness (mm)</label><input class="form-input" type="number" id="chWT" value="5" min="0.1" step="0.1"><div class="field-error-msg">Enter a value greater than 0</div></div></div>
+<div class="form-row"><div class="form-group"><label class="form-label" data-label-metric="Length (m)" data-label-imperial="Length (ft)">Length (m)</label><input class="form-input" type="number" id="chLen" value="6" min="0.01" step="0.01"><div class="field-error-msg">Enter a value greater than 0</div></div>
+<div class="form-group"><label class="form-label">Quantity</label><input class="form-input" type="number" id="chQty" value="1" min="1" step="1"><div class="field-error-msg">Enter a value greater than 0</div></div></div></div>
+
+<div class="tab-panel" id="panel-angle">
+<div class="sub-mode-toggle"><button class="unit-pill active" data-mode="equal">Equal Angle</button><button class="unit-pill" data-mode="unequal">Unequal Angle</button></div>
+<div class="sub-panel active" data-submode="equal">
+<div class="form-row"><div class="form-group"><label class="form-label" data-label-metric="Leg (mm)" data-label-imperial="Leg (in)">Leg (mm)</label><input class="form-input" type="number" id="angLeg" value="50" min="1"><div class="field-error-msg">Enter a value greater than 0</div></div>
+<div class="form-group"><label class="form-label" data-label-metric="Thickness (mm)" data-label-imperial="Thickness (in)">Thickness (mm)</label><input class="form-input" type="number" id="angT" value="5" min="0.1" step="0.1"><div class="field-error-msg">Enter a value greater than 0</div></div></div></div>
+<div class="sub-panel" data-submode="unequal">
+<div class="form-row"><div class="form-group"><label class="form-label" data-label-metric="Leg A (mm)" data-label-imperial="Leg A (in)">Leg A (mm)</label><input class="form-input" type="number" id="angLegA" value="75" min="1"><div class="field-error-msg">Enter a value greater than 0</div></div>
+<div class="form-group"><label class="form-label" data-label-metric="Leg B (mm)" data-label-imperial="Leg B (in)">Leg B (mm)</label><input class="form-input" type="number" id="angLegB" value="50" min="1"><div class="field-error-msg">Enter a value greater than 0</div></div></div>
+<div class="form-group"><label class="form-label" data-label-metric="Thickness (mm)" data-label-imperial="Thickness (in)">Thickness (mm)</label><input class="form-input" type="number" id="angTU" value="5" min="0.1" step="0.1"><div class="field-error-msg">Enter a value greater than 0</div></div></div>
+<div class="form-row"><div class="form-group"><label class="form-label" data-label-metric="Length (m)" data-label-imperial="Length (ft)">Length (m)</label><input class="form-input" type="number" id="angLen" value="6" min="0.01" step="0.01"><div class="field-error-msg">Enter a value greater than 0</div></div>
+<div class="form-group"><label class="form-label">Quantity</label><input class="form-input" type="number" id="angQty" value="1" min="1" step="1"><div class="field-error-msg">Enter a value greater than 0</div></div></div></div>
+
+<div class="tab-panel" id="panel-shs">
+<div class="form-row"><div class="form-group"><label class="form-label" data-label-metric="Outside Width (mm)" data-label-imperial="Outside Width (in)">Outside Width (mm)</label><input class="form-input" type="number" id="shsW" value="50" min="1"><div class="field-error-msg">Enter a value greater than 0</div></div>
+<div class="form-group"><label class="form-label" data-label-metric="Wall Thickness (mm)" data-label-imperial="Wall Thickness (in)">Wall Thickness (mm)</label><input class="form-input" type="number" id="shsT" value="3" min="0.1" step="0.1"><div class="field-error-msg">Enter a value greater than 0</div></div></div>
+<div class="form-row"><div class="form-group"><label class="form-label" data-label-metric="Length (m)" data-label-imperial="Length (ft)">Length (m)</label><input class="form-input" type="number" id="shsLen" value="6" min="0.01" step="0.01"><div class="field-error-msg">Enter a value greater than 0</div></div>
+<div class="form-group"><label class="form-label">Quantity</label><input class="form-input" type="number" id="shsQty" value="1" min="1" step="1"><div class="field-error-msg">Enter a value greater than 0</div></div></div></div>
+
+<div class="tab-panel" id="panel-rhs">
+<div class="form-row"><div class="form-group"><label class="form-label" data-label-metric="Outside Width (mm)" data-label-imperial="Outside Width (in)">Outside Width (mm)</label><input class="form-input" type="number" id="rhsW" value="100" min="1"><div class="field-error-msg">Enter a value greater than 0</div></div>
+<div class="form-group"><label class="form-label" data-label-metric="Outside Height (mm)" data-label-imperial="Outside Height (in)">Outside Height (mm)</label><input class="form-input" type="number" id="rhsH" value="50" min="1"><div class="field-error-msg">Enter a value greater than 0</div></div></div>
+<div class="form-row"><div class="form-group"><label class="form-label" data-label-metric="Wall Thickness (mm)" data-label-imperial="Wall Thickness (in)">Wall Thickness (mm)</label><input class="form-input" type="number" id="rhsT" value="3" min="0.1" step="0.1"><div class="field-error-msg">Enter a value greater than 0</div></div>
+<div class="form-group"><label class="form-label" data-label-metric="Length (m)" data-label-imperial="Length (ft)">Length (m)</label><input class="form-input" type="number" id="rhsLen" value="6" min="0.01" step="0.01"><div class="field-error-msg">Enter a value greater than 0</div></div></div>
+<div class="form-group"><label class="form-label">Quantity</label><input class="form-input" type="number" id="rhsQty" value="1" min="1" step="1"><div class="field-error-msg">Enter a value greater than 0</div></div></div>
+
+<div class="tab-panel" id="panel-chs">
+<div class="form-row"><div class="form-group"><label class="form-label" data-label-metric="Outside Diameter (mm)" data-label-imperial="Outside Diameter (in)">Outside Diameter (mm)</label><input class="form-input" type="number" id="chsOD" value="60" min="1"><div class="field-error-msg">Enter a value greater than 0</div></div>
+<div class="form-group"><label class="form-label" data-label-metric="Wall Thickness (mm)" data-label-imperial="Wall Thickness (in)">Wall Thickness (mm)</label><input class="form-input" type="number" id="chsT" value="3" min="0.1" step="0.1"><div class="field-error-msg">Enter a value greater than 0</div></div></div>
+<div class="form-row"><div class="form-group"><label class="form-label" data-label-metric="Length (m)" data-label-imperial="Length (ft)">Length (m)</label><input class="form-input" type="number" id="chsLen" value="6" min="0.01" step="0.01"><div class="field-error-msg">Enter a value greater than 0</div></div>
+<div class="form-group"><label class="form-label">Quantity</label><input class="form-input" type="number" id="chsQty" value="1" min="1" step="1"><div class="field-error-msg">Enter a value greater than 0</div></div></div></div>
+
+<div class="form-label" style="margin-top:24px">Wastage Allowance</div>
+<div class="wastage-group">
+<button class="wastage-btn active" data-value="0">0% &#9733;</button>
+<button class="wastage-btn" data-value="2">2%</button>
+<button class="wastage-btn" data-value="5">5%</button>
+<button class="wastage-btn" data-value="10">10%</button>
+</div>
+<p class="form-hint">Add wastage for offcuts during fabrication.</p>
+<button class="btn btn-primary btn-full btn-lg" id="calcBtn">Calculate Steel Weight &#8594;</button>
+</div>
+
+<div class="result-box results-section">
+<div class="result-actions"><h3>Results</h3><div class="result-actions-btns"><button class="btn btn-secondary btn-sm" id="copyBtn">&#128203; Copy</button><button class="btn btn-secondary btn-sm" id="printBtn">&#128424; Print</button></div></div>
+<div class="result-grid">
+<div class="result-card primary"><div class="result-lbl">SECTION TYPE</div><div class="result-num" id="resSectionType">&#8212;</div><div class="result-sub" id="resKgPerM">&#8212;</div></div>
+<div class="result-card"><div class="result-lbl">WEIGHT PER UNIT</div><div class="result-num"><span id="resPerUnit">0</span> <small id="resPerUnitUnit">kg</small></div><div class="result-sub" id="resPerUnitSub">Single piece</div></div>
+<div class="result-card"><div class="result-lbl">TOTAL WEIGHT</div><div class="result-num"><span id="resTotalKg">0</span> <small id="resTotalKgUnit">kg</small></div><div class="result-sub" id="resTotalSub">0 piece(s)</div></div>
+<div class="result-card highlight"><div class="result-lbl">TOTAL WEIGHT</div><div class="result-num"><span id="resTotalTonnes">0</span> <small id="resTotalTonnesUnit">tonnes</small></div><div class="result-sub">Metric tonnes</div></div>
+<div class="result-card"><div class="result-lbl">TOTAL LENGTH</div><div class="result-num"><span id="resTotalLen">0</span> <small id="resTotalLenUnit">m</small></div><div class="result-sub" id="resTotalLenSub">&#8212;</div></div>
+<div class="result-card" id="resKgPerMCard"><div class="result-lbl">WEIGHT PER METRE</div><div class="result-num"><span id="resKgPerMVal">0</span> <small id="resKgPerMUnit">kg/m</small></div><div class="result-sub">This section</div></div>
+</div>
+<div class="results-note">Steel density: 7,850 kg/m&#179; (structural/mild steel). For stainless steel use 7,900&#8211;8,000 kg/m&#179;. Standard section weights are theoretical &#8212; actual may vary &#177;2.5% by manufacturer tolerance.</div>
+</div>
+</div></section>
+
+<div class="container"><div class="ad-placeholder ad-rectangle" data-ad-slot="steel-mid-rectangle" aria-hidden="true" role="presentation"></div></div>
+
+<section class="section"><div class="container">
+<div class="section-header centered"><h2>How to Use the Steel Weight Calculator</h2></div>
+<div class="steps-grid">
+<div class="step-card anim-up"><div class="step-num">01</div><div class="step-title">Select Section Type</div><div class="step-desc">Choose from 9 section types using the tabs. Round bar and flat plate are most common on site. For structural steel use I-beam, channel or angle tabs.</div></div>
+<div class="step-card anim-up"><div class="step-num">02</div><div class="step-title">Enter Dimensions</div><div class="step-desc">Type dimensions in mm (or inches in imperial). Enter length per piece and quantity. For hollow sections enter outside dimensions and wall thickness.</div></div>
+<div class="step-card anim-up"><div class="step-num">03</div><div class="step-title">Add Wastage</div><div class="step-desc">For cut-to-length supply 0% is correct. Add 2&#8211;5% for fabrication offcuts. Complex welded structures may need 10%.</div></div>
+<div class="step-card anim-up"><div class="step-num">04</div><div class="step-title">Read Results</div><div class="step-desc">Results show weight per metre, per piece and total in kg and tonnes. Copy to clipboard or print as PDF.</div></div>
+</div></div></section>
+
+<section class="section"><div class="container"><div class="prose">
+<h2>How to Calculate Steel Weight</h2>
+<p>The fundamental formula is: <strong>Weight = Volume &#215; Density</strong>. For steel the density is 7850 kg/m&#179;. Volume equals cross-sectional area multiplied by length. For a 20mm round bar at 6m length: cross-sectional area = &#960;/4 &#215; 0.02&#178; = 0.000314 m&#178;. Weight = 0.000314 &#215; 6 &#215; 7850 = 14.8 kg. The shortcut for round bar is d&#178;/162 which gives kg per metre directly where d is diameter in mm. So 20&#178;/162 = 2.47 kg/m &#215; 6m = 14.8 kg.</p>
+
+<h2>Steel Section Types and Their Formulas</h2>
+<h3>Round Bar and Rebar</h3>
+<p>The simplest and most commonly calculated section. Formula: kg/m = d&#178;/162 where d is diameter in millimetres. This shortcut derives from &#960;/4 &#215; d&#178; &#215; 7850 / 1000000.</p>
+<table><thead><tr><th>Diameter (mm)</th><th>Weight (kg/m)</th><th>6m Bar (kg)</th></tr></thead>
+<tbody>
+<tr><td>6</td><td>0.222</td><td>1.33</td></tr>
+<tr><td>8</td><td>0.395</td><td>2.37</td></tr>
+<tr><td>10</td><td>0.617</td><td>3.70</td></tr>
+<tr><td>12</td><td>0.888</td><td>5.33</td></tr>
+<tr><td>16</td><td>1.578</td><td>9.47</td></tr>
+<tr><td>20</td><td>2.466</td><td>14.80</td></tr>
+<tr><td>25</td><td>3.854</td><td>23.12</td></tr>
+<tr><td>32</td><td>6.313</td><td>37.88</td></tr>
+</tbody></table>
+
+<h3>Flat Bar and MS Plate</h3>
+<p>For flat sections: kg/m = Width(mm) &#215; Thickness(mm) &#215; 7.85 / 1000. Example: 100&#215;10mm flat bar = 100 &#215; 10 &#215; 7.85 / 1000 = 7.85 kg/m. For plates use the same logic: kg = L(m) &#215; W(m) &#215; T(mm) &#215; 7.85.</p>
+
+<h3>I-Beams and Universal Beams</h3>
+<p>I-beams consist of two horizontal flanges connected by a vertical web. Cross-sectional area = 2 &#215; (flange width &#215; flange thickness) + web height &#215; web thickness. Standard section tables (IS 808, BS 4) list theoretical weights per metre for each size. These are preferred over hand calculation because actual rolled sections have fillet radii at flange-web junctions that add material.</p>
+
+<h3>Hollow Sections (SHS, RHS, CHS)</h3>
+<p>Hollow sections offer excellent structural efficiency with high strength-to-weight ratio. They are common in columns, purlins and trusses. For SHS: area = outer&#178; &#8211; inner&#178;. For CHS: area = &#960;/4 &#215; (OD&#178; &#8211; ID&#178;). Wall thickness has a dramatic effect on weight &#8212; increasing wall from 3mm to 5mm on a 50mm SHS nearly doubles the weight.</p>
+
+<h2>Steel Weight vs Steel Quantity &#8212; What to Order</h2>
+<p>Steel is sold by tonne or kg, not by piece count. Convert your piece requirement to total weight before requesting quotes. Add &#177;2.5% for mill rolling tolerance. When comparing supplier quotes, ensure you are comparing price per tonne (not per metre) since section sizes vary. Some suppliers quote running metre pricing for standard sections which can be converted using the kg/m value.</p>
+
+<h2>Mild Steel vs Structural Steel &#8212; Does Density Change?</h2>
+<p>Both mild steel and structural steel have density of 7850 kg/m&#179; for weight calculation purposes. Steel grade affects yield strength (how much load it can carry) but not density. Common grades include IS 2062 (India), ASTM A36 (USA), S275 (Europe) and Grade 40/60 rebar in Pakistan. All use the same density for weight calculations.</p>
+
+<h2>Steel Weight Calculator Use Cases</h2>
+<p><strong>Fabrication shops</strong> use this calculator to quote job weights for customer billing and material procurement. <strong>Structural engineers</strong> check preliminary member weights during design to estimate dead loads. <strong>Contractors</strong> calculate transport weights to select appropriate truck sizes and crane capacities for lifting. <strong>Site engineers</strong> verify delivery note quantities by cross-checking delivered weight against calculated weight. <strong>Students</strong> use it to verify steel design homework and learn weight formulas.</p>
+
+<h2>Common Steel Weight Calculation Mistakes</h2>
+<p>1. Using diameter instead of radius in the area formula (or vice versa). 2. Forgetting to multiply by quantity when ordering multiple pieces. 3. Using wrong density &#8212; 7800 instead of 7850, causing 0.6% error. 4. Mixing mm and metres in the same calculation without converting. 5. Not accounting for connections, gusset plates and weld metal which can add 3&#8211;5% to total structural weight.</p>
+</div></div></section>
+
+<section class="section"><div class="container">
+<div class="section-header"><h2>Frequently Asked Questions</h2></div>
+<div class="faq-list">
+<div class="faq-item"><button class="faq-question">How do I calculate steel weight?<span class="faq-arrow">&#9656;</span></button><div class="faq-answer">Steel weight = Volume &#215; Density. For round bar: kg/m = d&#178;/162 where d is diameter in mm. For plate: kg = Length(m) &#215; Width(m) &#215; Thickness(mm) &#215; 7.85. The density of structural steel is 7850 kg/m&#179;.</div></div>
+<div class="faq-item"><button class="faq-question">What is the density of steel in kg/m&#179;?<span class="faq-arrow">&#9656;</span></button><div class="faq-answer">Structural and mild steel density is 7850 kg/m&#179;. Stainless steel is slightly higher at 7900&#8211;8000 kg/m&#179;. All calculations on this calculator use 7850 kg/m&#179;.</div></div>
+<div class="faq-item"><button class="faq-question">How much does 1 metre of 12mm round bar weigh?<span class="faq-arrow">&#9656;</span></button><div class="faq-answer">A 12mm diameter round bar weighs 0.888 kg per metre, calculated as 12&#178;/162 = 0.888 kg/m. A 6-metre bar weighs 5.33 kg.</div></div>
+<div class="faq-item"><button class="faq-question">How do I calculate steel plate weight?<span class="faq-arrow">&#9656;</span></button><div class="faq-answer">Steel plate weight (kg) = Length(m) &#215; Width(m) &#215; Thickness(mm) &#215; 7.85. Example: 1.2m &#215; 2.4m &#215; 10mm plate = 1.2 &#215; 2.4 &#215; 10 &#215; 7.85 = 226 kg.</div></div>
+<div class="faq-item"><button class="faq-question">What does a standard I-beam weigh per metre?<span class="faq-arrow">&#9656;</span></button><div class="faq-answer">Varies by section size. A 100&#215;50mm I-beam weighs about 8 kg/m, a 200&#215;100mm section about 26 kg/m, and a 300&#215;150mm section about 52 kg/m.</div></div>
+<div class="faq-item"><button class="faq-question">How many kg is a tonne of steel?<span class="faq-arrow">&#9656;</span></button><div class="faq-answer">One tonne equals 1000 kg. Steel is typically priced and ordered by tonne. Our calculator shows results in both kg and tonnes.</div></div>
+<div class="faq-item"><button class="faq-question">What is mild steel?<span class="faq-arrow">&#9656;</span></button><div class="faq-answer">Mild steel (MS) is low-carbon steel with 0.15&#8211;0.3% carbon. For weight calculation purposes it is identical to structural steel at 7850 kg/m&#179;. Grade affects strength, not density.</div></div>
+<div class="faq-item"><button class="faq-question">How to calculate hollow section weight?<span class="faq-arrow">&#9656;</span></button><div class="faq-answer">For SHS: Weight = 4 &#215; wall &#215; (width &#8211; wall) &#215; length &#215; 7850. For CHS: Weight = &#960; &#215; wall &#215; (OD &#8211; wall) &#215; length &#215; 7850. This calculator computes all three hollow types automatically.</div></div>
+</div></div></section>
+
+<div class="container"><div class="ad-placeholder ad-leaderboard" data-ad-slot="steel-bottom-leaderboard" aria-hidden="true" role="presentation"></div></div>
+
+<section class="section"><div class="container">
+<div class="section-header"><h2>Related Construction Calculators</h2></div>
+<div class="related-grid">
+<a href="../rebar-calculator/" class="tool-card anim-up"><div class="tool-card-icon">&#128297;</div><div class="tool-card-name">Rebar Estimator</div><div class="tool-card-desc">Calculate rebar quantity, total weight and bar spacing for slabs, beams and footings.</div><div class="tool-card-arrow">Use Tool &#8594;</div></a>
+<a href="../concrete-calculator/" class="tool-card anim-up"><div class="tool-card-icon">&#127959;&#65039;</div><div class="tool-card-name">Concrete Volume Calculator</div><div class="tool-card-desc">Calculate concrete for slabs, columns and footings in metric or imperial.</div><div class="tool-card-arrow">Use Tool &#8594;</div></a>
+<a href="../" class="tool-card anim-up"><div class="tool-card-icon">&#128203;</div><div class="tool-card-name">View All Calculators</div><div class="tool-card-desc">Browse the full library of free construction calculators.</div><div class="tool-card-arrow">Browse All &#8594;</div></a>
+</div></div></section>
+
+<div id="footer"></div>
+<script src="../../assets/js/main.js" defer></script>
+<script src="steel-calculator.js" defer></script>
+</body></html>

@@ -6,6 +6,7 @@
 # Allow all search engines full access
 User-agent: *
 Allow: /
+Allow: /assets/img/fav.png
 
 # Block asset directories (CSS/JS/images are loaded inline, not indexed)
 Disallow: /assets/css/

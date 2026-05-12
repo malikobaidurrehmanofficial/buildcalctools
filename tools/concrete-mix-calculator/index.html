@@ -1,0 +1,311 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Concrete Mix Ratio Calculator &#8212; Cement, Sand &amp; Aggregate | BuildCalcTools</title>
+  <meta name="description" content="Free concrete mix ratio calculator. Work out cement, sand and aggregate quantities for C20, C25, C30 and custom mix grades. Metric and imperial.">
+  <meta name="keywords" content="concrete mix ratio calculator, cement sand aggregate ratio, C25 concrete mix, how much cement per cubic metre, concrete mix design, concrete grade calculator">
+  <link rel="canonical" href="https://buildcalctools.site/tools/concrete-mix-calculator/">
+  <link rel="icon" href="../../assets/img/fav.png" type="image/png">
+  <meta property="og:title" content="Free Concrete Mix Ratio Calculator | BuildCalcTools">
+  <meta property="og:description" content="Calculate cement, sand and aggregate quantities for concrete mixes from C10 to C40 and custom ratios.">
+  <meta property="og:url" content="https://buildcalctools.site/tools/concrete-mix-calculator/">
+  <meta property="og:type" content="website">
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"WebApplication","name":"Concrete Mix Ratio Calculator","url":"https://buildcalctools.site/tools/concrete-mix-calculator/","description":"Calculate cement, sand and aggregate quantities for concrete mixes from C10 to C40 and custom ratios.","applicationCategory":"UtilityApplication","operatingSystem":"All","offers":{"@type":"Offer","price":"0","priceCurrency":"USD"}}</script>
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"What is a concrete mix ratio?","acceptedAnswer":{"@type":"Answer","text":"A concrete mix ratio defines the proportion of cement, sand (fine aggregate), and coarse aggregate by volume. For example, a 1:2:4 ratio means 1 part cement, 2 parts sand, and 4 parts coarse aggregate. The ratio determines the strength grade of the resulting concrete."}},{"@type":"Question","name":"What is the mix ratio for C25 concrete?","acceptedAnswer":{"@type":"Answer","text":"C25 concrete uses a nominal mix ratio of 1:1:2 (cement:sand:aggregate). This produces concrete with a characteristic compressive strength of 25 N/mm2 at 28 days, suitable for beams, columns, and suspended slabs."}},{"@type":"Question","name":"How much cement do I need per cubic metre of concrete?","acceptedAnswer":{"@type":"Answer","text":"For C25 concrete (1:1:2), you need approximately 554 kg of cement per cubic metre. This is calculated by multiplying the wet volume by 1.54 (dry volume factor), dividing by total parts, and multiplying by cement density (1440 kg/m3)."}},{"@type":"Question","name":"What is the difference between C20 and C25 concrete?","acceptedAnswer":{"@type":"Answer","text":"C20 concrete (1:1.5:3) achieves 20 N/mm2 compressive strength and is used for general residential slabs and paths. C25 (1:1:2) achieves 25 N/mm2 and is required for structural elements like beams, columns, and suspended slabs that carry significant loads."}},{"@type":"Question","name":"How do I calculate cement bags for concrete?","acceptedAnswer":{"@type":"Answer","text":"Calculate the dry volume (wet volume x 1.54), find the cement fraction (cement parts / total parts), multiply by cement density (1440 kg/m3) to get weight in kg, then divide by your bag size (typically 50 kg). Always round up to the nearest whole bag."}},{"@type":"Question","name":"What is a 1:2:4 concrete mix used for?","acceptedAnswer":{"@type":"Answer","text":"A 1:2:4 mix produces C15 grade concrete with 15 N/mm2 compressive strength. It is commonly used for garden paths, steps, light foundations, and non-structural applications where moderate strength is sufficient."}},{"@type":"Question","name":"How much water should I add to my concrete mix?","acceptedAnswer":{"@type":"Answer","text":"Water quantity depends on the water-cement ratio (w/c). For general structural concrete, use w/c = 0.45 to 0.55. Multiply the cement weight by the w/c ratio to get water in litres. For example, 554 kg cement x 0.50 = 277 litres. Lower w/c produces stronger, more durable concrete."}},{"@type":"Question","name":"What concrete grade should I use for a house slab?","acceptedAnswer":{"@type":"Answer","text":"For a standard residential house slab on grade, C20 (1:1.5:3) is typically sufficient. For suspended slabs, garage floors with vehicle loads, or areas with ground moisture exposure, C25 (1:1:2) is recommended. Always follow your structural engineer's specification."}}]}</script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Sans:wght@400;500;600&family=JetBrains+Mono:wght@400;600&display=swap" media="print" onload="this.media='all'">
+  <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Sans:wght@400;500;600&family=JetBrains+Mono:wght@400;600&display=swap"></noscript>
+  <link rel="stylesheet" href="../../assets/css/style.css">
+  <link rel="stylesheet" href="concrete-mix-calculator.css">
+</head>
+<body>
+  <div id="navbar"></div>
+
+  <section class="page-hero">
+    <div class="hero-orb-1"></div>
+    <div class="hero-orb-2"></div>
+    <div class="container">
+      <div class="breadcrumb">
+        <a href="../../index.html">Home</a><span>/</span>
+        <a href="../">Calculators</a><span>/</span>
+        <span class="breadcrumb-current">Concrete Mix Ratio</span>
+      </div>
+      <div class="page-hero-badge">&#129514; Mix Design</div>
+      <h1>Concrete Mix Ratio<br><span class="grad-text">Calculator</span></h1>
+      <p>Work out exactly how much cement, sand, and coarse aggregate you need for any concrete pour &#8212; from a standard C25 mix to a custom site-batched design. Results in kg, bags, and cubic metres.</p>
+      <div class="trust-chips">
+        <span class="trust-chip"><span class="trust-chip-icon">&#10004;</span> C10&#8211;C40 Grades</span>
+        <span class="trust-chip"><span class="trust-chip-icon">&#10004;</span> Custom Ratios</span>
+        <span class="trust-chip"><span class="trust-chip-icon">&#10004;</span> Metric &amp; Imperial</span>
+        <span class="trust-chip"><span class="trust-chip-icon">&#10004;</span> Bag Count Included</span>
+      </div>
+    </div>
+  </section>
+
+  <div class="container">
+    <div class="ad-placeholder ad-leaderboard" data-ad-slot="mix-top-leaderboard" aria-hidden="true" role="presentation"></div>
+  </div>
+
+  <section class="section">
+    <div class="container">
+      <div class="card">
+        <div class="card-header"><h2 class="card-title">&#129514; Calculator</h2></div>
+        <div class="card-body">
+
+          <label class="input-label">Mix Selection</label>
+          <div class="mode-toggle">
+            <button class="mode-toggle-btn active" data-mode="standard">Standard Grade</button>
+            <button class="mode-toggle-btn" data-mode="custom">Custom Ratio</button>
+          </div>
+
+          <div class="input-panel active" data-panel="standard">
+            <label class="input-label" for="gradeSelect">Concrete Grade</label>
+            <select class="input-field" id="gradeSelect">
+              <option value="C10">C10 &#8212; 1:3:6 (Lean mix, blinding)</option>
+              <option value="C15">C15 &#8212; 1:2:4 (Paths, steps)</option>
+              <option value="C20">C20 &#8212; 1:1.5:3 (General purpose)</option>
+              <option value="C25" selected>C25 &#8212; 1:1:2 (Slabs, beams, columns)</option>
+              <option value="C30">C30 &#8212; 1:0.75:1.5 (High strength)</option>
+              <option value="C35">C35 &#8212; 1:0.5:1 (Bridges, heavy)</option>
+              <option value="C40">C40 &#8212; 1:0.4:0.8 (Very high strength)</option>
+            </select>
+          </div>
+
+          <div class="input-panel" data-panel="custom">
+            <div class="input-row-3">
+              <div class="input-group">
+                <label class="input-label" for="customCement">Cement Parts</label>
+                <input class="input-field" type="number" id="customCement" value="1" min="0.1" step="0.1">
+              </div>
+              <div class="input-group">
+                <label class="input-label" for="customSand">Sand Parts</label>
+                <input class="input-field" type="number" id="customSand" value="1.5" min="0.1" step="0.1">
+              </div>
+              <div class="input-group">
+                <label class="input-label" for="customAgg">Aggregate Parts</label>
+                <input class="input-field" type="number" id="customAgg" value="3" min="0.1" step="0.1">
+              </div>
+            </div>
+          </div>
+
+          <div class="input-row-2" >
+            <div class="input-group">
+              <label class="input-label" for="volumeInput">Volume Required</label>
+              <input class="input-field" type="number" id="volumeInput" value="1.0" min="0.01" step="0.01">
+            </div>
+            <div class="input-group">
+              <label class="input-label">Volume Unit</label>
+              <div class="unit-toggle">
+                <button class="unit-toggle-btn active" data-unit="m&#179;">m&#179;</button>
+                <button class="unit-toggle-btn" data-unit="ft&#179;">ft&#179;</button>
+                <button class="unit-toggle-btn" data-unit="yd&#179;">yd&#179;</button>
+              </div>
+              <span class="input-hint" id="volumeUnitLabel"></span>
+            </div>
+          </div>
+
+          <label class="input-label">Cement Bag Size</label>
+          <div class="seg-control" data-group="bag">
+            <button class="seg-btn" data-value="25">25 kg</button>
+            <button class="seg-btn" data-value="40">40 kg</button>
+            <button class="seg-btn active" data-value="50">50 kg &#9733;</button>
+          </div>
+
+          <button class="advanced-toggle" type="button">
+            <span class="advanced-toggle-arrow">&#9656;</span> Advanced: Water-Cement Ratio
+          </button>
+          <div class="advanced-body">
+            <label class="input-label">Water-Cement Ratio (w/c): <span class="range-value" id="wcValue">0.50</span></label>
+            <div class="range-wrap">
+              <input type="range" id="wcRatio" min="0.40" max="0.65" step="0.01" value="0.50">
+            </div>
+            <div class="range-hint">Lower w/c = stronger concrete. Max 0.55 for exposed slabs.</div>
+          </div>
+
+          <div class="wastage-section">
+            <label class="input-label">Wastage Allowance</label>
+            <div class="seg-control" data-group="wastage">
+              <button class="seg-btn" data-value="0">0%</button>
+              <button class="seg-btn active" data-value="5">5% &#9733;</button>
+              <button class="seg-btn" data-value="10">10%</button>
+              <button class="seg-btn" data-value="15">15%</button>
+            </div>
+          </div>
+
+          <div class="calc-actions">
+            <button class="btn btn-primary btn-lg" id="calcBtn">Calculate Mix Quantities &#8594;</button>
+          </div>
+        </div>
+      </div>
+
+      <div class="results-box" id="resultsBox">
+        <div class="results-grid">
+          <div class="result-card primary full-width">
+            <div class="result-card-label">CONCRETE GRADE</div>
+            <div class="result-card-value" id="resGrade">C25</div>
+            <div class="result-card-unit" id="resRatio">Mix ratio 1:1:2 by volume</div>
+          </div>
+          <div class="result-card">
+            <div class="result-card-label">CEMENT</div>
+            <div class="result-card-value"><span id="resCementKg">0</span> <small>kg</small></div>
+            <div class="result-card-unit" id="resCementBags">0 bags</div>
+          </div>
+          <div class="result-card">
+            <div class="result-card-label">FINE AGGREGATE (SAND)</div>
+            <div class="result-card-value"><span id="resSandVol">0</span> <small>m&#179;</small></div>
+            <div class="result-card-unit" id="resSandKg">0 kg approx.</div>
+          </div>
+          <div class="result-card">
+            <div class="result-card-label">COARSE AGGREGATE</div>
+            <div class="result-card-value"><span id="resAggVol">0</span> <small>m&#179;</small></div>
+            <div class="result-card-unit" id="resAggKg">0 kg approx.</div>
+          </div>
+          <div class="result-card">
+            <div class="result-card-label">WATER</div>
+            <div class="result-card-value"><span id="resWater">0</span> <small>litres</small></div>
+            <div class="result-card-unit" id="resWcLabel">Based on w/c = 0.50</div>
+          </div>
+          <div class="result-card">
+            <div class="result-card-label">TOTAL DRY VOLUME</div>
+            <div class="result-card-value"><span id="resDryVol">0</span> <small>m&#179;</small></div>
+            <div class="result-card-unit">Dry materials required (&#215;1.54)</div>
+          </div>
+        </div>
+        <div class="results-note">Dry volume is multiplied by 1.54 to account for voids between aggregate particles. Actual quantities may vary by aggregate grading, moisture content, and admixtures. These are theoretical proportions &#8212; always verify with a trial mix.</div>
+      </div>
+    </div>
+  </section>
+
+  <div class="container">
+    <div class="ad-placeholder ad-rectangle" data-ad-slot="mix-mid-rectangle" aria-hidden="true" role="presentation"></div>
+  </div>
+
+  <section class="section">
+    <div class="container">
+      <h2 class="section-title">How to Use This Calculator</h2>
+      <div class="how-to-steps">
+        <div class="how-to-step anim-up">
+          <div class="how-to-step-num">01</div>
+          <div class="how-to-step-title">Choose Grade</div>
+          <div class="how-to-step-desc">Select a standard concrete grade or enter a custom cement:sand:aggregate ratio.</div>
+        </div>
+        <div class="how-to-step anim-up">
+          <div class="how-to-step-num">02</div>
+          <div class="how-to-step-title">Enter Volume</div>
+          <div class="how-to-step-desc">Enter the volume of concrete you need in cubic metres, feet or yards.</div>
+        </div>
+        <div class="how-to-step anim-up">
+          <div class="how-to-step-num">03</div>
+          <div class="how-to-step-title">Set Options</div>
+          <div class="how-to-step-desc">Select your cement bag size, water-cement ratio and wastage factor.</div>
+        </div>
+        <div class="how-to-step anim-up">
+          <div class="how-to-step-num">04</div>
+          <div class="how-to-step-title">Read Results</div>
+          <div class="how-to-step-desc">Get cement bags, sand volume, aggregate volume and water instantly.</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container">
+      <div class="article-content">
+        <h2>What Is a Concrete Mix Ratio?</h2>
+        <p>A concrete mix ratio defines the proportion of three core ingredients &#8212; cement, fine aggregate (sand), and coarse aggregate (gravel or crushed stone) &#8212; measured by volume. A ratio of 1:2:4 means one part cement to two parts sand to four parts coarse aggregate. The ratio you choose directly determines the final compressive strength of the cured concrete, measured in N/mm&#178; (megapascals) after 28 days.</p>
+        <p>When you multiply the wet volume of concrete by <strong>1.54</strong> (the dry volume factor), you account for the voids that exist between dry aggregate particles. These voids collapse when water and cement paste fill the gaps during mixing. This is why you always need more dry material than the final wet volume.</p>
+
+        <h2>Standard Concrete Grades and Their Mix Ratios</h2>
+        <h3>C10 and C15 &#8212; Lean Mixes</h3>
+        <p>C10 (1:3:6) and C15 (1:2:4) are lean mixes with relatively low cement content. C10 is used for blinding layers under foundations and non-structural fill. C15 is common for garden paths, steps, and light foundations where loads are minimal.</p>
+        <h3>C20 &#8212; General Purpose</h3>
+        <p>C20 (1:1.5:3) is the most widely used residential grade in Pakistan and across South Asia. It provides 20 N/mm&#178; compressive strength, suitable for house floor slabs, driveways, and domestic foundations on stable ground.</p>
+        <h3>C25 &#8212; Structural Concrete</h3>
+        <p>C25 (1:1:2) achieves 25 N/mm&#178; and is specified for structural elements including suspended slabs, beams, columns, and retaining walls. Most structural engineers specify C25 as the minimum grade for reinforced concrete.</p>
+        <h3>C30 and Above &#8212; High Strength</h3>
+        <p>C30 (1:0.75:1.5) and higher grades are used for heavily loaded structures, water-retaining structures, bridges, and precast elements. These mixes require strict quality control, precise batching, and often include admixtures.</p>
+
+        <table>
+          <thead><tr><th>Grade</th><th>Ratio</th><th>Strength (N/mm&#178;)</th><th>Typical Use</th></tr></thead>
+          <tbody>
+            <tr><td>C10</td><td>1:3:6</td><td>10</td><td>Blinding, filling</td></tr>
+            <tr><td>C15</td><td>1:2:4</td><td>15</td><td>Paths, steps</td></tr>
+            <tr><td>C20</td><td>1:1.5:3</td><td>20</td><td>General slabs</td></tr>
+            <tr><td>C25</td><td>1:1:2</td><td>25</td><td>Beams, columns</td></tr>
+            <tr><td>C30</td><td>1:0.75:1.5</td><td>30</td><td>High-load structures</td></tr>
+          </tbody>
+        </table>
+
+        <h2>How Much Cement Per Cubic Metre?</h2>
+        <p>For C25 concrete (1:1:2 ratio), the calculation for 1 m&#179; of wet concrete is: dry volume = 1.0 &#215; 1.54 = 1.54 m&#179;. Total parts = 1 + 1 + 2 = 4. Cement volume = 1.54 &#215; (1/4) = 0.385 m&#179;. Cement weight = 0.385 &#215; 1440 kg/m&#179; = 554 kg. That equals 11 bags of 50 kg cement. This is the theoretical quantity &#8212; always add 5&#8211;10% wastage for site conditions.</p>
+
+        <h2>Site-Batched vs Ready-Mix Concrete</h2>
+        <p>Site batching is practical for small volumes under 1 m&#179;, remote locations, or where access prevents a transit mixer. You control the mix on-site using measured boxes or wheelbarrows. However, consistency is harder to maintain.</p>
+        <p>Ready-mix concrete delivered by truck is preferable for volumes above 0.5 m&#179;. It offers consistent quality, precise water control, and faster placement. In Pakistan, most batching plants deliver in 4&#8211;6 m&#179; transit mixers with a minimum order of 1 m&#179;.</p>
+
+        <h2>The Water-Cement Ratio Explained</h2>
+        <p>The water-cement ratio (w/c) is the mass of water divided by the mass of cement. A lower w/c ratio produces stronger, denser, less permeable concrete. Typical values range from 0.40 (very strong, hard to work) to 0.60 (weaker but easier to place). For most structural work, 0.45&#8211;0.55 is standard. Adding extra water on site to improve workability is the single most common cause of weak concrete.</p>
+
+        <h2>Common Mix Errors to Avoid</h2>
+        <p><strong>Over-watering:</strong> Adding too much water is the most frequent and damaging site error. Every 10% increase in water reduces compressive strength by approximately 15%.</p>
+        <p><strong>Using damp sand:</strong> Sand moisture can add significant unaccounted water. Damp sand bulks by 15&#8211;25%, meaning your volumetric measurement is inaccurate unless you compensate.</p>
+        <p><strong>Ignoring aggregate grading:</strong> Well-graded aggregate (a mix of sizes) reduces voids and produces stronger concrete. Single-size aggregate leaves excessive voids.</p>
+        <p><strong>Incorrect mixing time:</strong> Mix for at least 2 minutes in a drum mixer after all materials are loaded. Under-mixing produces inconsistent concrete with weak spots.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container">
+      <h2 class="section-title">Frequently Asked Questions</h2>
+      <div class="faq-list">
+        <div class="faq-item"><button class="faq-question">What is a concrete mix ratio?<span class="faq-arrow">&#9656;</span></button><div class="faq-answer">A concrete mix ratio defines the proportion of cement, sand (fine aggregate), and coarse aggregate by volume. For example, a 1:2:4 ratio means 1 part cement, 2 parts sand, and 4 parts coarse aggregate. The ratio directly determines the final compressive strength of the concrete after curing for 28 days.</div></div>
+        <div class="faq-item"><button class="faq-question">What is the mix ratio for C25 concrete?<span class="faq-arrow">&#9656;</span></button><div class="faq-answer">C25 concrete uses a nominal mix ratio of 1:1:2 (cement : sand : aggregate). This produces concrete with a characteristic compressive strength of 25 N/mm&#178; at 28 days, making it suitable for beams, columns, suspended slabs, and other structural elements.</div></div>
+        <div class="faq-item"><button class="faq-question">How much cement do I need per cubic metre of concrete?<span class="faq-arrow">&#9656;</span></button><div class="faq-answer">For C25 concrete (1:1:2), you need approximately 554 kg of cement per cubic metre. The calculation uses the dry volume factor (1.54), divides by total parts (4), and multiplies by cement bulk density (1440 kg/m&#179;). Lower-grade mixes like C20 use less cement &#8212; approximately 400 kg/m&#179;.</div></div>
+        <div class="faq-item"><button class="faq-question">What is the difference between C20 and C25 concrete?<span class="faq-arrow">&#9656;</span></button><div class="faq-answer">C20 (1:1.5:3) achieves 20 N/mm&#178; compressive strength and is used for general residential slabs and paths. C25 (1:1:2) achieves 25 N/mm&#178; and is required for structural elements like beams, columns, and suspended slabs that carry significant loads. C25 uses more cement per cubic metre.</div></div>
+        <div class="faq-item"><button class="faq-question">How do I calculate cement bags for concrete?<span class="faq-arrow">&#9656;</span></button><div class="faq-answer">Calculate the dry volume (wet volume &#215; 1.54), find the cement fraction (cement parts &#247; total parts), multiply by cement density (1440 kg/m&#179;) to get weight in kg, then divide by your bag size (typically 50 kg in Pakistan). Always round up to the nearest whole bag.</div></div>
+        <div class="faq-item"><button class="faq-question">What is a 1:2:4 concrete mix used for?<span class="faq-arrow">&#9656;</span></button><div class="faq-answer">A 1:2:4 mix produces C15 grade concrete with approximately 15 N/mm&#178; compressive strength. It is commonly used for garden paths, steps, kerbs, light domestic foundations, and non-structural applications where moderate strength is sufficient.</div></div>
+        <div class="faq-item"><button class="faq-question">How much water should I add to my concrete mix?<span class="faq-arrow">&#9656;</span></button><div class="faq-answer">Water quantity is determined by the water-cement ratio (w/c). For general structural concrete, use w/c between 0.45 and 0.55. Multiply the cement weight by the w/c ratio to get water in litres. For example, 554 kg cement &#215; 0.50 = 277 litres. Never add extra water on site just for easier placement.</div></div>
+        <div class="faq-item"><button class="faq-question">What concrete grade should I use for a house slab?<span class="faq-arrow">&#9656;</span></button><div class="faq-answer">For a standard residential ground-floor slab, C20 (1:1.5:3) is typically sufficient. For suspended upper-floor slabs, garage floors with vehicle loads, or slabs exposed to ground moisture, C25 (1:1:2) is recommended. Always follow your structural engineer&#8217;s specification for the project.</div></div>
+      </div>
+    </div>
+  </section>
+
+  <div class="container">
+    <div class="ad-placeholder ad-leaderboard" data-ad-slot="mix-bottom-leaderboard" aria-hidden="true" role="presentation"></div>
+  </div>
+
+  <section class="section">
+    <div class="container">
+      <h2 class="section-title">Related Tools</h2>
+      <div class="related-tools-grid">
+        <a href="../concrete-calculator/" class="tool-card anim-up">
+          <div class="tool-card-icon">&#127959;&#65039;</div>
+          <div class="tool-card-name">Concrete Volume Calculator</div>
+          <div class="tool-card-desc">Calculate concrete volume for slabs, columns, footings, stairs and tubes.</div>
+          <div class="tool-card-arrow">Use Tool &#8594;</div>
+        </a>
+        <a href="../rebar-calculator/" class="tool-card anim-up">
+          <div class="tool-card-icon">&#128297;</div>
+          <div class="tool-card-name">Rebar Estimator</div>
+          <div class="tool-card-desc">Calculate steel bar quantity, total weight and spacing for any concrete element.</div>
+          <div class="tool-card-arrow">Use Tool &#8594;</div>
+        </a>
+        <a href="../brick-calculator/" class="tool-card anim-up">
+          <div class="tool-card-icon">&#129521;</div>
+          <div class="tool-card-name">Brick Calculator</div>
+          <div class="tool-card-desc">Estimate bricks, mortar and cement for any wall area &#8212; single or double skin.</div>
+          <div class="tool-card-arrow">Use Tool &#8594;</div>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <div id="footer"></div>
+  <script src="../../assets/js/main.js" defer></script>
+  <script src="concrete-mix-calculator.js" defer></script>
+</body>
+</html>
